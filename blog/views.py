@@ -6,4 +6,5 @@ from .models import Report
 
 class ReportList(generic.ListView):
     queryset = Report.objects.filter(status=1)
-    template_name = "report_list.html"
+    template_name = "blog/index.html"
+    paginate_by = 6
