@@ -1,3 +1,17 @@
 from django.db import models
+from django.contrib.auth.models import User
 
 # Create your models here.
+
+STATUS = ((0, "Draft"), (1, "Published"))
+
+class Report(models.Model):
+    title = models.CharField(max_length=200, unique=True)
+    slug = models.SlugField(max_length=200, unique=True)
+    author = models.ForeignKey(User, on_delete=models.CASCADE, related_name="blog_posts")
+    # One user can write many posts, so this is a one-to-many or Foreign Key. The cascade on delete means that on the deletion of the user entry, all their posts are also deleted.
+    content = models.TextField()
+    excerpt = models.TextField(blank=True)
+    status = models.IntegerField(choices=STATUS, default=0)
+    created_on = models.DateTimeField(auto_now_add=True)
+    updated_on = models.DateTimeField(auto_now=True)
