@@ -91,16 +91,41 @@ The aim of The Umbra Report is to provide a space for users to share unusual sto
 Target audience.
 
 ## Wireframes
-    
+
+![PP4_Wireframes_01](https://github.com/0davidog/Umbra-Report/assets/135815736/01047aec-8884-4768-b21e-991df04f8d91)
+![PP4_Wireframes_02](https://github.com/0davidog/Umbra-Report/assets/135815736/b7131a71-138d-44db-a649-87d15354c754)
+
 ## Information Architecture
 ### Entity Relationship Diagram
 ### Database Choice
 ### Data Models
+
+![Umbra ERD](https://github.com/0davidog/Umbra-Report/assets/135815736/38d74260-e78e-4de5-8ad5-c650ed6035cb)
+
 ### CRUD Diagrams
 ## Design Choices
+
+### Thematic and visual inspiration
+
+![IMG_0146](https://github.com/0davidog/Umbra-Report/assets/135815736/33505342-6923-4945-bbbc-5f43e15279c6)
+![IMG_0142](https://github.com/0davidog/Umbra-Report/assets/135815736/9fc87002-e9f3-452f-81a7-5026fc683c13)
+![IMG_0143](https://github.com/0davidog/Umbra-Report/assets/135815736/2507898e-d636-4288-aed4-1533b3595bfe)
+
 ### Colors
+
+![Umbra_Report_Palette](https://github.com/0davidog/Umbra-Report/assets/135815736/e969c1b4-47f5-49fc-a7a0-d7bc0939ac29)
+
 ### Typography
+
+Oswald https://fonts.google.com/specimen/Oswald?query=oswal
+Courier Prime https://fonts.google.com/specimen/Courier+Prime
+
+![PP4_fonts](https://github.com/0davidog/Umbra-Report/assets/135815736/de643af3-015d-46c6-9890-801da9e8ff59)
+
 ### Images
+
+![SpacialCyanBG](https://github.com/0davidog/Umbra-Report/assets/135815736/12d0feca-51eb-4efc-8769-508946dcb991)
+
 ### Design Elements
 ### Animations and Transitions
 ### Frameworks
