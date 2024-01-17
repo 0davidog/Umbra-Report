@@ -5,5 +5,5 @@ from .models import Report
 # Create your views here.
 
 class ReportList(generic.ListView):
-    queryset = Report.objects.all()
+    queryset = Report.objects.filter(status=1)
     template_name = "report_list.html"
