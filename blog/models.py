@@ -6,6 +6,8 @@ from django.contrib.auth.models import User
 STATUS = ((0, "Draft"), (1, "Published"))
 
 class Report(models.Model):
+    class Meta:
+        ordering = ["-updated_on"]
     title = models.CharField(max_length=200, unique=True)
     slug = models.SlugField(max_length=200, unique=True)
     author = models.ForeignKey(User, on_delete=models.CASCADE, related_name="blog_posts")
@@ -15,3 +17,6 @@ class Report(models.Model):
     status = models.IntegerField(choices=STATUS, default=0)
     created_on = models.DateTimeField(auto_now_add=True)
     updated_on = models.DateTimeField(auto_now=True)
+
+    def __str__(self):
+        return f'{self.title} by {self.author}'
