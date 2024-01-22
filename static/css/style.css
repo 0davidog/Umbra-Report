@@ -41,3 +41,12 @@ footer {
 .page-link {
     background-color: none;
 }
+
+#close {
+    color: #ffffff;
+}
+
+#msg {
+    background-color: #808080;
+    color:#ffffff;
+}
