@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Report
+from .models import Report, Comment
 from django_summernote.admin import SummernoteModelAdmin
 
 @admin.register(Report)
@@ -12,3 +12,5 @@ class ReportAdmin(SummernoteModelAdmin):
     summernote_fields = ('content',)
 
 # Register your models here.
+
+admin.site.register(Comment)

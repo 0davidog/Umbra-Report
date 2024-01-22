@@ -10,6 +10,43 @@
         </div>
         <div class="card-footer bg-transparent border-secondary">{{ report.created_on }}</div>
     </div>
+
+
+
+
+  <!-- Displaying count of comments -->
+  <div class="row justify-content-left">
+    <div class="col-md-auto">
+        <div class="card border-secondary mb-3 p-3">
+            <div class="card-header border-secondary">
+                <h3 class="card-title">Comments <i class="far fa-comments"></i></h3> ({{ comment_count }})
+            </div>
+            <div class="card-body">
+                
+                {% for comment in comments %}
+                
+                <div class="p-2 comments
+                {% if not comment.approved and comment.author == user %}
+                faded{% elif not comment.approved %} d-none{% endif %}">
+                <h4 class="card-title">{{ comment.author }}</h4>
+                <div id="comment{{ comment.id }} card-text">
+                    {{ comment.content | linebreaks }}
+                </div>
+                <div class="card-footer border-secondary">{{ comment.created_on }}</div>
+                
+            </div>
+            {% if not comment.approved and comment.author == user %}
+            <div class="alert alert-danger bg-transparent border-danger" role="alert">
+                <i class="fa-solid fa-triangle-exclamation"></i>
+                This comment is awaiting approval.
+            </div>
+            {% endif %}
+                {% endfor %}
+            
+            </div>
+        </div>
+    </div>
+</div>
 </div>
 
 {% endblock content %}

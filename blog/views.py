@@ -1,6 +1,6 @@
 from django.shortcuts import render, get_object_or_404
 from django.views import generic
-from .models import Report
+from .models import Report, Comment
 
 # Create your views here.
 
@@ -26,9 +26,13 @@ def full_report(request, slug):
 
     queryset = Report.objects.filter(status=1)
     post = get_object_or_404(queryset, slug=slug)
+    comments = post.comments.all().order_by("-created_on")
+    comment_count = post.comments.filter(approved=True).count()
 
     return render(
         request,
         "blog/full_report.html",
-        {"report": post},
+        {"report": post,
+        "comments": comments,
+        "comment_count": comment_count,},
     )

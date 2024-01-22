@@ -20,3 +20,14 @@ class Report(models.Model):
 
     def __str__(self):
         return f'{self.title} by {self.author}'
+
+class Comment(models.Model):
+    post = models.ForeignKey(Report, on_delete=models.CASCADE, related_name="comments")
+    content = models.TextField()
+    author = models.ForeignKey(User, on_delete=models.CASCADE, related_name="commenter")
+    approved = models.BooleanField()
+    created_on = models.DateTimeField(auto_now_add=True)
+    updated_on = models.DateTimeField(auto_now=True)
+
+    def __str__(self):
+        return f"Comment: {self.content} by {self.author}"
