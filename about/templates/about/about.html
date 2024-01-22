@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% block content %}
+{% load static %}
+<div class="container mt-5 mb-5">
+  
+    <div class="row">
+    
+    <div class="col-md-12 col-lg-4">
+        <div class="card p-5">
+            <img src="{% static '/images/headshot.webp' %}" width="" alt="..." />
+        </div>
+        
+    </div>
+    
+    <div class="col-md-12 col-lg-8">
+        
+        <div class="card p-5">
+            <h2 class="card-title">{{ about.title }}</h2>
+            <p class="card-text">{{ about.content | safe }}</p>
+        
+        <div class="card-footer border-secondary">
+            {{ about.updated_on }}
+        </div>
+        </div>
+    </div>
+    </div>
+
+</div>
+{% endblock content %}
