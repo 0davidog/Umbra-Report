@@ -1,0 +1,15 @@
+{% extends 'base.html' %} {% block content %}
+{% load static %}
+
+<div class="container-fluid">
+    <div class="card border-secondary mb-3">
+        <div class="card-header bg-transparent border-secondary">{{ report.author }}</div>
+        <div class="card-body">
+        <h2 class="card-title">{{ report.title }}</h2>
+        <p class="card-text">{{ report.content | safe }}</p>
+        </div>
+        <div class="card-footer bg-transparent border-secondary">{{ report.created_on }}</div>
+    </div>
+</div>
+
+{% endblock content %}

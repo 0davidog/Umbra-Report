@@ -1,10 +1,13 @@
 body {
     min-height: 100vh;
-    background-color: #008080;
     color: #ffffff;
     font-family: "Courier Prime", monospace;
     font-weight: 400;
     font-style: normal;
+    background-color: #008080;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
 
 }
 
@@ -18,16 +21,16 @@ a {
 }
 
 header {
-    background-color: rgba(0, 0, 0, 0.5);
+    background-color: rgba(0, 0, 0, 0.7);
 }
 
 footer {
-    background-color: rgba(0, 0, 0, 0.5);;
+    background-color: rgba(0, 0, 0, 0.7);;
     color: #ffffff;
 }
 
 .card {
-    background-color:rgba(0, 0, 0, 0.5);
+    background-color:rgba(0, 0, 0, 0.7);
 }
 
 .card-title {
