@@ -13,6 +13,7 @@ body {
 
 h1, h2, h3, h4 {
     font-family: "Oswald", sans-serif;
+    color: #800000;
 }
 
 a {
@@ -33,6 +34,10 @@ footer {
     background-color:rgba(0, 0, 0, 0.7);
 }
 
+.btn-link {
+    color:#800000;
+}
+
 .card-title {
     font-family: "Oswald", sans-serif;
     color: #800000;
@@ -49,4 +54,8 @@ footer {
 #msg {
     background-color: #808080;
     color:#ffffff;
+}
+
+#offcanvasNavbar {
+    background-color: #000000;
 }

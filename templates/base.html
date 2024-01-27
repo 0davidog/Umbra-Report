@@ -33,35 +33,58 @@
 <body class="d-flex flex-column h-100" style="background-image: url('{% static '/images/spacial-cyan-bg.webp' %}');">
     <header>
         <!-- Navigation -->
-        <nav class="navbar navbar-expand-lg p-4">
-            
-                <div class="col"><a href="{% url 'home' %}" class=""><h1>THE UMBRA REPORT</h1></a></div>
-                <div class="col text-center">
-                    <a href="{% url 'home' %}" class="btn btn-secondary">Home</a>
-                    <a href="{% url 'about' %}" class="btn btn-secondary">About</a>
-                    {% if user.is_authenticated %}
-                    
-                        <a class="btn btn-secondary {% if request.path == logout_url %}active{% endif %}" aria-current="page" href="{% url 'account_logout' %}">Logout</a>
-                    
-                    {% else %}
+        
+
+        <nav class="navbar navbar-expand-lg">
+            <div class="container-fluid">
                 
-                        <a class="btn btn-secondary {% if request.path == signup_url %}active{% endif %}" aria-current="page" href="{% url 'account_signup' %}">Sign-Up</a>
-                    
-                    
-                        <a class="btn btn-secondary {% if request.path == login_url %}active{% endif %}" aria-current="page" href="{% url 'account_login' %}">Login</a>
-                    
-                    {% endif %}
+                <a href="{% url 'home' %}" class="navbar-brand"><h1>THE UMBRA REPORT</h1></a>
+              
+                <button class="btn btn-link" id="navbar-button" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
+                    <h1><i class="fa-solid fa-bars"></i></h1>
+              </button>
+              
+              <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+                <div class="offcanvas-header">
+                  <h3>Navigation Menu</h3>
+
+                  <button type="button" class="btn btn-link" data-bs-dismiss="offcanvas" aria-label="Close"><h3><i class="fa-solid fa-xmark"></i></h3></button>
                 </div>
-                
-                <div class="col">
+
+                <div class="offcanvas-body">
+                    <hr>
+                    <div>
+                        {% if user.is_authenticated %}
+                        <p class="text-end m-3">[Welcome, {{ user }}]</p>
+                        {% else %}
+                        <p class="text-end m-3">[Not logged in.]</p>
+                        {% endif %}
+                    </div>
+                    
                     {% if user.is_authenticated %}
-                    <p class="text-end m-3">[Welcome, {{ user }}]</p>
+                    <div>
+                        <a class="btn btn-link {% if request.path == logout_url %}active{% endif %}" aria-current="page" href="{% url 'account_logout' %}"><h4>Logout</h4></a>
+                    </div>
                     {% else %}
-                    <p class="text-end m-3">[Not logged in.]</p>
+                    <div>
+                        <a class="btn btn-link {% if request.path == signup_url %}active{% endif %}" aria-current="page" href="{% url 'account_signup' %}"><h4>Sign-Up</h4></a>&sol;
+                        <a class="btn btn-link {% if request.path == login_url %}active{% endif %}" aria-current="page" href="{% url 'account_login' %}"><h4>Login</h4></a>
+                    </div>
                     {% endif %}
+                    <br>
+                    <ul>
+                    <li>
+                    <a href="{% url 'home' %}" class="btn btn-link"><h4>Home</h4></a>
+                </li>
+                <li>
+                    <a href="{% url 'about' %}" class="btn btn-link"><h4>About</h4></a>
+                </li>
+            </ul>
                 </div>
-            
-        </nav>
+              </div>
+            </div>
+          </nav>
+
     </header>
         <!-- displaying Django messages -->
         <div class="container">
