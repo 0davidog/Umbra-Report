@@ -11,7 +11,7 @@ body {
 
 }
 
-h1, h2, h3, h4 {
+h1, h2, h3, h4, h5 {
     font-family: "Oswald", sans-serif;
     color: #800000;
 }
@@ -45,6 +45,14 @@ footer {
 
 .page-link {
     background-color: none;
+}
+
+.modal {
+    background-color:rgba(0, 0, 0, 0.7);
+}
+
+.modal-content {
+    background-color:rgba(0, 0, 0, 0.7);
 }
 
 #close {

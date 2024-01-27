@@ -30,7 +30,7 @@
                 {% if not comment.approved and comment.author == user %}
                 faded{% elif not comment.approved %} d-none{% endif %}">
                 <h4 class="card-title">{{ comment.author }}</h4>
-                <div id="comment{{ comment.id }} card-text">
+                <div id="comment{{ comment.id }}">
                     {{ comment.content | linebreaks }}
                 </div>
                 <div class="card-footer border-secondary">{{ comment.created_on }}</div>
@@ -42,6 +42,12 @@
                 This comment is awaiting approval.
             </div>
             {% endif %}
+            {% if user.is_authenticated and comment.author == user %}
+            <div class="text-end">
+            <button class="btn btn-secondary edit-btn" comment_id="{{ comment.id }}">Edit</button>
+            <button class="btn btn-secondary delete-btn" comment_id="{{ comment.id }}">Delete</button>
+        </div>
+  {% endif %}
                 {% endfor %}
 
 
@@ -76,4 +82,34 @@
 </div>
 </div>
 
+<!-- Delete confirmation modal -->
+<div class="modal fade justify-content-center" id="deleteModal" tabindex="-1"
+  aria-labelledby="deleteModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header border-none">
+        <h5 class="modal-title"
+          id="deleteModalLabel"><h3>Delete comment?</h3>
+        <button type="button" class="btn btn-link"
+          data-bs-dismiss="modal" aria-label="Close"><h3><i class="fa-solid fa-xmark"></i></h3></button>
+      </div>
+      <div class="modal-body"><br>
+        <div class="alert alert-danger bg-transparent border-danger"><i class="fa-solid fa-triangle-exclamation"></i>
+            Are you sure you want to delete?</div>
+      </div><br>
+      <div class="modal-footer border-none">
+        <button type="button" class="btn btn-secondary"
+          data-bs-dismiss="modal">Close</button>
+        <a id="deleteConfirm" href="#" class="btn
+          btn-danger">Delete</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+
 {% endblock content %}
+
+{% block extras %}
+<script type="text/javascript" src="{% static 'js/comments.js' %}"></script>
+{% endblock %}
