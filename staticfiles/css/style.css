@@ -11,8 +11,13 @@ body {
 
 }
 
+#offcanvasNavbar {
+    background-color: #000000;
+}
+
 h1, h2, h3, h4 {
     font-family: "Oswald", sans-serif;
+    color: #800000;
 }
 
 a {
@@ -20,12 +25,21 @@ a {
     color: #800000;
 }
 
+.btn-link {
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+    text-decoration-color: #800000;
+}
+
 header {
     background-color: rgba(0, 0, 0, 0.7);
 }
 
 footer {
-    background-color: rgba(0, 0, 0, 0.7);;
+    background-color: rgba(0, 0, 0, 0.7);
     color: #ffffff;
 }
 
@@ -38,6 +52,8 @@ footer {
     color: #800000;
 }
 
-.page-link {
-    background-color: none;
+
+
+#confidential {
+    color: #ffffff;
 }

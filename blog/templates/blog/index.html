@@ -19,7 +19,7 @@
                             <a href="{% url 'full_report' report.slug %}" class="post-link">
                                 <h2 class="card-title">{{ report.title }}</h2>
                             </a>
-                            <h4>- CONFIDENTIAL -</h4>
+                            <h4 id="confidential">- CONFIDENTIAL -</h4>
                             <p class="card-text">{{ report.excerpt }}</p>
                             <div class="card-footer bg-transparent border-secondary">{{ report.created_on }}</div>
                         </div>
