@@ -1,11 +1,14 @@
+<!-- Connect to Static file Directory -->
 {% load static %}
 
+<!-- Connect template URLS -->
 {% url 'home' as home_url %}
 {% url 'about' as about_url %}
 {% url 'account_login' as login_url %}
 {% url 'account_signup' as signup_url %}
 {% url 'account_logout' as logout_url %}
 
+<!-- Main HTML-->
 <!DOCTYPE html>
 <html lang="en">
 
@@ -30,99 +33,159 @@
 
 </head>
 
+<!-- Using inline style tag to connect to background image using Django Templaye Language -->
 <body class="d-flex flex-column h-100" style="background-image: url('{% static '/images/spacial-cyan-bg.webp' %}');">
+    
     <header>
-        <!-- Navigation -->
-        
 
+        <!--
+            Navigation bar.
+            Using Bootsrap offcanvas nav menu. 
+        -->
         <nav class="navbar navbar-expand-lg">
+            
+            <!-- Site title. Links to home page. -->
             <div class="container-fluid">
-                
-                <a href="{% url 'home' %}" class="navbar-brand"><h1>THE UMBRA REPORT</h1></a>
-              
+                <a href="{% url 'home' %}" class="navbar-brand">
+                    <h1>THE UMBRA REPORT</h1>
+                </a>
+
+                <!-- Button to display offcanvas sie-menu -->
                 <button class="btn btn-link" id="navbar-button" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
                     <h1><i class="fa-solid fa-bars"></i></h1>
-              </button>
-              
-              <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
-                <div class="offcanvas-header">
-                  <h3>Navigation Menu</h3>
-
-                  <button type="button" class="btn btn-link" data-bs-dismiss="offcanvas" aria-label="Close"><h3><i class="fa-solid fa-xmark"></i></h3></button>
-                </div>
-
-                <div class="offcanvas-body">
-                    <hr>
-                    <div>
-                        {% if user.is_authenticated %}
-                        <p class="text-end m-3">[Welcome, {{ user }}]</p>
-                        {% else %}
-                        <p class="text-end m-3">[Not logged in.]</p>
-                        {% endif %}
+                </button>
+                
+                <!-- offcanvas side-menu display -->
+                <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+                    
+                    <div class="offcanvas-header">
+                        <h3>Navigation Menu</h3>
+                        <button type="button" class="btn btn-link" data-bs-dismiss="offcanvas" aria-label="Close">
+                            <h3><i class="fa-solid fa-xmark"></i></h3>
+                        </button>
                     </div>
                     
-                    {% if user.is_authenticated %}
-                    <div>
-                        <a class="btn btn-link {% if request.path == logout_url %}active{% endif %}" aria-current="page" href="{% url 'account_logout' %}"><h4>Logout</h4></a>
+                    <div class="offcanvas-body">
+                        <hr>
+                        
+                        <!--
+                            DIV displays text using if statement.
+                            IF user logged in
+                            THEN display username.
+                            ELSE inform that user not logged in.
+                        -->
+                        <div>
+                            {% if user.is_authenticated %}
+                            <p class="text-end m-3">[Welcome, {{ user }}]</p>
+                            {% else %}
+                            <p class="text-end m-3">[Not logged in.]</p>
+                            {% endif %}
+                        </div>
+
+                        <!--
+                            Using if statement to decide which options to show.
+                            IF user is logged in.
+                            THEN display log-out button.
+                            ELSE display log-in and register buttons.
+                        -->
+                        {% if user.is_authenticated %}
+                        
+                        <div>
+                            <a class="btn btn-link {% if request.path == logout_url %}active{% endif %}" aria-current="page" href="{% url 'account_logout' %}">
+                                <h4>Logout</h4>
+                            </a>
+                        </div>
+                        
+                        {% else %}
+                        
+                        <div>
+                            <a class="btn btn-link {% if request.path == signup_url %}active{% endif %}" aria-current="page" href="{% url 'account_signup' %}">
+                                <h4>Sign-Up</h4>
+                            </a>
+                            &sol;
+                            <a class="btn btn-link {% if request.path == login_url %}active{% endif %}" aria-current="page" href="{% url 'account_login' %}">
+                                <h4>Login</h4>
+                            </a>
+                        </div>
+                        
+                        {% endif %}
+                        
+                        <br>
+
+                        <!-- Displaying page navigation links as list -->
+                        <ul>
+                            <li>
+                                <a href="{% url 'home' %}" class="btn btn-link">
+                                    <h4>Home</h4>
+                                </a>
+                            </li>
+                            
+                            <li>
+                                <a href="{% url 'about' %}" class="btn btn-link">
+                                    <h4>About</h4>
+                                </a>
+                            </li>
+                        </ul>
+                    
+                    <!-- close offcanvas body -->
                     </div>
-                    {% else %}
-                    <div>
-                        <a class="btn btn-link {% if request.path == signup_url %}active{% endif %}" aria-current="page" href="{% url 'account_signup' %}"><h4>Sign-Up</h4></a>&sol;
-                        <a class="btn btn-link {% if request.path == login_url %}active{% endif %}" aria-current="page" href="{% url 'account_login' %}"><h4>Login</h4></a>
-                    </div>
-                    {% endif %}
-                    <br>
-                    <ul>
-                    <li>
-                    <a href="{% url 'home' %}" class="btn btn-link"><h4>Home</h4></a>
-                </li>
-                <li>
-                    <a href="{% url 'about' %}" class="btn btn-link"><h4>About</h4></a>
-                </li>
-            </ul>
+                <!-- close offcanvas side-menu -->
                 </div>
-              </div>
+            <!-- close container DIV -->
             </div>
-          </nav>
+        
+        </nav>
 
     </header>
-        <!-- displaying Django messages -->
-        <div class="container">
-            <div class="row justify-content-center">
-                <div class="col-md-8">
-                    {% for message in messages %}
-                    <div id="msg" class="alert alert-dark {{ message.tags }} alert-dismissible fade show" id="msg" role="alert">
-                        {{ message | safe }}
-                        <button id="close" type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                    </div>
-        {% endfor %}
-      </div>
-    </div>
-  </div>
-    
 
+    <!-- Displaying Django message alerts -->
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                
+                {% for message in messages %}
+                <div id="msg" class="alert alert-dark {{ message.tags }} alert-dismissible fade show" id="msg" role="alert">
+                    {{ message | safe }}
+                    <button id="close" type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+                {% endfor %}
+            
+            </div>
+        </div>
+    </div>
+    
+    <!-- Display selected template block content -->
     <main class="flex-shrink-0 pt-4">
         {% block content %}
-        <!-- Content Goes here -->
+        <!-- Template content goes here -->
         {% endblock content %}
     </main>
 
     <!-- Footer -->
     <footer class="footer mt-auto py-3">
         <div class="container-fluid">
-            <div class="col">Created by David C. O'Gara</div>
-            <div class="col">Social links:
+
+            <div class="col">
+                Created by David C. O'Gara
+            </div>
+            
+            <div class="col">
+                Social links:
                 <i class="fab fa-instagram-square ms-3"></i>
                 <i class="fab fa-youtube-square ms-3"></i>
             </div>
+        
         </div>
     </footer>
 
+    <!-- Link to bootstrap CSS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous">
     </script>
-{% block extras %}
-{% endblock %}
+    
+    <!-- Extras block contains/acts as link to static JS file -->
+    {% block extras %}
+    {% endblock %}
 
 </body>
 

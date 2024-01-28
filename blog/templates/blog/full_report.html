@@ -2,114 +2,201 @@
 {% load static %}
 {% load crispy_forms_tags %}
 
+
+
+<!-- Main DIV container for blog post and comemnts -->
 <div class="container-fluid">
+
+  <!-- Card DIV displays the full blog post from the Report model -->
+  <div class="row">
     <div class="card border-secondary mb-3">
-        <div class="card-header bg-transparent border-secondary">{{ report.author }}</div>
-        <div class="card-body">
+      <div class="card-header bg-transparent border-secondary">
+        {{ report.author }}
+      </div>
+      <div class="card-body">
         <h2 class="card-title">{{ report.title }}</h2>
         <p class="card-text">{{ report.content | safe }}</p>
-        </div>
-        <div class="card-footer bg-transparent border-secondary">{{ report.created_on }}</div>
+      </div>
+      <div class="card-footer bg-transparent border-secondary">
+        {{ report.created_on }}
+      </div>
     </div>
+  </div>
 
-
-
-
-  <!-- Displaying count of comments -->
+  <!-- Next DIV row for comment display -->
   <div class="row">
+
+    <!-- Comment count header -->
     <div class="col-md-8">
-        <div class="card border-secondary mb-3 p-3">
-            <div class="card-header border-secondary">
-                <h3 class="card-title">Comments <i class="far fa-comments"></i></h3> ({{ comment_count }})
+      <div class="card border-secondary mb-3 p-3">
+        <div class="card-header border-secondary">
+          <h3 class="card-title">Comments <i class="far fa-comments"></i></h3> ({{ comment_count }})
+        </div>
+
+        <!-- Main comments display -->
+        <div class="card-body">
+
+          <!-- For loop to display each comment in database -->
+          {% for comment in comments %}
+
+          <!--
+            DIV class contains IF statement, 
+            IF user is comment author and comment not approved
+            THEN display comment in faded style.
+            IF user is not comment author and comment not approved
+            THEN comment not displayed.
+          -->
+          <div class="p-2 comments {% if not comment.approved and comment.author == user %} faded{% elif not comment.approved %} d-none{% endif %}">
+            <h4 class="card-title">{{ comment.author }}</h4>
+            <div id="comment{{ comment.id }}">
+              {{ comment.content | linebreaks }}
             </div>
-            <div class="card-body">
-                
-                {% for comment in comments %}
-                
-                <div class="p-2 comments
-                {% if not comment.approved and comment.author == user %}
-                faded{% elif not comment.approved %} d-none{% endif %}">
-                <h4 class="card-title">{{ comment.author }}</h4>
-                <div id="comment{{ comment.id }}">
-                    {{ comment.content | linebreaks }}
-                </div>
-                <div class="card-footer border-secondary">{{ comment.created_on }}</div>
-                
+            <div class="card-footer border-secondary">
+              {{ comment.created_on }}
             </div>
-            {% if not comment.approved and comment.author == user %}
-            <div class="alert alert-danger bg-transparent border-danger" role="alert">
-                <i class="fa-solid fa-triangle-exclamation"></i>
-                This comment is awaiting approval.
-            </div>
-            {% endif %}
-            {% if user.is_authenticated and comment.author == user %}
-            <div class="text-end">
+          </div>
+          
+          <!-- 
+            Displays message under comment using if statement.
+            IF user is comment author and comment is not approved
+            THEN display message 'comment awaiting approval'
+          -->
+          {% if not comment.approved and comment.author == user %}
+          <div class="alert alert-danger bg-transparent border-danger" role="alert">
+            <i class="fa-solid fa-triangle-exclamation"></i>
+            This comment is awaiting approval.
+          </div>
+          {% endif %}
+
+          <!--
+            Displays Edit and Delete buttons using if statement.
+            IF logged in user is comment author
+            THEN display button DIV 
+          -->
+          {% if user.is_authenticated and comment.author == user %}
+          <div class="text-end">
             <button class="btn btn-secondary edit-btn" comment_id="{{ comment.id }}">Edit</button>
             <button class="btn btn-secondary delete-btn" comment_id="{{ comment.id }}">Delete</button>
+          </div>
+          {% endif %}
+
+          <!-- Ends FOR loop displaying each comment -->
+          {% endfor %}
+          
+        <!-- Close comment card body-->
         </div>
-  {% endif %}
-                {% endfor %}
+        
+      <!-- Close comments list card -->
+      </div>
 
-
-
-
-            </div>
-        </div>
+    <!-- Close comment card column-->
     </div>
+    
+    <!-- Display comment creation form -->
     <div class="col-md-4">
-        <div class="card border-secondary mb-3 p-3">
-            <div class="card-body">
-                {% if user.is_authenticated %}
-                <div class="card-header border-secondary">
-                    <h3 class="card-title">Leave a comment <i class="far fa-comments"></i></h3>
-                    <p>{{ user.username }}</p>
-                </div>
-                <form id="commentForm" method="post" style="margin-top: 1.3em;">
-                    {{ comment_form | crispy }}
-                    {% csrf_token %}
-                    <button id="submitButton" type="submit" class="btn btn-secondary">Submit</button>
-                </form>
-                {% else %}
-                <div class="alert alert-danger bg-transparent border-danger" role="alert">
-                    <i class="fa-solid fa-triangle-exclamation"></i>
-                    Log in to leave a comment!
-                </div>
-                {% endif %}
-            </div>
+      <div class="card border-secondary mb-3 p-3">
+        <div class="card-body">
+
+          <!--
+            If statement check 
+            IF user is logged in
+            THEN display form.
+            ELSE display message advising log-in.
+          -->
+          {% if user.is_authenticated %}
+          
+          <div class="card-header border-secondary">
+            <h3 class="card-title">Leave a comment <i class="far fa-comments"></i></h3>
+            <p>{{ user.username }}</p>
+          </div>
+
+          <!-- Comment creation form -->      
+          <form id="commentForm" method="post" style="margin-top: 1.3em;">
+
+            <!-- 
+              Using Django Crispy Forms to display the form with very little code.
+              https://django-crispy-forms.readthedocs.io/en/latest/
+            -->
+            {{ comment_form | crispy }}
+
+            <!--
+              Cross-Site Request Forgery token.
+              "A CSRF token is a secure random token (e.g., synchronizer token or challenge token) that is used to prevent CSRF attacks. 
+              The token needs to be unique per user session and should be of large random value to make it difficult to guess."
+              - https://www.synopsys.com/glossary/what-is-csrf.html
+            -->
+            {% csrf_token %}
+            
+            <button id="submitButton" type="submit" class="btn btn-secondary">Submit</button>
+          
+          </form>
+
+          {% else %}
+          
+          <div class="alert alert-danger bg-transparent border-danger" role="alert">
+            <i class="fa-solid fa-triangle-exclamation"></i>
+            Log in to leave a comment!
+          </div>
+          
+          {% endif %}
+        
+        <!-- close card body -->
         </div>
+      <!-- close main card -->
+      </div>
+     <!-- close DIV col --> 
     </div>
-
+  <!-- close DIV row -->
+  </div>
+<!-- close DIV container -->
 </div>
-</div>
 
-<!-- Delete confirmation modal -->
-<div class="modal fade justify-content-center" id="deleteModal" tabindex="-1"
-  aria-labelledby="deleteModalLabel" aria-hidden="true">
+<!--
+  Bootstrap modal used for delete comment confirmation.
+-->
+
+<div class="modal fade justify-content-center" id="deleteModal" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
+
       <div class="modal-header border-none">
-        <h5 class="modal-title"
-          id="deleteModalLabel"><h3>Delete comment?</h3>
-        <button type="button" class="btn btn-link"
-          data-bs-dismiss="modal" aria-label="Close"><h3><i class="fa-solid fa-xmark"></i></h3></button>
+        <h3 class="modal-title" id="deleteModalLabel">Delete comment?
+          <button type="button" class="btn btn-link" data-bs-dismiss="modal" aria-label="Close">
+            <i class="fa-solid fa-xmark"></i>
+          </button>
+        </h3>
       </div>
-      <div class="modal-body"><br>
-        <div class="alert alert-danger bg-transparent border-danger"><i class="fa-solid fa-triangle-exclamation"></i>
-            Are you sure you want to delete?</div>
-      </div><br>
+      
+      <div class="modal-body">
+
+        <br>
+        
+        <div class="alert alert-danger bg-transparent border-danger">
+          <i class="fa-solid fa-triangle-exclamation"></i>
+          Are you sure you want to delete?
+        </div>
+
+      </div>
+      
+      <br>
+
       <div class="modal-footer border-none">
-        <button type="button" class="btn btn-secondary"
-          data-bs-dismiss="modal">Close</button>
-        <a id="deleteConfirm" href="#" class="btn
-          btn-danger">Delete</a>
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+          Close
+        </button>
+        
+        <a id="deleteConfirm" href="#" class="btn btn-danger">Delete</a>
+      
       </div>
     </div>
   </div>
 </div>
+<!-- End of Boostrap Modal -->
 
-
+<!-- Return to Base HTML -->
 {% endblock content %}
 
+<!-- Connect JS file to Base HTML -->
 {% block extras %}
 <script type="text/javascript" src="{% static 'js/comments.js' %}"></script>
 {% endblock %}
