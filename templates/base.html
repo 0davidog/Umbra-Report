@@ -69,20 +69,6 @@
                         <hr>
                         
                         <!--
-                            DIV displays text using if statement.
-                            IF user logged in
-                            THEN display username.
-                            ELSE inform that user not logged in.
-                        -->
-                        <div>
-                            {% if user.is_authenticated %}
-                            <p class="text-end m-3">[Welcome, {{ user }}]</p>
-                            {% else %}
-                            <p class="text-end m-3">[Not logged in.]</p>
-                            {% endif %}
-                        </div>
-
-                        <!--
                             Using if statement to decide which options to show.
                             IF user is logged in.
                             THEN display log-out button.
@@ -156,9 +142,25 @@
     
     <!-- Display selected template block content -->
     <main class="flex-shrink-0 pt-4">
+        
+        <!--
+            DIV displays text using if statement.
+            IF user logged in
+            THEN display username.
+            ELSE inform that user not logged in.
+        -->
+        <div>
+            {% if user.is_authenticated %}
+            <p class="text-end m-3">[Welcome, {{ user }}]</p>
+            {% else %}
+            <p class="text-end m-3">[Not logged in.]</p>
+            {% endif %}
+        </div>
+
         {% block content %}
         <!-- Template content goes here -->
         {% endblock content %}
+
     </main>
 
     <!-- Footer -->

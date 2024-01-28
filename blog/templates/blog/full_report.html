@@ -9,16 +9,43 @@
 
   <!-- Card DIV displays the full blog post from the Report model -->
   <div class="row">
-    <div class="card border-secondary mb-3">
-      <div class="card-header bg-transparent border-secondary">
-        {{ report.author }}
-      </div>
-      <div class="card-body">
-        <h2 class="card-title">{{ report.title }}</h2>
-        <p class="card-text">{{ report.content | safe }}</p>
-      </div>
-      <div class="card-footer bg-transparent border-secondary">
-        {{ report.created_on }}
+    <div class="col">
+      <div class="card border-secondary mb-3">
+        <div class="card-header bg-transparent border-secondary">
+          <h2 class="card-title">{{ report.title }}</h2>
+        </div>
+        <div class="card-body">
+          <div class="container-fluid">
+            <div class="row">
+              <div class="col-lg-7">
+                <p class="card-text">{{ report.content | safe }}</p>
+              </div>
+              
+              <!--
+                Column to display related or default image using if statement
+                IF image set to placeholder
+                THEN display image from static files
+                ELSE display uploaded image (via cloudinary)
+              -->
+              <div class="col-lg-5 card border-secondary">
+                
+                <div class="card-header border-secondary">
+                  <h3>Related Image</h3>
+                </div>
+                
+                {% if "placeholder" in report.featured_image.url %}
+                <img src="{% static 'images/default.jpg' %}" width="100%" alt="placeholder image">
+                {% else %}
+                <img src="{{ report.featured_image.url }}" class="scale" alt="{{ post.title }}">
+                {% endif %}
+          
+              </div>
+            </div>
+          </div>
+        </div>
+       <div class="card-footer bg-transparent border-secondary">
+          {{ report.author }} | {{ report.created_on }}
+        </div>
       </div>
     </div>
   </div>

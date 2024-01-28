@@ -1,4 +1,5 @@
 {% extends "base.html" %}
+{% load static %}
 
 {% block content %}
 
@@ -14,10 +15,22 @@
                 <div class="col-md-4">
 
                     <!-- Displaying Report model entries in boostrap card style -->
-                    <div class="card  border-secondary mb-3">
+                    <div class="card border-secondary mb-3">
                         
+                        <!-- 
+                            displaying image as header
+                            IF no related image exists for blog post
+                            THEN display default image from static
+                            ELSE display uploaded image.
+                        -->
                         <div class="card-header bg-transparent border-secondary">
-                            {{ report.author }}
+                                {% if "placeholder" in report.featured_image.url %}
+                                <img class="card-img-top" src="{% static 'images/default.jpg' %}"
+                                  alt="placeholder image">
+                                {% else %}
+                                <img class="card-img-top" src=" {{ report.featured_image.url }}"
+                                  alt="{{ report.title }}">
+                                {% endif %}
                         </div>
                         
                         <div class="card-body">
@@ -31,7 +44,7 @@
                             <p class="card-text">{{ report.excerpt }}</p>
                             
                             <div class="card-footer bg-transparent border-secondary">
-                                {{ report.created_on }}
+                                {{ report.author }} | {{ report.created_on }}
                             </div>
                         
                         </div>
