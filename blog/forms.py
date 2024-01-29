@@ -1,4 +1,4 @@
-from .models import Comment
+from .models import Comment, Report
 from django import forms
 
 
@@ -8,7 +8,7 @@ class CommentForm(forms.ModelForm):
         fields = ('content',)
 
 
-class EditForm(forms.ModelForm):
+class ReportForm(forms.ModelForm):
     class Meta:
-        model = Comment
-        fields = ('content',)
+        model = Report
+        fields = ('title', 'content', 'featured_image',)

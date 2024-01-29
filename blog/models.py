@@ -1,6 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import User
 from cloudinary.models import CloudinaryField
+from autoslug import AutoSlugField
 
 # Create your models here.
 
@@ -9,11 +10,12 @@ STATUS = ((0, "Draft"), (1, "Published"))
 class Report(models.Model):
     class Meta:
         ordering = ["-updated_on"]
-    title = models.CharField(max_length=200, unique=True)
-    slug = models.SlugField(max_length=200, unique=True)
+    title = models.CharField(max_length=250, unique=True)
+    # slug = models.SlugField(max_length=200, unique=True)
+    slug = AutoSlugField(populate_from='title', editable=True)
     author = models.ForeignKey(User, on_delete=models.CASCADE, related_name="blog_posts")
     # One user can write many posts, so this is a one-to-many or Foreign Key. The cascade on delete means that on the deletion of the user entry, all their posts are also deleted.
-    featured_image = CloudinaryField('image', default='placeholder')
+    featured_image = CloudinaryField('Related Image', default='placeholder')
     content = models.TextField()
     excerpt = models.TextField(blank=True)
     status = models.IntegerField(choices=STATUS, default=0)

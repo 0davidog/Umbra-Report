@@ -11,13 +11,13 @@ body {
 
 }
 
-#offcanvasNavbar {
-    background-color: #000000;
-}
-
-h1, h2, h3, h4 {
+h1, h2, h3, h4, h5 {
     font-family: "Oswald", sans-serif;
     color: #800000;
+}
+
+#confidential {
+    color: #ffffff;
 }
 
 a {
@@ -25,21 +25,12 @@ a {
     color: #800000;
 }
 
-.btn-link {
-    text-decoration: none;
-}
-
-a:hover {
-    text-decoration: underline;
-    text-decoration-color: #800000;
-}
-
 header {
     background-color: rgba(0, 0, 0, 0.7);
 }
 
 footer {
-    background-color: rgba(0, 0, 0, 0.7);
+    background-color: rgba(0, 0, 0, 0.7);;
     color: #ffffff;
 }
 
@@ -47,13 +38,36 @@ footer {
     background-color:rgba(0, 0, 0, 0.7);
 }
 
+.btn-link {
+    color:#800000;
+}
+
 .card-title {
     font-family: "Oswald", sans-serif;
     color: #800000;
 }
 
+.page-link {
+    background-color: none;
+}
 
+.modal {
+    background-color:rgba(0, 0, 0, 0.7);
+}
 
-#confidential {
+.modal-content {
+    background-color:rgba(0, 0, 0, 0.7);
+}
+
+#close {
     color: #ffffff;
+}
+
+#msg {
+    background-color: #808080;
+    color:#ffffff;
+}
+
+#offcanvasNavbar {
+    background-color: #000000;
 }

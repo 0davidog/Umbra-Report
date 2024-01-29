@@ -127,6 +127,7 @@
     <!-- Displaying Django message alerts -->
     <div class="container">
         <div class="row justify-content-center">
+
             <div class="col-md-8">
                 
                 {% for message in messages %}
@@ -137,11 +138,15 @@
                 {% endfor %}
             
             </div>
+            
         </div>
     </div>
     
     <!-- Display selected template block content -->
     <main class="flex-shrink-0 pt-4">
+        
+
+        
         
         <!--
             DIV displays text using if statement.
@@ -160,6 +165,8 @@
         {% block content %}
         <!-- Template content goes here -->
         {% endblock content %}
+
+
 
     </main>
 

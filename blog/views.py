@@ -4,7 +4,7 @@ from django.views import generic
 from django.contrib import messages
 from django.http import HttpResponseRedirect
 from .models import Report, Comment
-from .forms import CommentForm
+from .forms import CommentForm, ReportForm
 
 # Create your views here.
 
@@ -94,3 +94,23 @@ def comment_delete(request, slug, comment_id):
         messages.add_message(request, messages.ERROR, 'You can only delete your own comments!')
 
     return HttpResponseRedirect(reverse('full_report', args=[slug]))
+
+
+def create_report(request):
+
+    report_form = ReportForm()
+
+    if request.method == "POST":
+        report_form = ReportForm(data=request.POST)
+    if report_form.is_valid():
+        report = report_form.save(commit=False)
+        report.author = request.user
+        report.save()
+        messages.add_message(
+        request, messages.SUCCESS,
+        'Report submitted and awaiting approval'
+    )
+
+    return render(request, "blog/create_report.html",
+        {"report_form": report_form,},
+    )
