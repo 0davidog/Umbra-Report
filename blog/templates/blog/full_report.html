@@ -18,7 +18,15 @@
           <div class="container-fluid">
             <div class="row">
               <div class="col-lg-7">
+                {% if not report.approved and report.author == user %}
+                  <div class="alert alert-danger bg-transparent border-danger" role="alert">
+                    <i class="fa-solid fa-triangle-exclamation"></i>
+                    This report is awaiting approval.
+                  </div>
+                {% else %}
                 <p class="card-text">{{ report.content | safe }}</p>
+                {% endif %}
+                
               </div>
               
               <!--
@@ -32,13 +40,19 @@
                 <div class="card-header border-secondary">
                   <h3>Related Image</h3>
                 </div>
-                
+                {% if not report.approved and report.author == user %}
+                <div class="alert alert-danger bg-transparent border-danger" role="alert">
+                  <i class="fa-solid fa-triangle-exclamation"></i>
+                  This report is awaiting approval.
+                </div>
+                {% else %}
+            
                 {% if "placeholder" in report.featured_image.url %}
                 <img src="{% static 'images/default.jpg' %}" width="100%" alt="placeholder image">
                 {% else %}
                 <img src="{{ report.featured_image.url }}" class="scale" alt="{{ post.title }}">
                 {% endif %}
-          
+                {% endif %}
               </div>
             </div>
           </div>

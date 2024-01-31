@@ -3,7 +3,6 @@
 {% load crispy_forms_tags %}
 
 
-
 <div class="container-fluid">
     <div class="row justify-content-center">
       <div class="col-md-6">
@@ -14,7 +13,7 @@
             <div class="card-body">
             <!-- Report creation form -->
             {% if user.is_authenticated %}
-            <form id="reportForm" method="post">
+            <form id="reportForm" method="post" enctype="multipart/form-data">
                 <!-- 
                     Using Django Crispy Forms to display the form with very little code.
                     https://django-crispy-forms.readthedocs.io/en/latest/
@@ -29,8 +28,10 @@
                     - https://www.synopsys.com/glossary/what-is-csrf.html
                 -->
                 {% csrf_token %}
+
                 <p>Author: {{ user.username }}</p>
                 <button id="submitButton" type="submit" class="btn btn-secondary">Submit</button>
+
             </form>
             
             {% else %}
@@ -39,12 +40,11 @@
                 <i class="fa-solid fa-triangle-exclamation"></i>
                 Log in to write a report!
             </div>
+            {% endif %}
         </div>
         </div>
     </div>
 </div>
 </div>
-
-{% endif %}
 
 {% endblock content %}

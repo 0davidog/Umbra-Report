@@ -46,7 +46,15 @@
                             </a>
                             
                             <h4 id="confidential">- CONFIDENTIAL -</h4>
+
+                            {% if not report.approved and report.author == user %}
+                            <div class="alert alert-danger bg-transparent border-danger" role="alert">
+                                <i class="fa-solid fa-triangle-exclamation"></i>
+                                This report is awaiting approval.
+                            </div>
+                            {% else %}
                             <p class="card-text">{{ report.excerpt }}</p>
+                            {% endif %}
                             <div class="card-footer bg-transparent border-secondary">
                                 {{ report.author }} | {{ report.created_on }}
                             </div>

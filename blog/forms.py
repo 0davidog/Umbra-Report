@@ -11,4 +11,4 @@ class CommentForm(forms.ModelForm):
 class ReportForm(forms.ModelForm):
     class Meta:
         model = Report
-        fields = ('title', 'content', 'featured_image',)
+        fields = ('title', 'content', 'status', 'featured_image')

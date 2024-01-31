@@ -1,4 +1,4 @@
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, get_object_or_404, redirect
 from django.urls import reverse
 from django.views import generic
 from django.contrib import messages
@@ -9,7 +9,7 @@ from .forms import CommentForm, ReportForm
 # Create your views here.
 
 class ReportList(generic.ListView):
-    queryset = Report.objects.filter(status=1)
+    queryset = Report.objects.filter(status=1, approved=1)
     template_name = "blog/index.html"
     paginate_by = 6
 
@@ -60,7 +60,6 @@ def edit_comment(request, slug, comment_id):
     view to edit comments
     """
     if request.method == "POST":
-        print('post')
 
         queryset = Report.objects.filter(status=1)
         post = get_object_or_404(queryset, slug=slug)
@@ -97,20 +96,23 @@ def comment_delete(request, slug, comment_id):
 
 
 def create_report(request):
-
-    report_form = ReportForm()
-
     if request.method == "POST":
-        report_form = ReportForm(data=request.POST)
-    if report_form.is_valid():
-        report = report_form.save(commit=False)
-        report.author = request.user
-        report.save()
-        messages.add_message(
-        request, messages.SUCCESS,
-        'Report submitted and awaiting approval'
-    )
+        report_form = ReportForm(request.POST, request.FILES)
+        if report_form.is_valid():
+            report = report_form.save(commit=False)
+            report.author = request.user
+            report.featured_image = request.FILES.get('featured_image')
+            report.save()
+            messages.success(request, 'Report submitted and awaiting approval')
+            return redirect('home')
+        
+        else:
+            messages.error(request, 'Error submitting the report. Please check the form.')
 
-    return render(request, "blog/create_report.html",
-        {"report_form": report_form,},
-    )
+    else:
+        report_form = ReportForm()
+
+    return render(request, "blog/create_report.html", {
+        "report_form": report_form,
+        },
+        )
