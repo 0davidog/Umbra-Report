@@ -22,9 +22,13 @@ class Report(models.Model):
     created_on = models.DateTimeField(auto_now_add=True)
     updated_on = models.DateTimeField(auto_now=True)
     approved = models.BooleanField(default=False)
+    likes = models.ManyToManyField(User, related_name='blogpost_like')
 
     def __str__(self):
         return f'{self.title} by {self.author}'
+    
+    def likes_number(self):
+        return self.likes.count()
 
 class Comment(models.Model):
     post = models.ForeignKey(Report, on_delete=models.CASCADE, related_name="comments")

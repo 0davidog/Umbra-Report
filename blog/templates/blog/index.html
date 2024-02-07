@@ -17,8 +17,19 @@
                 <!-- Display blog post links using for loop -->
                 {% for report in report_list %}
                 
-                <!-- Display entries as size 4 columns to fit 3 per row -->
+                <!-- 
+                    Display entries as size 4 columns to fit 3 per row.
+                    IF report approved THEN show.
+                    IF report not approved and author is user THEN show.
+                    IF report not approved and author is not user THEN hide. 
+                -->
+                {% if report.approved %}
                 <div class="col-md-4">
+                {% elif not report.approved and report.author == user %}
+                <div class="col-md-4">
+                {% else %}
+                <div class="col-md-4 d-none">
+                {% endif %}
 
                     <!-- Displaying Report model entries in boostrap card style -->
                     <div class="card border-secondary mb-3">
@@ -29,7 +40,7 @@
                             THEN display default image from static
                             ELSE display uploaded image.
                         -->
-                        <div class="card-header bg-transparent border-secondary">
+                        <div class="card-header bg-transparent border-secondary" style="overflow: hidden;">
                                 {% if "placeholder" in report.featured_image.url %}
                                 <img class="card-img-top" src="{% static 'images/default.jpg' %}"
                                   alt="placeholder image">
@@ -62,7 +73,7 @@
                         </div>
                     </div>
                 </div>
-
+                
                 {% endfor %}
 
                 <!-- 

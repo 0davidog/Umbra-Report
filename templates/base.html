@@ -46,12 +46,14 @@
             
             <!-- Site title. Links to home page. -->
             <div class="container-fluid">
-                <a href="{% url 'home' %}" class="navbar-brand">
-                    <h1>THE UMBRA REPORT</h1>
+                <div class="col-8 pt-1">
+                <a href="{% url 'home' %}">
+                    <h1>THE UMBRA REPORT <i class="fa-solid fa-eye"></i></h1>
                 </a>
-
+                <p>A collection of weird tales and urban legends.</p>
+</div>
                 <!-- Button to display offcanvas sie-menu -->
-                <button class="btn btn-link" id="navbar-button" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
+                <button class="btn btn-link align-self-start" id="navbar-button" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
                     <h1><i class="fa-solid fa-bars"></i></h1>
                 </button>
                 
@@ -63,6 +65,19 @@
                         <button type="button" class="btn btn-link" data-bs-dismiss="offcanvas" aria-label="Close">
                             <h3><i class="fa-solid fa-xmark"></i></h3>
                         </button>
+                    </div>
+                    <!--
+            DIV displays text using if statement.
+            IF user logged in
+            THEN display username.
+            ELSE inform that user not logged in.
+        -->
+                    <div class="text-end p-4">
+                        {% if user.is_authenticated %}
+                        <p class="text-end m-3 d-inline">[Welcome, {{ user }}]<h3 class="d-inline"><i class="fa-regular fa-user"></i></h3></p>
+                        {% else %}
+                        <p class="text-end m-3 d-inline">[Not logged in.]<h3 class="d-inline"><i class="fa-regular fa-user"></i></h3></p>
+                        {% endif %}
                     </div>
                     
                     <div class="offcanvas-body">
@@ -101,13 +116,13 @@
                         <!-- Displaying page navigation links as list -->
                         <ul>
                             <li>
-                                <a href="{% url 'home' %}" class="btn btn-link">
+                                <a href="{% url 'home' %}" class="btn btn-link {% if request.path == home_url %}active{% endif %}">
                                     <h4>Home</h4>
                                 </a>
                             </li>
                             
                             <li>
-                                <a href="{% url 'about' %}" class="btn btn-link">
+                                <a href="{% url 'about' %}" class="btn btn-link {% if request.path == about_url %}active{% endif %}">
                                     <h4>About</h4>
                                 </a>
                             </li>
@@ -138,6 +153,8 @@
                 {% endfor %}
             
             </div>
+
+
             
         </div>
     </div>
@@ -148,19 +165,7 @@
 
         
         
-        <!--
-            DIV displays text using if statement.
-            IF user logged in
-            THEN display username.
-            ELSE inform that user not logged in.
-        -->
-        <div>
-            {% if user.is_authenticated %}
-            <p class="text-end m-3">[Welcome, {{ user }}]</p>
-            {% else %}
-            <p class="text-end m-3">[Not logged in.]</p>
-            {% endif %}
-        </div>
+        
 
         {% block content %}
         <!-- Template content goes here -->

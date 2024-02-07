@@ -5,7 +5,7 @@
 
 
 <!-- Main DIV container for blog post and comemnts -->
-<div class="container-fluid">
+<div class="container-fluid mt-5 mb-5">
 
   <!-- Card DIV displays the full blog post from the Report model -->
   <div class="row">
@@ -17,16 +17,24 @@
         <div class="card-body">
           <div class="container-fluid">
             <div class="row">
+              {% if "placeholder" in report.featured_image.url %}
+              <div class="col-12">
+                {% else %}
               <div class="col-lg-7">
+                {% endif %}
                 {% if not report.approved and report.author == user %}
                   <div class="alert alert-danger bg-transparent border-danger" role="alert">
                     <i class="fa-solid fa-triangle-exclamation"></i>
                     This report is awaiting approval.
                   </div>
-                {% else %}
-                <p class="card-text">{{ report.content | safe }}</p>
                 {% endif %}
-                
+                <p class="card-text">
+                  {{ report.content | safe | linebreaks }}
+                </p>
+                <p>
+                  <h3>{{ report.author }}</h3>
+                  {{ report.created_on }}
+                </p>
               </div>
               
               <!--
@@ -35,8 +43,11 @@
                 THEN display image from static files
                 ELSE display uploaded image (via cloudinary)
               -->
+              {% if "placeholder" in report.featured_image.url %}
+              <div class="col-lg-5 card border-secondary d-none">
+              {% else %}
               <div class="col-lg-5 card border-secondary">
-                
+              {% endif %}
                 <div class="card-header border-secondary">
                   <h3>Related Image</h3>
                 </div>
@@ -46,19 +57,35 @@
                   This report is awaiting approval.
                 </div>
                 {% else %}
-            
-                {% if "placeholder" in report.featured_image.url %}
-                <img src="{% static 'images/default.jpg' %}" width="100%" alt="placeholder image">
-                {% else %}
+                
+                
                 <img src="{{ report.featured_image.url }}" class="scale" alt="{{ post.title }}">
                 {% endif %}
-                {% endif %}
+                
               </div>
             </div>
           </div>
         </div>
        <div class="card-footer bg-transparent border-secondary">
-          {{ report.author }} | {{ report.created_on }}
+        
+        <h2>
+          {% if user.is_authenticated %}
+            <form class="d-inline" action="{% url 'like_report' report.slug %}" method="POST">
+            {% csrf_token %}
+            {% if liked %}
+            <button type="submit" name="report_id" value="{{report.slug}}" class="btn btn-link border-danger">
+                <h2>Unlike <i class="fa-regular fa-thumbs-down"></i></h2>
+              </button>
+              Likes: {{ report.likes_number }}
+              {% else %}
+              <button type="submit" name="report_id" value="{{report.slug}}" class="btn btn-link border-danger">
+                <h2>Like <i class="fa-regular fa-thumbs-up"></i></h2>
+              </button>
+              
+              Likes: {{ report.likes_number }}
+              {% endif %}{% endif %}                                        
+            </form></h2></div>
+                          
         </div>
       </div>
     </div>
@@ -200,7 +227,7 @@
   <div class="modal-dialog">
     <div class="modal-content">
 
-      <div class="modal-header border-none">
+      <div class="modal-header">
         <h3 class="modal-title" id="deleteModalLabel">Delete comment?
           <button type="button" class="btn btn-link" data-bs-dismiss="modal" aria-label="Close">
             <i class="fa-solid fa-xmark"></i>
@@ -221,7 +248,7 @@
       
       <br>
 
-      <div class="modal-footer border-none">
+      <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
           Close
         </button>

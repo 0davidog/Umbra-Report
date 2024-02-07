@@ -9,47 +9,42 @@ from .forms import CommentForm, ReportForm
 # Create your views here.
 
 class ReportList(generic.ListView):
-    queryset = Report.objects.filter(status=1, approved=1)
+    queryset = Report.objects.filter(status=1)
     template_name = "blog/index.html"
     paginate_by = 6
 
 
 def full_report(request, slug):
-    """
-    Display an individual :model:`blog.Post`.
-
-    **Context**
-
-    ``post``
-        An instance of :model:`blog.Post`.
-
-    **Template:**
-
-    :template:`blog/full_report.html`
-    """
 
     queryset = Report.objects.filter(status=1)
-    post = get_object_or_404(queryset, slug=slug)
-    comments = post.comments.all().order_by("-created_on")
-    comment_count = post.comments.filter(approved=True).count()
+    report = get_object_or_404(queryset, slug=slug)
+
+    comments = report.comments.all().order_by("-created_on")
+    comment_count = report.comments.filter(approved=True).count()
     comment_form = CommentForm()
+
+    liked = False
+    if report.likes.filter(id=request.user.id).exists():
+        liked = True
 
     if request.method == "POST":
         comment_form = CommentForm(data=request.POST)
     if comment_form.is_valid():
         comment = comment_form.save(commit=False)
         comment.author = request.user
-        comment.post = post
+        comment.post = report
         comment.save()
         messages.add_message(
         request, messages.SUCCESS,
-        'Comment submitted and awaiting approval'
-    )
+        'Comment submitted and awaiting approval')
+        comment_form = CommentForm()
+
 
     return render(
         request,
         "blog/full_report.html",
-        {"report": post,
+        {"report": report,
+         "liked": liked,
         "comments": comments,
         "comment_count": comment_count,
         "comment_form": comment_form,},
@@ -72,10 +67,14 @@ def edit_comment(request, slug, comment_id):
             comment.approved = False
             comment.save()
             messages.add_message(request, messages.SUCCESS, 'Comment Updated!')
+            comment_form = CommentForm()
         else:
             messages.add_message(request, messages.ERROR, 'Error updating comment!')
+            comment_form = CommentForm()
 
     return HttpResponseRedirect(reverse('full_report', args=[slug]))
+
+    
 
 
 def comment_delete(request, slug, comment_id):
@@ -116,3 +115,14 @@ def create_report(request):
         "report_form": report_form,
         },
         )
+
+def like_report(request, slug):
+    
+    post = get_object_or_404(Report, slug=slug)
+    
+    if post.likes.filter(id=request.user.id).exists():
+        post.likes.remove(request.user)
+    else:
+        post.likes.add(request.user)
+
+    return HttpResponseRedirect(reverse('full_report', args=[slug]))

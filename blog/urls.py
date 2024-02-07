@@ -3,6 +3,7 @@ from django.urls import path
 
 urlpatterns = [
     path('', views.ReportList.as_view(), name='home'),
+    path('like/<slug:slug>', views.like_report, name='like_report'),
     path('create/', views.create_report, name='create'),
     path('<slug:slug>/', views.full_report, name='full_report'),
     path('<slug:slug>/edit_comment/<int:comment_id>',
