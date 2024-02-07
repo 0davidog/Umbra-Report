@@ -67,7 +67,7 @@
                             <p class="card-text">{{ report.excerpt }}</p>
                             {% endif %}
                             <div class="card-footer bg-transparent border-secondary">
-                                {{ report.author }} | {{ report.created_on }}
+                                <a href="{% url 'user_profile' report.author %}">{{ report.author }}</a> | {{ report.created_on }}
                             </div>
                         
                         </div>

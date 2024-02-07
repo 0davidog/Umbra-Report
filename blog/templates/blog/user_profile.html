@@ -1,0 +1,55 @@
+{% extends 'base.html' %} {% block content %}
+{% load static %}
+{% load crispy_forms_tags %}
+
+
+
+<div class="container-fluid">
+    <div class="row justify-content-center">
+        <div class="col-md-4">
+
+        <div class="card border-secondary p-5 text-center">
+            
+            <div class="card-img-top">
+                
+                <img src="{% static 'images/blank_face.jpg' %}" alt="placeholder image">
+
+            </div>
+
+
+        </div>
+
+        </div>
+        <div class="col-md-8">
+            <div class="card border-secondary p-5">
+
+            <div class="card-header">USER:<br><h1>{{ username.0 }}</h1></div>
+                <div class="card-body">
+                    {% if username.0.is_superuser == True %}
+                    <h2>Status</h2><p>ADMIN</p>
+                    {% else %}
+                    <h2>Status</h2><p>REPORTER</p>
+                    {% endif %}
+                    
+                    
+                    <h2>Reports</h2>
+                    <ul>
+                    {% for report in report_list %}
+
+                    <li><h3><a href="{% url 'full_report' report.slug %}" class="post-link">{{ report.title }}</a></h3> {{ report.created_on }}</li>
+
+                    {% endfor %}
+                </ul>
+            </div>
+            <div class="card-footer">
+                </div>
+    
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+{% endblock %}
