@@ -52,7 +52,6 @@ INSTALLED_APPS = [
     'autoslug',
     'cloudinary',
     'blog',
-    'about',
 ]
 
 SITE_ID = 1

@@ -32,7 +32,7 @@
                   {{ report.content | safe | linebreaks }}
                 </p>
                 <p>
-                  <h3>{{ report.author }}</h3>
+                  <h3><a href="{% url 'user_profile' report.author %}">{{ report.author }}</a></h3>
                   {{ report.created_on }}
                 </p>
               </div>
@@ -115,7 +115,7 @@
             THEN comment not displayed.
           -->
           <div class="p-2 comments {% if not comment.approved and comment.author == user %} faded{% elif not comment.approved %} d-none{% endif %}">
-            <h4 class="card-title">{{ comment.author }}</h4>
+            <h4 class="card-title"><a href="{% url 'user_profile' comment.author %}">{{ comment.author }}</a></h4>
             <div id="comment{{ comment.id }}">
               {{ comment.content | linebreaks }}
             </div>

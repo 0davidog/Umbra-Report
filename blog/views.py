@@ -3,7 +3,7 @@ from django.urls import reverse
 from django.views import generic
 from django.contrib import messages
 from django.http import HttpResponseRedirect
-from .models import Report, Comment
+from .models import Report, Comment, User, About
 from .forms import CommentForm, ReportForm
 
 # Create your views here.
@@ -126,3 +126,28 @@ def like_report(request, slug):
         post.likes.add(request.user)
 
     return HttpResponseRedirect(reverse('full_report', args=[slug]))
+
+def about_site(request):
+    """
+    Renders the About page
+    """
+    about = About.objects.all().order_by('-updated_on').first()
+
+    return render(
+        request,
+        "blog/about.html",
+        {"about": about},
+    )
+
+def user_profile(request, author):
+    
+    username = User.objects.filter(username=author)
+    profile = get_object_or_404(username, username=author)
+    report_list = Report.objects.filter(author=profile)
+
+    return render(
+        request, "blog/user_profile.html", {
+        "username": username,
+        "report_list": report_list,
+        },
+        )
