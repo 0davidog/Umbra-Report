@@ -151,3 +151,40 @@ def user_profile(request, author):
         "report_list": report_list,
         },
         )
+
+
+def edit_report(request, slug):
+    edit = get_object_or_404(Report, slug=slug)
+
+    if request.method == "POST":
+        report_form = ReportForm(request.POST, request.FILES, instance=edit)
+        if report_form.is_valid():
+            report = report_form.save(commit=False)
+            report.author = request.user
+            report.featured_image = request.FILES.get('featured_image')
+            report.save()
+            messages.success(request, 'Report submitted and awaiting approval')
+            return redirect('home')
+        else:
+            messages.error(request, 'Error submitting the report. Please check the form.')
+    else:
+        report_form = ReportForm(instance=edit)
+
+    return render(request, "blog/edit_report.html", {
+        "report_form": report_form,
+    })
+
+
+def delete_report(request, slug, report_id):
+    
+    report = get_object_or_404(Report, slug=slug, pk=report_id)
+
+    if report.author == request.user:
+        report.delete()
+        messages.success(request, 'Report deleted successfully.')
+        return redirect('home')
+    
+    else:
+        messages.add_message(request, messages.ERROR, 'You can only delete your own reports!')
+
+    return HttpResponseRedirect(reverse('home'))

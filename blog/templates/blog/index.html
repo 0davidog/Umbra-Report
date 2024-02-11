@@ -67,7 +67,10 @@
                             <p class="card-text">{{ report.excerpt }}</p>
                             {% endif %}
                             <div class="card-footer bg-transparent border-secondary">
-                                <a href="{% url 'user_profile' report.author %}">{{ report.author }}</a> | {{ report.created_on }}
+                                <a href="{% url 'user_profile' report.author %}">{{ report.author }}</a>
+                                {{ report.created_on }}
+                                <a  class="btn btn-link" href="{% url 'edit_report' report.slug %}">Edit</a> |
+                                <button class="btn btn-link delete-report-btn" report_id="{{ report.id }}" slug="{{ report.slug }}">Delete</button>
                             </div>
                         
                         </div>
@@ -124,4 +127,52 @@
 <!-- close container -->
 </div>
 
+
+<!--
+  Bootstrap modal used for delete comment confirmation.
+-->
+
+<div class="modal fade justify-content-center" id="deleteReportModal" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+  
+        <div class="modal-header">
+          <h3 class="modal-title" id="deleteModalLabel">Delete report?
+            <button type="button" class="btn btn-link" data-bs-dismiss="modal" aria-label="Close">
+              <i class="fa-solid fa-xmark"></i>
+            </button>
+          </h3>
+        </div>
+        
+        <div class="modal-body">
+  
+          <br>
+          
+          <div class="alert alert-danger bg-transparent border-danger">
+            <i class="fa-solid fa-triangle-exclamation"></i>
+            Are you sure you want to delete?
+          </div>
+  
+        </div>
+        
+        <br>
+  
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+            Close
+          </button>
+          
+          <a id="deleteReportConfirm" href="#" class="btn btn-danger">Delete</a>
+        
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- End of Boostrap Modal -->
+
+{% endblock %}
+
+<!-- Connect JS file to Base HTML -->
+{% block extras %}
+<script type="text/javascript" src="{% static 'js/delete_report.js' %}"></script>
 {% endblock %}
