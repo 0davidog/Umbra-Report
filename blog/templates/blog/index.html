@@ -3,172 +3,159 @@
 
 {% block content %}
 
-<div class="container-fluid"><div class="pl-5">
+<div class="container-fluid">
+  <div class="pl-5">
     {% if user.is_authenticated %}
-    <a class="btn btn-secondary" href="{% url 'create' %}">Submit a report!</a>
+    <a class="btn btn-secondary" href="{% url 'create' %}">
+      Submit a report!
+    </a>
     {% else %}
-    <a class="btn btn-danger" href="{% url 'account_login' %}">Login to submit a report!</a>
+    <a class="btn btn-danger" href="{% url 'account_login' %}">
+      Login to submit a report!
+    </a>
     {% endif %}
-</div>
-    <div class="row"><!-- main row -->
-        <div class="col-12 mt-3"><!-- main col -->
-            <div class="row"><!-- second row -->
-
-                <!-- Display blog post links using for loop -->
-                {% for report in report_list %}
-                
+  </div>
+  <div class="row"><!-- main row -->
+    <div class="col-12 mt-3"><!-- main col -->
+      <div class="row"><!-- second row -->
+        <!-- Display blog post links using for loop -->
+        {% for report in report_list %}       
+        <!-- 
+          Display entries as size 4 columns to fit 3 per row.
+          IF report approved THEN show.
+          IF report not approved and author is user THEN show.
+          IF report not approved and author is not user THEN hide. 
+        -->
+        {% if report.approved %}
+        <div class="col-md-4">
+          {% elif not report.approved and report.author == user %}
+          <div class="col-md-4">
+            {% else %}
+            <div class="col-md-4 d-none">
+              {% endif %}
+              <!-- Displaying Report model entries in boostrap card style -->
+              <div class="card border-secondary mb-3">         
                 <!-- 
-                    Display entries as size 4 columns to fit 3 per row.
-                    IF report approved THEN show.
-                    IF report not approved and author is user THEN show.
-                    IF report not approved and author is not user THEN hide. 
+                  displaying image as header
+                  IF no related image exists for blog post
+                  THEN display default image from static
+                  ELSE display uploaded image.
                 -->
-                {% if report.approved %}
-                <div class="col-md-4">
-                {% elif not report.approved and report.author == user %}
-                <div class="col-md-4">
-                {% else %}
-                <div class="col-md-4 d-none">
-                {% endif %}
-
-                    <!-- Displaying Report model entries in boostrap card style -->
-                    <div class="card border-secondary mb-3">
-                        
-                        <!-- 
-                            displaying image as header
-                            IF no related image exists for blog post
-                            THEN display default image from static
-                            ELSE display uploaded image.
-                        -->
-                        <div class="card-header bg-transparent border-secondary" style="overflow: hidden;">
-                                {% if "placeholder" in report.featured_image.url %}
-                                <img class="card-img-top" src="{% static 'images/default.jpg' %}"
-                                  alt="placeholder image">
-                                {% else %}
-                                <img class="card-img-top" src=" {{ report.featured_image.url }}"
-                                  alt="{{ report.title }}">
-                                {% endif %}
-                        </div>
-                        
-                        <div class="card-body">
-                            
-                            <a href="{% url 'full_report' report.slug %}" class="post-link">
-                                <h2 class="card-title">{{ report.title }}</h2>
-                            </a>
-                            
-                            <h4 id="confidential">- CONFIDENTIAL -</h4>
-
-                            {% if not report.approved and report.author == user %}
-                            <div class="alert alert-danger bg-transparent border-danger" role="alert">
-                                <i class="fa-solid fa-triangle-exclamation"></i>
-                                This report is awaiting approval.
-                            </div>
-                            {% else %}
-                            <p class="card-text">{{ report.excerpt }}</p>
-                            {% endif %}
-                            <div class="card-footer bg-transparent border-secondary">
-                                <a href="{% url 'user_profile' report.author %}">{{ report.author }}</a>
-                                {{ report.created_on }}
-                                <a  class="btn btn-link" href="{% url 'edit_report' report.slug %}">Edit</a> |
-                                <button class="btn btn-link delete-report-btn" report_id="{{ report.id }}" slug="{{ report.slug }}">Delete</button>
-                            </div>
-                        
-                        </div>
-                    </div>
+                <div class="card-header bg-transparent border-secondary" style="overflow: hidden;">
+                  {% if "placeholder" in report.featured_image.url %}
+                  <img class="card-img-top" src="{% static 'images/default.jpg' %}" alt="placeholder image">
+                  {% else %}
+                  <img class="card-img-top" src=" {{ report.featured_image.url }}" alt="{{ report.title }}">
+                  {% endif %}
                 </div>
-                
-                {% endfor %}
-
-                <!-- 
-                    Paginate blog entries.
-                    Relates to ReportList(generic.ListView).
-                    List view creates pages if entries over 6.
-                 -->
-                
-                <div class="container">
-                    <div class="row">
-
-                        <!--
-                            Displays Next and Previous page buttons if more than one page is generated by ListView
-                        -->
-                        {% if is_paginated %}
-                        <nav class="col" aria-label="Page navigation">
-                            
-                            <ul class="pagination justify-content-center">
-                                
-                                {% if page_obj.has_previous %}
-                                <li class="page-item">
-                                    <a class="btn btn-secondary" href="?page={{ page_obj.previous_page_number }}">
-                                        Previous</a></li>
-                                {% endif %}
-                                
-                                {% if page_obj.has_next %}
-                                <li class="page-item">
-                                    <a class="btn btn-secondary" href="?page={{ page_obj.next_page_number }}">
-                                        Next
-                                    </a>
-                                </li>
-                                {% endif %}
-                            
-                            </ul>
-                        
-                        </nav>
-                        {% endif %}
-                    
-                    </div>
+                <div class="card-body">
+                  <h2 class="card-title">
+                    <a href="{% url 'full_report' report.slug %}" class="report-link">
+                      {{ report.title }}
+                    </a>
+                  </h2>
+                  
+                  <h4 id="confidential">
+                    - CONFIDENTIAL -
+                  </h4>
+                  {% if not report.approved and report.author == user %}
+                  <div class="alert alert-danger bg-transparent border-danger" role="alert">
+                    <i class="fa-solid fa-triangle-exclamation"></i>
+                    This report is awaiting approval.
+                  </div>
+                  {% else %}
+                  <p class="card-text">
+                    {{ report.excerpt }}
+                  </p>
+                  {% endif %}
+                  <div class="card-footer bg-transparent border-secondary">
+                    <a href="{% url 'user_profile' report.author %}" class="btn btn-link">
+                      {{ report.author }}
+                    </a>
+                    {{ report.created_on }}
+                    {% if user.is_authenticated and report.author == user %}
+                    <a  class="btn btn-link" href="{% url 'edit_report' report.slug %}">
+                      Edit
+                    </a>
+                    &#32;
+                    &sol;
+                    <button class="btn btn-link delete-report-btn" report_id="{{ report.id }}" slug="{{ report.slug }}">
+                      Delete
+                    </button>
+                    {% endif %}
+                  </div>
                 </div>
-
-            <!-- close second row -->
+              </div>
             </div>
-        <!-- close main column -->    
-        </div>
-    <!-- close main row -->
-    </div>    
-<!-- close container -->
-</div>
+            {% endfor %}
+            <!-- 
+              Paginate blog entries.
+              Relates to ReportList(generic.ListView).
+              List view creates pages if entries over 6.
+            -->
+            <div class="container">
+              <div class="row">
+                <!--
+                  Displays Next and Previous page buttons if more than one page is generated by ListView
+                -->
+                {% if is_paginated %}
+                <nav class="col" aria-label="Page navigation">
+                  <ul class="pagination justify-content-center">
+                    {% if page_obj.has_previous %}
+                    <li class="page-item">
+                      <a class="btn btn-secondary" href="?page={{ page_obj.previous_page_number }}">
+                        Previous
+                      </a>
+                    </li>
+                    {% endif %}
+                    {% if page_obj.has_next %}
+                    <li class="page-item">
+                      <a class="btn btn-secondary" href="?page={{ page_obj.next_page_number }}">
+                        Next
+                      </a>
+                    </li>
+                    {% endif %}
+                  </ul>
+                </nav>
+                {% endif %}
+              </div>
+            </div>
+          </div><!-- close second row -->  
+        </div><!-- close main column -->
+    </div> <!-- close main row -->   
+</div><!-- close container -->
 
-
-<!--
-  Bootstrap modal used for delete comment confirmation.
--->
-
+<!-- Bootstrap modal used for delete report confirmation. -->
 <div class="modal fade justify-content-center" id="deleteReportModal" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-      <div class="modal-content">
-  
-        <div class="modal-header">
-          <h3 class="modal-title" id="deleteModalLabel">Delete report?
-            <button type="button" class="btn btn-link" data-bs-dismiss="modal" aria-label="Close">
-              <i class="fa-solid fa-xmark"></i>
-            </button>
-          </h3>
-        </div>
-        
-        <div class="modal-body">
-  
-          <br>
-          
-          <div class="alert alert-danger bg-transparent border-danger">
-            <i class="fa-solid fa-triangle-exclamation"></i>
-            Are you sure you want to delete?
-          </div>
-  
-        </div>
-        
-        <br>
-  
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
-            Close
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3 class="modal-title" id="deleteModalLabel">
+          Delete report?
+          <button type="button" class="btn btn-link" data-bs-dismiss="modal" aria-label="Close">
+            <i class="fa-solid fa-xmark"></i>
           </button>
-          
-          <a id="deleteReportConfirm" href="#" class="btn btn-danger">Delete</a>
-        
+        </h3>
+      </div>
+      <div class="modal-body">
+        <br>
+        <div class="alert alert-danger bg-transparent border-danger">
+          <i class="fa-solid fa-triangle-exclamation"></i>
+          Are you sure you want to delete?
         </div>
+      </div>
+      <br>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+          Close
+        </button>
+        <a id="deleteReportConfirm" href="#" class="btn btn-danger">
+          Delete
+        </a>
       </div>
     </div>
   </div>
-  <!-- End of Boostrap Modal -->
+</div><!-- End of Boostrap Modal -->
 
 {% endblock %}
 

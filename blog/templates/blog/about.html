@@ -4,11 +4,8 @@
 
 <!-- Display content from About model -->
 <div class="container-fluid mt-5 mb-5">
-    
     <div class="row">
-        
         <div class="col-md-12 col-lg-4 justify-content-center">
-            
             <div class="card p-5 border-secondary">
                 <!--
                     Display image for about page with if statement
@@ -18,26 +15,24 @@
                 -->
                 <div class="card-body justify-content-center">
                 {% if "placeholder" in about.profile_image.url %}
-                <img src="{% static 'images/headshot.webp' %}" width="100%" alt="placeholder image" >
+                <img src="{% static 'images/umbra_report_logo.jpg' %}" width="100%" alt="Default logo" >
                 {% else %}
                 <img src="{{ about.profile_image.url }}" width="75%" alt="{{ about.title }}">
                 {% endif %}
             </div>
             </div>
-        
         </div>
-    
         <div class="col-md-12 col-lg-8">
-            
             <div class="card p-5 border-secondary">
-
-                <h2 class="card-title">{{ about.title }}</h2>
-                <p class="card-text">{{ about.content | safe }}</p>
-                
+                <h2 class="card-title">
+                    <i class="fa-solid fa-circle-info"></i> {{ about.title }}
+                </h2>
+                <p class="card-text">
+                    {{ about.content | safe }}
+                </p>
                 <div class="card-footer border-secondary">
-                    {{ about.updated_on }}
+                    Written: {{ about.updated_on }}
                 </div>
-            
             </div>
         </div>
     </div>

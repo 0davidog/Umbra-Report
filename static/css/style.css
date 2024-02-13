@@ -21,8 +21,8 @@ h1, h2, h3, h4, h5 {
 }
 
 a {
-    text-decoration: none;
     color: #800000;
+    text-decoration: none;
 }
 
 header {
@@ -40,6 +40,7 @@ footer {
 
 .btn-link {
     color:#800000;
+    text-decoration: none;
 }
 
 .card-title {
@@ -49,6 +50,7 @@ footer {
 
 .page-link {
     background-color: none;
+    text-decoration: none;
 }
 
 .modal {

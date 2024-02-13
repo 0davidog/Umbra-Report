@@ -2,49 +2,48 @@
 {% load static %}
 {% load crispy_forms_tags %}
 
-
 <div class="container-fluid">
     <div class="row justify-content-center">
       <div class="col-md-6">
         <div class="card border-secondary p-4 mb-5">
             <div class="card-header border-secondary">
-                <h3 class="card-title">Edit Report</h3>
+                <h3 class="card-title">
+                    Edit Report
+                </h3>
             </div>
             <div class="card-body">
-            <!-- Report creation form -->
-            {% if user.is_authenticated %}
-            <form id="reportForm" method="post" enctype="multipart/form-data">
-                <!-- 
-                    Using Django Crispy Forms to display the form with very little code.
-                    https://django-crispy-forms.readthedocs.io/en/latest/
-                -->
-                
-                {{ report_form | crispy }}
-                
-                <!--
-                    Cross-Site Request Forgery token.
-                    "A CSRF token is a secure random token (e.g., synchronizer token or challenge token) that is used to prevent CSRF attacks. 
-                    The token needs to be unique per user session and should be of large random value to make it difficult to guess."
-                    - https://www.synopsys.com/glossary/what-is-csrf.html
-                -->
-                {% csrf_token %}
-
-                <p>Author: {{ user.username }}</p>
-                <button id="submitButton" type="submit" class="btn btn-secondary">Update</button>
-
-            </form>
-            
-            {% else %}
-            
-            <div class="alert alert-danger bg-transparent border-danger" role="alert">
-                <i class="fa-solid fa-triangle-exclamation"></i>
-                Log in to write a report!
+                <!-- Report creation form -->
+                {% if user.is_authenticated %}
+                <form id="reportForm" method="post" enctype="multipart/form-data">
+                    <!-- 
+                        Using Django Crispy Forms to display the form with very little code.
+                        https://django-crispy-forms.readthedocs.io/en/latest/
+                    -->
+                    {{ report_form | crispy }}
+                    <!--
+                        Cross-Site Request Forgery token.
+                        "A CSRF token is a secure random token (e.g., synchronizer token or challenge token) that is used to prevent CSRF attacks. 
+                        The token needs to be unique per user session and should be of large random value to make it difficult to guess."
+                        - https://www.synopsys.com/glossary/what-is-csrf.html
+                    -->
+                    {% csrf_token %}
+                    <p>
+                        Author: {{ user.username }}
+                    </p>
+                    <button id="submitButton" type="submit" class="btn btn-secondary">
+                        Update
+                    </button>
+                </form>
+                {% else %}
+                <div class="alert alert-danger bg-transparent border-danger" role="alert">
+                    <i class="fa-solid fa-triangle-exclamation"></i>
+                    Log in to write a report!
+                </div>
+                {% endif %}
             </div>
-            {% endif %}
-        </div>
-        </div>
-    </div>
-</div>
-</div>
+        </div><!-- End card -->
+    </div><!-- End col -->
+</div><!-- End row -->
+</div><!-- End container -->
 
 {% endblock content %}

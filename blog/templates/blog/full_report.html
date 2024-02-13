@@ -2,8 +2,6 @@
 {% load static %}
 {% load crispy_forms_tags %}
 
-
-
 <!-- Main DIV container for blog post and comemnts -->
 <div class="container-fluid mt-5 mb-5">
 
@@ -12,100 +10,120 @@
     <div class="col">
       <div class="card border-secondary mb-3">
         <div class="card-header bg-transparent border-secondary">
-          <h2 class="card-title">{{ report.title }}</h2>
+          <h2 class="card-title">
+            {{ report.title }}
+          </h2>
         </div>
         <div class="card-body">
+
           <div class="container-fluid">
             <div class="row">
               {% if "placeholder" in report.featured_image.url %}
               <div class="col-12">
                 {% else %}
-              <div class="col-lg-7">
-                {% endif %}
-                {% if not report.approved and report.author == user %}
+                <div class="col-lg-7">
+                  {% endif %}
+                  {% if not report.approved and report.author == user %}
                   <div class="alert alert-danger bg-transparent border-danger" role="alert">
                     <i class="fa-solid fa-triangle-exclamation"></i>
                     This report is awaiting approval.
                   </div>
-                {% endif %}
-                <p class="card-text">
-                  {{ report.content | safe | linebreaks }}
-                </p>
-                <p>
-                  <h3><a href="{% url 'user_profile' report.author %}">{{ report.author }}</a></h3>
-                  {{ report.created_on }}
-                </p>
-                {% if user.is_authenticated and report.author == user %}
-          <div class="text-end">
-            <a class="btn btn-secondary edit-btn" href="{% url 'edit_report' report.slug %}">Edit</a>
-            <button class="btn btn-secondary delete-report-btn"  report_id="{{ report.id }}">Delete</button>
-          </div>
-          {% endif %}
-              </div>
-              
-              
-              <!--
-                Column to display related or default image using if statement
-                IF image set to placeholder
-                THEN display image from static files
-                ELSE display uploaded image (via cloudinary)
-              -->
-              {% if "placeholder" in report.featured_image.url %}
-              <div class="col-lg-5 card border-secondary d-none">
-              {% else %}
-              <div class="col-lg-5 card border-secondary">
-              {% endif %}
-                <div class="card-header border-secondary">
-                  <h3>Related Image</h3>
+                  {% endif %}
+                  <p class="card-text">
+                    {{ report.content | safe | linebreaks }}
+                  </p><hr>
+                  <p class="d-inline">
+                    Written by:&#32;
+                    <h3>
+                      <a href="{% url 'user_profile' report.author %}">
+                        {{ report.author }}
+                      </a>
+                    </h3>
+                    Date written: {{ report.created_on }}
+                  </p>
+                  {% if user.is_authenticated and report.author == user %}
+                  <div class="text-end">
+                    <a class="btn btn-secondary edit-btn" href="{% url 'edit_report' report.slug %}">
+                      Edit
+                    </a>
+                    <button class="btn btn-secondary delete-report-btn"  report_id="{{ report.id }}">
+                      Delete
+                    </button>
+                  </div>
+                  {% endif %}
                 </div>
-                {% if not report.approved and report.author == user %}
-                <div class="alert alert-danger bg-transparent border-danger" role="alert">
-                  <i class="fa-solid fa-triangle-exclamation"></i>
-                  This report is awaiting approval.
+                <!--
+                  Column to display related or default image using if statement
+                  IF image set to placeholder
+                  THEN display image from static files
+                  ELSE display uploaded image (via cloudinary)
+                -->
+                {% if "placeholder" in report.featured_image.url %}
+                <div class="col-lg-5 card border-secondary d-none mb-3">
+                  {% else %}
+                  <div class="col-lg-5 card border-secondary mb-3 pb-3">
+                    {% endif %}
+                    <div class="card-header border-secondary">
+                      <h3>
+                        Related Image
+                      </h3>
+                    </div>
+                    {% if not report.approved and report.author == user %}
+                    <div class="alert alert-danger bg-transparent border-danger" role="alert">
+                      <i class="fa-solid fa-triangle-exclamation"></i>
+                      This report is awaiting approval.
+                    </div>
+                    {% else %}
+                    <img src="{{ report.featured_image.url }}" class="scale" alt="{{ post.title }}">
+                    {% endif %}
+                  </div>
                 </div>
-                {% else %}
-                
-                
-                <img src="{{ report.featured_image.url }}" class="scale" alt="{{ post.title }}">
-                {% endif %}
-                
               </div>
             </div>
-          </div>
-        </div>
-       <div class="card-footer bg-transparent border-secondary">
-        
-        <h2>
-          {% if user.is_authenticated %}
-            <form class="d-inline" action="{% url 'like_report' report.slug %}" method="POST">
-            {% csrf_token %}
-            {% if liked %}
-            <button type="submit" name="report_id" value="{{report.slug}}" class="btn btn-link border-danger">
-                <h2>Unlike <i class="fa-regular fa-thumbs-down"></i></h2>
-              </button>
-              Likes: {{ report.likes_number }}
-              {% else %}
-              <button type="submit" name="report_id" value="{{report.slug}}" class="btn btn-link border-danger">
-                <h2>Like <i class="fa-regular fa-thumbs-up"></i></h2>
-              </button>
-              
-              Likes: {{ report.likes_number }}
-              {% endif %}{% endif %}                                        
-            </form></h2></div>
-                          
-        </div>
+            <div class="card-footer bg-transparent border-secondary">
+              <h2>
+                {% if user.is_authenticated %}
+                <form class="d-inline" action="{% url 'like_report' report.slug %}" method="POST">
+                  {% csrf_token %}
+                  {% if liked %}
+                  <button type="submit" name="report_id" value="{{report.slug}}" class="btn btn-link border-danger">
+                    <h2>
+                      Unlike&#32;<i class="fa-regular fa-thumbs-down"></i>
+                    </h2>
+                  </button>
+                  Likes:&#32;{{ report.likes_number }}
+                  {% else %}
+                  <button type="submit" name="report_id" value="{{report.slug}}" class="btn btn-link border-danger">
+                    <h2>
+                      Like&#32;<i class="fa-regular fa-thumbs-up"></i>
+                    </h2>
+                  </button>
+              Likes:&#32;{{ report.likes_number }}
+              {% endif %}
+              {% endif %}
+            </form>
+          </h2>
+        </div><!-- End card footer -->
       </div>
-    </div>
-  </div>
+    </div><!-- End card-body-->
+  </div><!-- End card -->
+
+</div><!-- End col -->
+  </div><!-- end row -->
 
   <!-- Next DIV row for comment display -->
-  <div class="row">
-
-    <!-- Comment count header -->
+  <div class="container-fluid mt-5 mb-5">
+    <div class="row">
     <div class="col-md-8">
+      
       <div class="card border-secondary mb-3 p-3">
+        
+        <!-- Comment count header -->
         <div class="card-header border-secondary">
-          <h3 class="card-title">Comments <i class="far fa-comments"></i></h3> ({{ comment_count }})
+          <h3 class="card-title">
+            Comments&#32;<i class="far fa-comments"></i>
+          </h3>
+          &#32;({{ comment_count }})
         </div>
 
         <!-- Main comments display -->
@@ -113,7 +131,6 @@
 
           <!-- For loop to display each comment in database -->
           {% for comment in comments %}
-
           <!--
             DIV class contains IF statement, 
             IF user is comment author and comment not approved
@@ -130,7 +147,6 @@
               {{ comment.created_on }}
             </div>
           </div>
-          
           <!-- 
             Displays message under comment using if statement.
             IF user is comment author and comment is not approved
@@ -181,7 +197,9 @@
           {% if user.is_authenticated %}
           
           <div class="card-header border-secondary">
-            <h3 class="card-title">Leave a comment <i class="far fa-comments"></i></h3>
+            <h3 class="card-title">
+              Leave a comment&#32;<i class="far fa-comments"></i>
+            </h3>
             <p>{{ user.username }}</p>
           </div>
 
@@ -202,7 +220,9 @@
             -->
             {% csrf_token %}
             
-            <button id="submitButton" type="submit" class="btn btn-secondary">Submit</button>
+            <button id="submitButton" type="submit" class="btn btn-secondary">
+              Submit
+            </button>
           
           </form>
 
@@ -221,21 +241,18 @@
       </div>
      <!-- close DIV col --> 
     </div>
-  <!-- close DIV row -->
-  </div>
-<!-- close DIV container -->
+
+  </div><!-- Close comment container -->
 </div>
+</div><!-- close DIV container -->
 
-<!--
-  Bootstrap modal used for delete comment confirmation.
--->
-
+<!-- Bootstrap modal used for delete comment confirmation. -->
 <div class="modal fade justify-content-center" id="deleteModal" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
-
       <div class="modal-header">
-        <h3 class="modal-title" id="deleteModalLabel">Delete comment?
+        <h3 class="modal-title" id="deleteModalLabel">
+          Delete comment?
           <button type="button" class="btn btn-link" data-bs-dismiss="modal" aria-label="Close">
             <i class="fa-solid fa-xmark"></i>
           </button>
@@ -243,7 +260,6 @@
       </div>
       
       <div class="modal-body">
-
         <br>
         
         <div class="alert alert-danger bg-transparent border-danger">
@@ -269,16 +285,14 @@
 <!-- End of Boostrap Modal -->
 
 
-<!--
-  Bootstrap modal used for delete comment confirmation.
--->
-
+<!-- Bootstrap modal used for delete report confirmation. -->
 <div class="modal fade justify-content-center" id="deleteReportModal" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
 
       <div class="modal-header">
-        <h3 class="modal-title" id="deleteModalLabel">Delete report?
+        <h3 class="modal-title" id="deleteModalLabel">
+          Delete report?
           <button type="button" class="btn btn-link" data-bs-dismiss="modal" aria-label="Close">
             <i class="fa-solid fa-xmark"></i>
           </button>
@@ -286,14 +300,13 @@
       </div>
       
       <div class="modal-body">
-
         <br>
         
         <div class="alert alert-danger bg-transparent border-danger">
           <i class="fa-solid fa-triangle-exclamation"></i>
           Are you sure you want to delete?
         </div>
-
+      
       </div>
       
       <br>
@@ -303,8 +316,9 @@
           Close
         </button>
         
-        <a id="deleteReportConfirm" href="#" class="btn btn-danger">Delete</a>
-      
+        <a id="deleteReportConfirm" href="#" class="btn btn-danger">
+          Delete
+        </a>
       </div>
     </div>
   </div>

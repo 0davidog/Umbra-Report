@@ -21,8 +21,12 @@ h1, h2, h3, h4, h5 {
 }
 
 a {
-    text-decoration: none;
     color: #800000;
+    text-decoration: none;
+}
+
+a:hover {
+    color:#008080;
 }
 
 header {
@@ -40,6 +44,12 @@ footer {
 
 .btn-link {
     color:#800000;
+    text-decoration: none;
+}
+
+.btn-link:hover {
+    color: #008080;
+    transform: scale(1.1);
 }
 
 .card-title {
@@ -47,8 +57,13 @@ footer {
     color: #800000;
 }
 
-.page-link {
+.report-link {
     background-color: none;
+    text-decoration: none;
+}
+
+.report-link:hover {
+    color: #008080;
 }
 
 .modal {
@@ -70,4 +85,8 @@ footer {
 
 #offcanvasNavbar {
     background-color: #000000;
+}
+
+#profile-image {
+    width: 100%;
 }
