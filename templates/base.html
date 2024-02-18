@@ -14,7 +14,11 @@
 
 <head>
     <title>The Umbra Report</title>
+    
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="A collection of weird tales and urban legends.">
+    <meta name="keywords" content="horror, story, writing, legends, creepypasta, weird, tales">
+    <link rel="icon" type="image/ico" href="{% static 'favicon/favicon.ico' %}">
 
     <!-- Google Fonts CSS -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -33,7 +37,7 @@
 
 </head>
 
-<!-- Using inline style tag to connect to background image using Django Templaye Language -->
+<!-- Using inline style tag to connect to background image using Django Template Language -->
 <body class="d-flex flex-column h-100" style="background-image: url('{% static '/images/spacial-cyan-bg.webp' %}');">
     <header>
         <!--
@@ -46,19 +50,19 @@
                 <div class="col-8 pt-1">
                     <a href="{% url 'home' %}">
                         <h1>
-                            THE UMBRA REPORT&#32;<i class="fa-solid fa-eye"></i>
+                            THE UMBRA REPORT&#32;<i class="fa-solid fa-eye d-none d-sm-inline"></i>
                         </h1>
                     </a>
                     <p>
                         A collection of weird tales and urban legends.<a href="{% url 'about' %}" class="btn btn-link">
-                            <i class="fa-solid fa-circle-info"></i>
+                            <i class="fa-solid fa-circle-info d-none d-sm-inline"></i>
                         </a>
                     </p>
                 </div>
                 <!-- Button to display offcanvas side-menu -->
                 <button class="btn btn-link align-self-start" id="navbar-button" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
                     <h1>
-                        <i class="fa-solid fa-bars"></i>
+                        <i class="fa-solid fa-bars" id="menu-btn"></i>
                     </h1>
                 </button>
                 <!-- offcanvas side-menu display -->
@@ -181,11 +185,13 @@
             </div>
             <div class="col">
                 Links:
-                <a href="https://github.com/0davidog" class="btn btn-link" target="_blank">
-                    <i class="fa-brands fa-github"></i>
+                <a href="https://github.com/0davidog" class="btn btn-link" target="_blank" rel="noopener"
+                aria-label="Check out my work on Github (opens in new tab)">
+                    <i class="fa-brands fa-github"></i>GitHub
                 </a>
-                <a href="https://www.linkedin.com/in/davidcharlesogara/" class="btn btn-link" target="_blank">
-                    <i class="fa-brands fa-linkedin"></i>
+                <a href="https://www.linkedin.com/in/davidcharlesogara/" class="btn btn-link" target="_blank" rel="noopener"
+                aria-label="Check out my profile on Linkedin (opens in new tab)">
+                    <i class="fa-brands fa-linkedin"></i>LinkedIn
                 </a>
             </div>
         </div>

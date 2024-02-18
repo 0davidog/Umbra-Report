@@ -6,8 +6,8 @@ body {
     font-style: normal;
     background-color: #008080;
     background-repeat: no-repeat;
+    background-attachment: fixed;
     background-position: center;
-    background-size: cover;
 
 }
 
@@ -58,7 +58,7 @@ footer {
 }
 
 .report-link {
-    background-color: none;
+    background-color:transparent;
     text-decoration: none;
 }
 
@@ -88,5 +88,13 @@ footer {
 }
 
 #profile-image {
+    width: 100%;
+}
+
+#menu-btn:hover {
+    color: #008080;
+}
+
+#umbra-logo {
     width: 100%;
 }

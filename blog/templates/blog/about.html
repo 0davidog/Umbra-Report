@@ -14,11 +14,7 @@
                     ELSE display uploaded image (via cloudinary)
                 -->
                 <div class="card-body justify-content-center">
-                {% if "placeholder" in about.profile_image.url %}
-                <img src="{% static 'images/umbra_report_logo.jpg' %}" width="100%" alt="Default logo" >
-                {% else %}
-                <img src="{{ about.profile_image.url }}" width="75%" alt="{{ about.title }}">
-                {% endif %}
+                <img src="{% static 'images/umbra_report_logo.jpg' %}" alt="Umbra Report Logo" id="umbra-logo">
             </div>
             </div>
         </div>
@@ -28,7 +24,7 @@
                     <i class="fa-solid fa-circle-info"></i> {{ about.title }}
                 </h2>
                 <p class="card-text">
-                    {{ about.content | safe }}
+                    {{ about.content | safe | linebreaks }}
                 </p>
                 <div class="card-footer border-secondary">
                     Written: {{ about.updated_on }}

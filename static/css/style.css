@@ -6,8 +6,8 @@ body {
     font-style: normal;
     background-color: #008080;
     background-repeat: no-repeat;
+    background-attachment: fixed;
     background-position: center;
-    background-size: cover;
 
 }
 
@@ -23,6 +23,10 @@ h1, h2, h3, h4, h5 {
 a {
     color: #800000;
     text-decoration: none;
+}
+
+a:hover {
+    color:#008080;
 }
 
 header {
@@ -43,14 +47,23 @@ footer {
     text-decoration: none;
 }
 
+.btn-link:hover {
+    color: #008080;
+    transform: scale(1.1);
+}
+
 .card-title {
     font-family: "Oswald", sans-serif;
     color: #800000;
 }
 
-.page-link {
-    background-color: none;
+.report-link {
+    background-color:transparent;
     text-decoration: none;
+}
+
+.report-link:hover {
+    color: #008080;
 }
 
 .modal {
@@ -72,4 +85,16 @@ footer {
 
 #offcanvasNavbar {
     background-color: #000000;
+}
+
+#profile-image {
+    width: 100%;
+}
+
+#menu-btn:hover {
+    color: #008080;
+}
+
+#umbra-logo {
+    width: 100%;
 }

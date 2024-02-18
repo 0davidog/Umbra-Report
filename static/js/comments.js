@@ -1,4 +1,3 @@
-console.log('hello');
 
 const editBtn = document.getElementsByClassName("edit-btn");
 const cancelEdit = document.getElementById("cancel-edit");
@@ -12,40 +11,46 @@ const deleteBtn = document.getElementsByClassName("delete-btn");
 const deleteConfirm = document.getElementById("deleteConfirm");
 
 /**
-* Initializes edit functionality for the provided edit buttons.
-* 
-* For each button in the `editButtons` collection:
-* - Retrieves the associated comment's ID upon click.
-* - Fetches the content of the corresponding comment.
-* - Populates the `commentText` input/textarea with the comment's content for editing.
-* - Updates the submit button's text to "Update".
-* - Sets the form's action attribute to the `edit_comment/{commentId}` endpoint.
+* Iterate over each edit button
+* Add click event listener to each edit button
+* Get the comment ID from the clicked button's attributes
+* Get the content of the comment corresponding to the clicked button
+* Set the value of the comment text input field to the content of the comment
+* Change the text of the submit button to "Update"
+* Set the action attribute of the comment form to the edit URL with the comment ID
 */
+
 for (let button of editBtn) {
-    button.addEventListener("click", (e) => {
+  
+  button.addEventListener("click", (e) => {
+      
       let commentId = e.target.getAttribute("comment_id");
       let commentContent = document.getElementById(`comment${commentId}`).innerText;
+      
       commentText.value = commentContent;
       submitButton.innerText = "Update";
       commentForm.setAttribute("action", `edit_comment/${commentId}`);
-    });
-  }
+  });
+}
+
 
 
 /**
-* Initializes deletion functionality for the provided delete buttons.
-* 
-* For each button in the `deleteButtons` collection:
-* - Retrieves the associated comment's ID upon click.
-* - Updates the `deleteConfirm` link's href to point to the 
-* deletion endpoint for the specific comment.
-* - Displays a confirmation modal (`deleteModal`) to prompt 
-* the user for confirmation before deletion.
+* Iterate over each delete button
+* Add click event listener to each delete button
+* Get the comment ID from the clicked button's attributes
+* Set the href attribute of the delete confirmation link to the delete URL with the comment ID
+* Show the delete confirmation modal
 */
+
 for (let button of deleteBtn) {
-    button.addEventListener("click", (e) => {
+  
+  button.addEventListener("click", (e) => {
+      
       let commentId = e.target.getAttribute("comment_id");
+      
       deleteConfirm.href = `delete_comment/${commentId}`;
+      
       deleteModal.show();
-    });
-  }
+  });
+}

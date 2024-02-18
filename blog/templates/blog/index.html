@@ -55,9 +55,9 @@
                     </a>
                   </h2>
                   
-                  <h4 id="confidential">
-                    - CONFIDENTIAL -
-                  </h4>
+                  <h3 id="confidential">
+                    <small>- CONFIDENTIAL -</small>
+                  </h3>
                   {% if not report.approved and report.author == user %}
                   <div class="alert alert-danger bg-transparent border-danger" role="alert">
                     <i class="fa-solid fa-triangle-exclamation"></i>
@@ -70,8 +70,8 @@
                   {% endif %}
                   <div class="card-footer bg-transparent border-secondary">
                     <a href="{% url 'user_profile' report.author %}" class="btn btn-link">
-                      {{ report.author }}
-                    </a>
+                      <i class="fa-regular fa-user"></i>{{ report.author }}
+                    </a><br class="d-sm-none">
                     {{ report.created_on }}
                     {% if user.is_authenticated and report.author == user %}
                     <a  class="btn btn-link" href="{% url 'edit_report' report.slug %}">
