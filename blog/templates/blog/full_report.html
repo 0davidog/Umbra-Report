@@ -29,10 +29,10 @@
                     This report is awaiting approval.
                   </div>
                   {% endif %}
-                  <article class="card-text">
+                  <section class="card-text">
                     {{ report.content | safe | linebreaks }}
-                  </article><hr>
-                  <p class="d-inline">
+                  </section><hr>
+                  <details class="d-inline">
                     Written by:&#32;
                     <h3>
                       <a href="{% url 'user_profile' report.author %}">
@@ -40,7 +40,7 @@
                       </a>
                     </h3>
                     Date written: {{ report.created_on }}
-                  </p>
+                  </details>
                   {% if user.is_authenticated and report.author == user %}
                   <div class="text-end">
                     <a class="btn btn-secondary edit-btn" href="{% url 'edit_report' report.slug %}">
@@ -59,7 +59,7 @@
                   ELSE display uploaded image (via cloudinary)
                 -->
                 {% if "placeholder" in report.featured_image.url %}
-                <div class="col-lg-5 card border-secondary d-none mb-3">
+                <figure class="col-lg-5 card border-secondary d-none mb-3">
                   {% else %}
                   <div class="col-lg-5 card border-secondary mb-3 pb-3">
                     {% endif %}
@@ -77,39 +77,35 @@
                     <img src="{{ report.featured_image.url }}" class="scale" alt="{{ post.title }}">
                     {% endif %}
                   </div>
-                </div>
+                </figure>
               </div>
             </div>
             <div class="card-footer bg-transparent border-secondary">
-              <h2>
-                {% if user.is_authenticated %}
-                <form class="d-inline" action="{% url 'like_report' report.slug %}" method="POST">
-                  {% csrf_token %}
-                  {% if liked %}
-                  <button type="submit" name="report_id" value="{{report.slug}}" class="btn btn-link border-danger">
-                    <h2>
-                      Unlike&#32;<i class="fa-regular fa-thumbs-down"></i>
-                    </h2>
-                  </button>
-                  Likes:&#32;{{ report.likes_number }}
-                  {% else %}
-                  <button type="submit" name="report_id" value="{{report.slug}}" class="btn btn-link border-danger">
-                    <h2>
-                      Like&#32;<i class="fa-regular fa-thumbs-up"></i>
-                    </h2>
-                  </button>
+              {% if user.is_authenticated %}
+              <form class="d-inline" action="{% url 'like_report' report.slug %}" method="POST">
+                {% csrf_token %}
+                {% if liked %}
+                <button type="submit" name="report_id" value="{{report.slug}}" class="btn btn-link border-danger">
+                  <h2>
+                    Unlike&#32;<i class="fa-regular fa-thumbs-down"></i>
+                  </h2>
+                </button>
+                Likes:&#32;{{ report.likes_number }}
+                {% else %}
+                <button type="submit" name="report_id" value="{{report.slug}}" class="btn btn-link border-danger">
+                  <h2>
+                    Like&#32;<i class="fa-regular fa-thumbs-up"></i>
+                  </h2>
+                </button>
               Likes:&#32;{{ report.likes_number }}
               {% endif %}
               {% endif %}
             </form>
-          </h2>
-        </div><!-- End card footer -->
+        </div>
       </div>
-    </div><!-- End card-body-->
-  </div><!-- End card -->
-
-</div><!-- End col -->
-  </div><!-- end row -->
+    </div>
+  </div>
+</div>
 
   <!-- Next DIV row for comment display -->
   <div class="container-fluid mt-5 mb-5">
@@ -232,19 +228,12 @@
             <i class="fa-solid fa-triangle-exclamation"></i>
             Log in to leave a comment!
           </div>
-          
           {% endif %}
-        
-        <!-- close card body -->
         </div>
-      <!-- close main card -->
       </div>
-     <!-- close DIV col --> 
     </div>
-
-  </div><!-- Close comment container -->
+  </div>
 </div>
-</div><!-- close DIV container -->
 
 <!-- Bootstrap modal used for delete comment confirmation. -->
 <div class="modal fade justify-content-center" id="deleteModal" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">
@@ -286,12 +275,12 @@
 
 
 <!-- Bootstrap modal used for delete report confirmation. -->
-<div class="modal fade justify-content-center" id="deleteReportModal" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">
+<div class="modal fade justify-content-center" id="deleteReportModal" tabindex="-1" aria-labelledby="deleteReportModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
 
       <div class="modal-header">
-        <h3 class="modal-title" id="deleteModalLabel">
+        <h3 class="modal-title" id="deleteReportModalLabel">
           Delete report?
           <button type="button" class="btn btn-link" data-bs-dismiss="modal" aria-label="Close">
             <i class="fa-solid fa-xmark"></i>
@@ -330,6 +319,6 @@
 
 <!-- Connect JS file to Base HTML -->
 {% block extras %}
-<script type="text/javascript" src="{% static 'js/comments.js' %}"></script>
-<script type="text/javascript" src="{% static 'js/delete_report.js' %}"></script>
+<script src="{% static 'js/comments.js' %}"></script>
+<script src="{% static 'js/delete_report.js' %}"></script>
 {% endblock %}

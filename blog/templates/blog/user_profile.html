@@ -15,17 +15,17 @@
             <div class="card border-secondary p-5">
                 <div class="card-header">
                     USER:<br>
-                    <h1 class="card-title">{{ username.0 }}</h1>
+                    <h2 class="card-title">{{ username.0 }}</h2>
                 </div>
                 <div class="card-body">
                     {% if username.0.is_superuser == True %}
-                    <h2 class="card-title">Status</h2>
+                    <h3 class="card-title">Status</h3>
                     <p>ADMIN</p>
                     {% else %}
-                    <h2 class="card-title">Status</h2>
+                    <h3 class="card-title">Status</h3>
                     <p>REPORTER</p>
                     {% endif %}
-                    <h2 class="card-title">Reports</h2>
+                    <h4 class="card-title">Reports</h4>
                     <ul>
                         {% for report in report_list %}
                         <li>
