@@ -32,7 +32,7 @@
                   <section class="card-text">
                     {{ report.content | safe | linebreaks }}
                   </section><hr>
-                  <details class="d-inline">
+                  <section class="d-inline">
                     Written by:&#32;
                     <h3>
                       <a href="{% url 'user_profile' report.author %}">
@@ -40,7 +40,7 @@
                       </a>
                     </h3>
                     Date written: {{ report.created_on }}
-                  </details>
+                  </section>
                   {% if user.is_authenticated and report.author == user %}
                   <div class="text-end">
                     <a class="btn btn-secondary edit-btn" href="{% url 'edit_report' report.slug %}">
