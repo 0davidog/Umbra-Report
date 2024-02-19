@@ -29,9 +29,9 @@
                     This report is awaiting approval.
                   </div>
                   {% endif %}
-                  <p class="card-text">
+                  <article class="card-text">
                     {{ report.content | safe | linebreaks }}
-                  </p><hr>
+                  </article><hr>
                   <p class="d-inline">
                     Written by:&#32;
                     <h3>
@@ -64,7 +64,7 @@
                   <div class="col-lg-5 card border-secondary mb-3 pb-3">
                     {% endif %}
                     <div class="card-header border-secondary">
-                      <h3>
+                      <h3 class="card-title">
                         Related Image
                       </h3>
                     </div>
@@ -166,8 +166,8 @@
           -->
           {% if user.is_authenticated and comment.author == user %}
           <div class="text-end">
-            <button class="btn btn-secondary edit-btn" comment_id="{{ comment.id }}">Edit</button>
-            <button class="btn btn-secondary delete-btn" comment_id="{{ comment.id }}">Delete</button>
+            <button class="btn btn-secondary edit-btn" data-comment_id="{{ comment.id }}">Edit</button>
+            <button class="btn btn-secondary delete-btn" data-comment_id="{{ comment.id }}">Delete</button>
           </div>
           {% endif %}
 

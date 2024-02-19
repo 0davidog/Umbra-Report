@@ -24,7 +24,7 @@ for (let button of editBtn) {
   
   button.addEventListener("click", (e) => {
       
-      let commentId = e.target.getAttribute("comment_id");
+      let commentId = e.target.getAttribute("data-comment_id");
       let commentContent = document.getElementById(`comment${commentId}`).innerText;
       
       commentText.value = commentContent;
@@ -47,7 +47,7 @@ for (let button of deleteBtn) {
   
   button.addEventListener("click", (e) => {
       
-      let commentId = e.target.getAttribute("comment_id");
+      let commentId = e.target.getAttribute("data-comment_id");
       
       deleteConfirm.href = `delete_comment/${commentId}`;
       

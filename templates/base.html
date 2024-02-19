@@ -15,7 +15,7 @@
 <head>
     <title>The Umbra Report</title>
     
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="A collection of weird tales and urban legends.">
     <meta name="keywords" content="horror, story, writing, legends, creepypasta, weird, tales">
     <link rel="icon" type="image/ico" href="{% static 'favicon/favicon.ico' %}">
@@ -61,20 +61,16 @@
                 </div>
                 <!-- Button to display offcanvas side-menu -->
                 <button class="btn btn-link align-self-start" id="navbar-button" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
-                    <h1>
-                        <i class="fa-solid fa-bars" id="menu-btn"></i>
-                    </h1>
+                    <i class="fa-solid fa-bars" id="menu-btn"></i>
                 </button>
                 <!-- offcanvas side-menu display -->
-                <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+                <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar">
                     <div class="offcanvas-header">
-                        <h3>
+                        <h3 class="card-title">
                             Navigation Menu
                         </h3>
                         <button type="button" class="btn btn-link" data-bs-dismiss="offcanvas" aria-label="Close">
-                            <h3>
-                                <i class="fa-solid fa-xmark"></i>
-                            </h3>
+                            <i class="fa-solid fa-xmark"></i>
                         </button>
                     </div>
                     <!--
@@ -88,19 +84,13 @@
                         <p class="text-end m-3 d-inline">
                             [Welcome,<a href="{% url 'user_profile' user %}" class="btn btn-link">
                                 {{ user }}
-                            </a>]
-                            <h3 class="d-inline">
-                                <a href="{% url 'user_profile' user %}" class="btn btn-link">
-                                    <i class="fa-regular fa-user"></i>
-                                </a>
-                            </h3>
+                            </a>] <a href="{% url 'user_profile' user %}" class="btn btn-link"><i class="fa-regular fa-user"></i></a>
+                            
                         </p>
                         {% else %}
                         <p class="text-end m-3 d-inline">
-                            [Not logged in.]
-                            <h3 class="d-inline">
-                                <i class="fa-regular fa-user"></i>
-                            </h3>
+                            [Not logged in.] <i class="fa-regular fa-user"></i>
+                            
                         </p>
                         {% endif %}
                     </div>
