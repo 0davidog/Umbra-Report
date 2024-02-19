@@ -23,9 +23,9 @@
                 <h2 class="card-title">
                     <i class="fa-solid fa-circle-info"></i> {{ about.title }}
                 </h2>
-                <article class="card-text">
+                <div class="card-text">
                     {{ about.content | safe | linebreaks }}
-                </article>
+                </div>
                 <div class="card-footer border-secondary">
                     Written: {{ about.updated_on }}
                 </div>

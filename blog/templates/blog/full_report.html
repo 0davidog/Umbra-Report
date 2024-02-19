@@ -5,34 +5,49 @@
 <!-- Main DIV container for blog post and comemnts -->
 <div class="container-fluid mt-5 mb-5">
 
-  <!-- Card DIV displays the full blog post from the Report model -->
+  <!-- DIV row displaying the full blog post from the Report model -->
   <div class="row">
+    
+    <!-- DIV col displaying Report object -->
     <div class="col">
+
+      <!-- Main card DIV for Report display -->
       <div class="card border-secondary mb-3">
+
         <div class="card-header bg-transparent border-secondary">
           <h2 class="card-title">
             {{ report.title }}
           </h2>
-        </div>
+        </div><!-- Close card-header DIV -->
+
         <div class="card-body">
 
           <div class="container-fluid">
+
             <div class="row">
+
               {% if "placeholder" in report.featured_image.url %}
               <div class="col-12">
+                
                 {% else %}
                 <div class="col-lg-7">
+
                   {% endif %}
+                  
                   {% if not report.approved and report.author == user %}
                   <div class="alert alert-danger bg-transparent border-danger" role="alert">
                     <i class="fa-solid fa-triangle-exclamation"></i>
                     This report is awaiting approval.
                   </div>
+                  
                   {% endif %}
-                  <section class="card-text">
+                  <div class="card-text">
                     {{ report.content | safe | linebreaks }}
-                  </section><hr>
-                  <section class="d-inline">
+                  </div>
+                  
+                  <hr>
+                  
+                  <div class="d-inline">
                     Written by:&#32;
                     <h3>
                       <a href="{% url 'user_profile' report.author %}">
@@ -40,7 +55,8 @@
                       </a>
                     </h3>
                     Date written: {{ report.created_on }}
-                  </section>
+                  </div>
+
                   {% if user.is_authenticated and report.author == user %}
                   <div class="text-end">
                     <a class="btn btn-secondary edit-btn" href="{% url 'edit_report' report.slug %}">
@@ -52,6 +68,7 @@
                   </div>
                   {% endif %}
                 </div>
+
                 <!--
                   Column to display related or default image using if statement
                   IF image set to placeholder
@@ -59,56 +76,80 @@
                   ELSE display uploaded image (via cloudinary)
                 -->
                 {% if "placeholder" in report.featured_image.url %}
-                <figure class="col-lg-5 card border-secondary d-none mb-3">
+                <div class="col-lg-5 card border-secondary d-none mb-3">
+                  
                   {% else %}
                   <div class="col-lg-5 card border-secondary mb-3 pb-3">
+                    
                     {% endif %}
                     <div class="card-header border-secondary">
                       <h3 class="card-title">
                         Related Image
                       </h3>
                     </div>
+
                     {% if not report.approved and report.author == user %}
                     <div class="alert alert-danger bg-transparent border-danger" role="alert">
                       <i class="fa-solid fa-triangle-exclamation"></i>
                       This report is awaiting approval.
                     </div>
+                    
                     {% else %}
                     <img src="{{ report.featured_image.url }}" class="scale" alt="{{ post.title }}">
+                    
                     {% endif %}
+                  
                   </div>
-                </figure>
-              </div>
-            </div>
+
+                </div><!-- Close DIV Column to display related or default image -->
+
+              </div><!-- Close DIV col -->
+
+            </div><!-- Close DIV row -->
+            
+            <!-- Comment Form DIV containing Comment Form-->
             <div class="card-footer bg-transparent border-secondary">
+
               {% if user.is_authenticated %}
+              <!-- Comment Form-->
               <form class="d-inline" action="{% url 'like_report' report.slug %}" method="POST">
+                
                 {% csrf_token %}
+                
                 {% if liked %}
                 <button type="submit" name="report_id" value="{{report.slug}}" class="btn btn-link border-danger">
                   <h2>
                     Unlike&#32;<i class="fa-regular fa-thumbs-down"></i>
                   </h2>
                 </button>
-                Likes:&#32;{{ report.likes_number }}
+                <h2 class="d-inline align-middle">Likes:&#32;{{ report.likes_number }}</h2>
+                
                 {% else %}
                 <button type="submit" name="report_id" value="{{report.slug}}" class="btn btn-link border-danger">
                   <h2>
                     Like&#32;<i class="fa-regular fa-thumbs-up"></i>
                   </h2>
                 </button>
-              Likes:&#32;{{ report.likes_number }}
-              {% endif %}
-              {% endif %}
-            </form>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
+                <h2 class="d-inline align-middle">Likes:&#32;{{ report.likes_number }}</h2>
+                
+                {% endif %}
+                
+                {% endif %}
 
-  <!-- Next DIV row for comment display -->
-  <div class="container-fluid mt-5 mb-5">
+              </form><!-- Close Comment Form-->
+
+            </div><!-- Close card-footer DIV containing Comment Form -->
+          
+          </div><!-- Close DIV container-->
+
+        </div><!-- Close card-body DIV -->
+
+      </div><!-- Close main card DIV for report display -->
+
+    </div><!-- Close DIV col displaying Report object -->
+
+    <!-- DIV container for comment display -->
+    <div class="container-fluid mt-5 mb-5">
     <div class="row">
     <div class="col-md-8">
       
@@ -224,16 +265,20 @@
 
           {% else %}
           
-          <div class="alert alert-danger bg-transparent border-danger" role="alert">
-            <i class="fa-solid fa-triangle-exclamation"></i>
-            Log in to leave a comment!
-          </div>
+              <div class="alert alert-danger bg-transparent border-danger" role="alert">
+                <i class="fa-solid fa-triangle-exclamation"></i>
+                Log in to leave a comment!
+              </div>
           {% endif %}
+            </div>
+          </div>
         </div>
       </div>
-    </div>
-  </div>
-</div>
+    </div><!-- Close DIV container for comment display -->
+  
+  </div><!-- Close DIV row displaying the full blog post from the Report model -->
+
+</div><!-- Close main DIV container for blog post and comments -->
 
 <!-- Bootstrap modal used for delete comment confirmation. -->
 <div class="modal fade justify-content-center" id="deleteModal" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">
@@ -270,8 +315,7 @@
       </div>
     </div>
   </div>
-</div>
-<!-- End of Boostrap Modal -->
+</div><!-- End of Boostrap Modal -->
 
 
 <!-- Bootstrap modal used for delete report confirmation. -->
@@ -311,8 +355,7 @@
       </div>
     </div>
   </div>
-</div>
-<!-- End of Boostrap Modal -->
+</div><!-- End of Boostrap Modal -->
 
 <!-- Return to Base HTML -->
 {% endblock content %}

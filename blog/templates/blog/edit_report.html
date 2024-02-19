@@ -4,14 +4,16 @@
 
 <div class="container-fluid">
     <div class="row justify-content-center">
-      <div class="col-md-6">
-        <div class="card border-secondary p-4 mb-5">
-            <div class="card-header border-secondary">
-                <h3 class="card-title">
-                    Edit Report
-                </h3>
-            </div>
-            <div class="card-body">
+        <div class="col-md-6">
+            <div class="card border-secondary p-4 mb-5">
+            
+                <div class="card-header border-secondary">
+                    <h3 class="card-title">
+                        Edit Report
+                    </h3>
+                </div>
+            
+                <div class="card-body">
                 <!-- Report creation form -->
                 {% if user.is_authenticated %}
                 <form id="reportForm" method="post" enctype="multipart/form-data">
