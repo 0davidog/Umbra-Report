@@ -16,8 +16,8 @@ for (let button of deleteReportBtn) {
 
   button.addEventListener("click", (e) => {
       
-      let reportId = e.target.getAttribute("report_id");
-      let slug = e.target.getAttribute("slug");
+      let reportId = e.target.getAttribute("data-report_id");
+      let slug = e.target.getAttribute("data-slug");
 
       if (slug === null) {
           deleteReportConfirm.href = `delete/${reportId}`;
