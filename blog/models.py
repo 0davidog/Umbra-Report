@@ -17,7 +17,7 @@ class Report(models.Model):
         author (User): The user who authored the report.
         featured_image (str): The URL of the featured image for the report.
         content (str): The main content/body of the report.
-        excerpt (str): A brief excerpt or summary of the report content.
+        description (str): A brief description or summary of the report content.
         status (int): The status of the report, chosen from predefined choices.
         created_on (datetime): The date and time when the report was created.
         updated_on (datetime): The date and time when the report was last updated.
@@ -38,7 +38,7 @@ class Report(models.Model):
     # One user can write many posts, so this is a one-to-many or Foreign Key. The cascade on delete means that on the deletion of the user entry, all their posts are also deleted.
     featured_image = CloudinaryField('Featured Image', default='placeholder')
     content = models.TextField()
-    excerpt = models.TextField(blank=True)
+    description = models.TextField(blank=True)
     status = models.IntegerField(choices=STATUS, default=1)
     created_on = models.DateTimeField(auto_now_add=True)
     updated_on = models.DateTimeField(auto_now=True)

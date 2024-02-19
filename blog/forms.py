@@ -21,10 +21,11 @@ class ReportForm(forms.ModelForm):
     """
     class Meta:
         model = Report
-        fields = ('title', 'content', 'status', 'featured_image')
+        fields = ('title', 'description', 'content', 'status', 'featured_image')
         labels = {
             "title": "Report Title:",
+            "description": "A brief description:",
             "content": "Enter your report here:",
-            "status": "Is this a draft?",
+            "status": "Choose Published or Draft:",
             "featured_image": "Upload an image:",
         }
