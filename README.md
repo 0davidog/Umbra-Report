@@ -98,6 +98,8 @@ The target audience for this project are enthusiasts of horror stories, urban le
 
 ## Wireframes
 
+Wireframes were created to plan the basic layout of the App.
+
 ![PP4_Wireframes_01](https://github.com/0davidog/Umbra-Report/assets/135815736/01047aec-8884-4768-b21e-991df04f8d91)
 ![PP4_Wireframes_02](https://github.com/0davidog/Umbra-Report/assets/135815736/b7131a71-138d-44db-a649-87d15354c754)
 
@@ -204,36 +206,95 @@ A few notes on relevant fields.
 
 ### Thematic and visual inspiration
 
+The theme was inspired by the game Control by Remedy Entertainment.
+
 ![IMG_0146](https://github.com/0davidog/Umbra-Report/assets/135815736/33505342-6923-4945-bbbc-5f43e15279c6)
+
+The visual design was also inspired by this.
+
 ![IMG_0142](https://github.com/0davidog/Umbra-Report/assets/135815736/9fc87002-e9f3-452f-81a7-5026fc683c13)
-![IMG_0143](https://github.com/0davidog/Umbra-Report/assets/135815736/2507898e-d636-4288-aed4-1533b3595bfe)
 
 ### Colors
 
 ![Umbra_Report_Palette](https://github.com/0davidog/Umbra-Report/assets/135815736/e969c1b4-47f5-49fc-a7a0-d7bc0939ac29)
 
+- #ffffff Main body text is white allowing the text to stand out in contrast to the darker shades of the background colour.
+- #800000 Dark red is used to highlight headlines, hyperlinks and important information such as warnings.
+- #008080 Cyan is used as both a body background colour when the background image fails and as hover colour for anchor tags. 
+- #000000 Black is used as a background shade to contrast the white, red, grey and cyan used throughout.
+- #808080 Grey is used as a background to some buttons.
+
 ### Typography
 
-Oswald https://fonts.google.com/specimen/Oswald?query=oswal
-Courier Prime https://fonts.google.com/specimen/Courier+Prime
+- Oswald via [google-fonts](https://fonts.google.com/specimen/Oswald?query=oswal)
+- Courier Prime via [google-fonts](https://fonts.google.com/specimen/Courier+Prime)
 
 ![PP4_fonts](https://github.com/0davidog/Umbra-Report/assets/135815736/de643af3-015d-46c6-9890-801da9e8ff59)
 
+Oswald and Courier Prime were chosen to provide an appealing contrast between headings in Oswald and main body text in Courier. Courier in particular was chosen as it resembles a typewriter written document and suited the blog's themes of observation and reports.
+
 ### Images
+
+A logo for the site, featured on the About page was created. This represents the sites themes of observation and collaboration.
+
+![umbra-logo](https://github.com/0davidog/Umbra-Report/assets/135815736/63f9f201-93e4-4daf-bda8-b0522240f240)
+
+A background image was created for the site's main body. This represents the sites theme of the unkown and the unusual through it's abstract and distorted appearance.
 
 ![SpacialCyanBG](https://github.com/0davidog/Umbra-Report/assets/135815736/12d0feca-51eb-4efc-8769-508946dcb991)
 
+A user-image was created. This is a textured edit of a standard blank user image used to represent an annonymous reporter.
+
+![blank_face](https://github.com/0davidog/Umbra-Report/assets/135815736/b75e0c0f-457d-4ada-97a7-6a8ced3d20a6)
+
 ### Design Elements
+
+#### Icons
+
+Icons are sourced from fontawesome.
+
 ### Animations and Transitions
+
+Hover state.
+
 ### Frameworks
+
+Boostrap
+
 ### Custom Styles
+
+css
+
 ### Custom Javascript
 
+edit delete js
+
 ## Features
+
 ### Implemented Features
+
+#### Navigation
+#### Create Report
+#### Read Report List
+#### Read Full Report Detail
+#### Edit Report
+#### Delete Report
+#### Likes
+#### Create Comments
+#### Read Comments
+#### Edit Comments
+#### Delete Comments
+#### Account Register
+#### Account Log-in/out
+#### About Page
+#### User Page
+
 ### Future Features
         
 ## Testing
+
+Please refer to this seperate testing document for a manual test rundown.
+
 ### Manual Testing
 ### Compatibility and Responsive Testing
 ### Accessibility Testing
@@ -253,7 +314,14 @@ Courier Prime https://fonts.google.com/specimen/Courier+Prime
 ### Outstanding Defects
   
 ## Technologies Used
+
 ### Languages
+
+- HTML
+- CSS
+- Javascript
+- Python
+
 ### Frameworks, Libraries & Programs Used
   
 ## Deployment
