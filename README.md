@@ -75,8 +75,9 @@ Each story links to its place on Github where you can view:
 
 **Epic: Additional information** 
 
-- [As a Site User, I can click on the About link so that I can read about the site.](https://github.com/0davidog/Umbra-Report/issues/20) 
-- [As a Site Admin, I can create or update the about page content so that it is available on the site.](https://github.com/0davidog/Umbra-Report/issues/21) 
+- [As a Site User, I can click on the About link so that I can read about the site.](https://github.com/0davidog/Umbra-Report/issues/20)
+- [As a Site Admin, I can create or update the about page content so that it is available on the site.](https://github.com/0davidog/Umbra-Report/issues/21)
+- [As a Site User, I can click on a username link so that I can read about the user and see their posts.](https://github.com/0davidog/Umbra-Report/issues/22)
 
 ### Project Backlog
 
