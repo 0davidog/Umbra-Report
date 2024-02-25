@@ -1,3 +1,5 @@
+![Screenshot 2024-02-25 at 11-33-51 The Umbra Report](https://github.com/0davidog/Umbra-Report/assets/135815736/33cf76e6-e33a-48e0-bca7-6d829c4f0984)
+
 # The Umbra Report
 
 - The Umbra Report is a blog dedicated to strange and unusual stories.
