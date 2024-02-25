@@ -114,7 +114,7 @@ The diagram displayed here shows the relationship between the database models us
 - The Comment model links to the Report model as post (the subject of the comment) and the User model as author.
 - The About model links to the User model as author. 
 
-![Umbra-ERD](https://github.com/0davidog/Umbra-Report/assets/135815736/d6636ba7-9bb4-462f-8831-4f2ca536ca23)
+![Umbra_ERD](https://github.com/0davidog/Umbra-Report/assets/135815736/2ad38ae1-32e0-4682-909d-8cdc3914e12c)
 
 ### Database Choice
 
@@ -125,7 +125,7 @@ This is chosen as the project requires a relational database for interactivity b
 
 #### Report Model
 
-![model-report](https://github.com/0davidog/Umbra-Report/assets/135815736/695937fe-f8d4-42ed-b246-6af74d11f66e)
+![model-report](https://github.com/0davidog/Umbra-Report/assets/135815736/d346faa8-c3ea-42f6-b05a-7274168ef7f3)
 
 The custom Report model is the model that acts as the site's blog post.
 
@@ -137,7 +137,7 @@ The custom Report model is the model that acts as the site's blog post.
 |author|ForeignKey|The is the author of the report linked to and represented by the User model.|On deletetion of linked User model post will also be deleted. Realted name is 'blog_posts'.|
 |featured_image|CloudinaryField|This field allows the user to upload an optional image as supporting content for the report and is done so by linking to the hosting service Cloudinary.|By default this field is set to 'placeholder' (as a string).|
 |content|TextField|This is the reports main text content.||
-|description|TextField|This field is for a description, tagline or excerpt of the main text to be seen as a preview in the blog's index page.|This can be left blank by the user, in which case the site Admin can fill with appropriate information while reviewing.|
+|description|CharField|This field is for a description, tagline or excerpt of the main text to be seen as a preview in the blog's index page.|This can be left blank by the user, in which case the site Admin can fill with appropriate information while reviewing. Max character length is 500.|
 |status|IntegerField|This field uses a binary system (1 or 0) to represent whether the report is in draft or published status.|Set to 'published' by default.|
 |created_on|DateTimeField|This field states the date and time the instance of report was created.|Automatically generated once when instance is created through 'auto_now_add'.|
 |updated_on|DateTimeField|This field states the date and time the instance of report was last updated on.|Automatically generated each time the instance is updated via 'auto_now'.|
@@ -274,20 +274,62 @@ edit delete js
 ### Implemented Features
 
 #### Navigation
+
+![Screenshot 2024-02-25 at 10-46-13 The Umbra Report](https://github.com/0davidog/Umbra-Report/assets/135815736/bf5171f6-6b0a-43de-b15b-106aa68f63e1)
+![Screenshot 2024-02-25 at 10-46-27 The Umbra Report](https://github.com/0davidog/Umbra-Report/assets/135815736/5ec380d9-3d50-4454-9fc9-fcb820a7c78f)
+
 #### Create Report
+
+![Screenshot 2024-02-25 at 11-05-21 The Umbra Report](https://github.com/0davidog/Umbra-Report/assets/135815736/a376f63e-5354-4587-974a-83b16dc5115a)
+![Screenshot 2024-02-25 at 10-48-39 The Umbra Report](https://github.com/0davidog/Umbra-Report/assets/135815736/168d8f6b-331e-4191-abe0-0354351a2ae3)
+![Screenshot 2024-02-25 at 11-00-02 The Umbra Report](https://github.com/0davidog/Umbra-Report/assets/135815736/13c619da-205b-41c0-ab50-3212cf7dbd0b)
+
 #### Read Report List
+
+![Screenshot 2024-02-25 at 11-08-57 The Umbra Report](https://github.com/0davidog/Umbra-Report/assets/135815736/0f8f0dd6-6c63-4b76-a1f6-de6ed5905777)
+![Screenshot 2024-02-25 at 11-10-17 The Umbra Report](https://github.com/0davidog/Umbra-Report/assets/135815736/8672b36d-0164-4956-a193-f55552b21c86)
+
 #### Read Full Report Detail
+
+![Screenshot 2024-02-25 at 11-13-31 The Umbra Report](https://github.com/0davidog/Umbra-Report/assets/135815736/dae33a24-03e2-45a1-b773-8d68f1b61293)
+
 #### Edit Report
+
+![Screenshot 2024-02-25 at 11-17-28 The Umbra Report](https://github.com/0davidog/Umbra-Report/assets/135815736/c03c1f5a-6d7c-4c71-bcc0-2a66e5f855fb)
+
+
 #### Delete Report
+
+![Screenshot 2024-02-25 at 11-17-28 The Umbra Report](https://github.com/0davidog/Umbra-Report/assets/135815736/c03c1f5a-6d7c-4c71-bcc0-2a66e5f855fb)
+
 #### Likes
+
+![Screenshot 2024-02-25 at 11-18-38 The Umbra Report](https://github.com/0davidog/Umbra-Report/assets/135815736/333698c6-9821-453d-8e2b-a2f1008e061a)
+
 #### Create Comments
+
+![Screenshot 2024-02-25 at 11-19-32 The Umbra Report](https://github.com/0davidog/Umbra-Report/assets/135815736/9c7c9b28-c9c1-412a-bb62-5e6a29f96455)
+
 #### Read Comments
 #### Edit Comments
 #### Delete Comments
+
 #### Account Register
+
+![Screenshot 2024-02-25 at 11-20-29 The Umbra Report](https://github.com/0davidog/Umbra-Report/assets/135815736/7ef8426d-6cbf-4318-afc4-4b6e2a30a44b)
+
 #### Account Log-in/out
+
+![Screenshot 2024-02-25 at 11-21-22 The Umbra Report](https://github.com/0davidog/Umbra-Report/assets/135815736/15df1a17-9336-46b6-8f3c-4f57fb9974ce)
+![Screenshot 2024-02-25 at 11-20-46 The Umbra Report](https://github.com/0davidog/Umbra-Report/assets/135815736/10cbdc37-ee37-4492-9004-8a5eb9518b31)
+
 #### About Page
+
+![Screenshot 2024-02-25 at 11-22-28 The Umbra Report](https://github.com/0davidog/Umbra-Report/assets/135815736/bad8b923-91cd-43a6-8775-08901a2673b9)
+
 #### User Page
+
+![Screenshot 2024-02-25 at 11-23-07 The Umbra Report](https://github.com/0davidog/Umbra-Report/assets/135815736/d54496a5-d3f1-4c40-97dd-55fac1fef080)
 
 ### Future Features
         
