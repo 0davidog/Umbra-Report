@@ -66,7 +66,7 @@ class Report(models.Model):
         default='placeholder'
     )
     content = models.TextField()
-    description = models.TextField(blank=True)
+    description = models.CharField(max_length=500, blank=True)
     status = models.IntegerField(choices=STATUS, default=1)
     created_on = models.DateTimeField(auto_now_add=True)
     updated_on = models.DateTimeField(auto_now=True)
