@@ -29,7 +29,7 @@ class ReportList(generic.ListView):
         of views for displaying lists of objects.
 
     """
-    queryset = Report.objects.filter(status=1)
+    queryset = Report.objects.filter(status=1).order_by('-approved', '-updated_on')
     template_name = "blog/index.html"
     paginate_by = 6
 
