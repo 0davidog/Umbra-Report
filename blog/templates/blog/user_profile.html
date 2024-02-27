@@ -28,14 +28,26 @@
                     <h4 class="card-title">Reports</h4>
                     <ul>
                         {% for report in report_list %}
+                        {% if report.status == 1 %}
                         <li>
                             <h3>
                                 <a href="{% url 'full_report' report.slug %}" class="post-link">
                                     {{ report.title }}
                                 </a>
-                            </h3> 
+                            </h3>
                             {{ report.created_on }}
                         </li>
+                        {% elif report.status == 0 and report.author == user %}
+                        <li>
+                            <h3>
+                                <a href="{% url 'full_report' report.slug %}" class="post-link">
+                                    {{ report.title }}
+                                </a>
+                            </h3>
+                            <em>(DRAFT)</em>
+                            {{ report.created_on }}
+                        </li>
+                        {% endif %}
                         {% endfor %}
                     </ul>
                 </div>
