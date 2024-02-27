@@ -28,7 +28,7 @@
         -->
         {% if report.approved %}
         <div class="col-md-4">
-          {% elif not report.approved and report.author == user %}
+          {% elif not report.approved and report.author == user or user.is_staff == True %}
           <div class="col-md-4">
             {% else %}
             <div class="col-md-4 d-none">
@@ -63,6 +63,13 @@
                     <i class="fa-solid fa-triangle-exclamation"></i>
                     This report is awaiting approval.
                   </div>
+                  {% elif not report.approved and user.is_staff == True %}
+                  <div class="alert alert-danger bg-transparent border-danger" role="alert">
+                    <i class="fa-solid fa-triangle-exclamation"></i>
+                    This report is awaiting approval.
+                  </div>
+
+
                   {% else %}
                   <p class="card-text">
                     {{ report.description }}

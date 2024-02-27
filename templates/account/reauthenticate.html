@@ -5,8 +5,11 @@
 {% block head_title %}{% trans "Confirm Access" %}{% endblock head_title %}
 
 {% block content %}
-
-<h1>{% trans "Confirm Access" %}</h1>
+<div class="container-fluid">
+  <div class="row justify-content-center">
+    <div class="col-md-auto">
+      <div class="card border-secondary p-5">
+<h1 class="card-title">{% trans "Confirm Access" %}</h1>
 
 <p>{% blocktranslate %}To safeguard the security of your account, please enter your password:{% endblocktranslate %}</p>
 
@@ -18,5 +21,5 @@
   {% endif %}
   <button type="submit">{% trans "Confirm" %}</button>
 </form>
-
+</div></div></div></div>
 {% endblock content %}

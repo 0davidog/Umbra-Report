@@ -300,7 +300,9 @@ def edit_report(request, slug):
         if report_form.is_valid():
             report = report_form.save(commit=False)
             report.author = request.user
-            report.featured_image = request.FILES.get('featured_image')
+            if request.FILES.get('featured_image'):  # Check if featured_image is not None
+                report.featured_image = request.FILES.get('featured_image')
+            report.approved = False
             report.save()
             messages.success(request, 'Report submitted and awaiting approval')
             return redirect(
@@ -429,3 +431,17 @@ class Page404(TemplateView):
     Displays custom 404 page.
     """
     template_name = '404.html'
+
+
+class Page500(TemplateView):
+    """
+    Displays custom 500 page.
+    """
+    template_name = '500.html'
+
+
+class Page403(TemplateView):
+    """
+    Displays custom 403 page.
+    """
+    template_name = '403.html'
