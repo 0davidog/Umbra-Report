@@ -59,11 +59,17 @@
                     <small>- CONFIDENTIAL -</small>
                   </h3>
                   {% if not report.approved and report.author == user %}
+                  <p class="card-text">
+                    {{ report.description }}
+                  </p>
                   <div class="alert alert-danger bg-transparent border-danger" role="alert">
                     <i class="fa-solid fa-triangle-exclamation"></i>
                     This report is awaiting approval.
                   </div>
                   {% elif not report.approved and user.is_staff == True %}
+                  <p class="card-text">
+                    {{ report.description }}
+                  </p>
                   <div class="alert alert-danger bg-transparent border-danger" role="alert">
                     <i class="fa-solid fa-triangle-exclamation"></i>
                     This report is awaiting approval.
@@ -79,7 +85,7 @@
                     <a href="{% url 'user_profile' report.author %}" class="btn btn-link">
                       <i class="fa-regular fa-user"></i>{{ report.author }}
                     </a><br class="d-sm-none">
-                    {{ report.created_on }}
+                    <small>{{ report.created_on }}</small><br>
                     {% if user.is_authenticated and report.author == user %}
                     <a  class="btn btn-link" href="{% url 'edit_report' report.slug %}">
                       Edit

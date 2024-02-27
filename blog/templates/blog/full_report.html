@@ -58,7 +58,7 @@
                   </div>
 
                   {% if user.is_authenticated and report.author == user %}
-                  <div class="text-end">
+                  <div class="text-end mt-5 mb-5">
                     <a class="btn btn-secondary edit-btn" href="{% url 'edit_report' report.slug %}">
                       Edit
                     </a>
@@ -76,7 +76,7 @@
                   ELSE display uploaded image (via cloudinary)
                 -->
                 {% if "placeholder" in report.featured_image.url %}
-                <div class="col-lg-5 card border-secondary d-none mb-3">
+                <div class="col-lg-5 card border-secondary d-none mb-3 mt-3">
                   
                   {% else %}
                   <div class="col-lg-5 card border-secondary mb-3 pb-3">
@@ -93,7 +93,7 @@
                       <i class="fa-solid fa-triangle-exclamation"></i>
                       This report is awaiting approval.
                     </div>
-                    
+                    <img src="{{ report.featured_image.url }}" class="scale" alt="{{ post.title }}">
                     {% else %}
                     <img src="{{ report.featured_image.url }}" class="scale" alt="{{ post.title }}">
                     
