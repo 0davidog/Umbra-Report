@@ -52,7 +52,7 @@ def full_report(request, slug):
     """
     # Retrieve the report object based on the provided slug,
     # or return a 404 error if not found
-    queryset = Report.objects.filter(status=1)
+    queryset = Report.objects.all()
     report = get_object_or_404(queryset, slug=slug)
 
     # Retrieve all comments associated with the report,
