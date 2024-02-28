@@ -1,4 +1,6 @@
-const deleteReportModal = new bootstrap.Modal(document.getElementById("deleteReportModal"));
+/*jshint esversion: 6 */ 
+
+const deleteReportModal = document.getElementById("deleteReportModal");
 const deleteReportBtn = document.getElementsByClassName("delete-report-btn");
 const deleteReportConfirm = document.getElementById("deleteReportConfirm");
 
