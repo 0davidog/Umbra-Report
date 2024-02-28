@@ -53,6 +53,10 @@ footer {
     color: #800000;
 }
 
+.card-img-top {
+    width: 100%;
+}
+
 .report-link {
     background-color:transparent;
     text-decoration: none;

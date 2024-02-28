@@ -2,7 +2,7 @@
 {% load static %}
 {% load crispy_forms_tags %}
 
-<!-- Main DIV container for blog post and comemnts -->
+<!-- Main DIV container for blog post and comments -->
 <div class="container-fluid mt-5 mb-5">
 
   <!-- DIV row displaying the full blog post from the Report model -->
@@ -117,19 +117,20 @@
                 {% csrf_token %}
                 
                 {% if liked %}
+                <h2>
                 <button type="submit" name="report_id" value="{{report.slug}}" class="btn btn-link border-danger">
-                  <h2>
+                  
                     Unlike&#32;<i class="fa-regular fa-thumbs-down"></i>
-                  </h2>
-                </button>
+                  
+                </button></h2>
                 <h2 class="d-inline align-middle">Likes:&#32;{{ report.likes_number }}</h2>
                 
                 {% else %}
-                <button type="submit" name="report_id" value="{{report.slug}}" class="btn btn-link border-danger">
-                  <h2>
+                <h2><button type="submit" name="report_id" value="{{report.slug}}" class="btn btn-link border-danger">
+                  
                     Like&#32;<i class="fa-regular fa-thumbs-up"></i>
-                  </h2>
-                </button>
+                  
+                </button></h2>
                 <h2 class="d-inline align-middle">Likes:&#32;{{ report.likes_number }}</h2>
                 
                 {% endif %}
@@ -277,8 +278,6 @@
     </div><!-- Close DIV container for comment display -->
   
   </div><!-- Close DIV row displaying the full blog post from the Report model -->
-
-</div><!-- Close main DIV container for blog post and comments -->
 
 <!-- Bootstrap modal used for delete comment confirmation. -->
 <div class="modal fade justify-content-center" id="deleteModal" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">
