@@ -66,6 +66,11 @@ footer {
     color: #008080;
 }
 
+.like-btn {
+    font-family: "Oswald", sans-serif;
+    font-size: 1.5rem;
+}
+
 .modal {
     background-color:rgba(0, 0, 0, 0.7);
 }

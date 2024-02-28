@@ -117,20 +117,20 @@
                 {% csrf_token %}
                 
                 {% if liked %}
-                <h2>
-                <button type="submit" name="report_id" value="{{report.slug}}" class="btn btn-link border-danger">
+                
+                <button type="submit" name="report_id" value="{{report.slug}}" class="btn btn-link border-danger like-btn">
                   
                     Unlike&#32;<i class="fa-regular fa-thumbs-down"></i>
                   
-                </button></h2>
+                </button>
                 <h2 class="d-inline align-middle">Likes:&#32;{{ report.likes_number }}</h2>
                 
                 {% else %}
-                <h2><button type="submit" name="report_id" value="{{report.slug}}" class="btn btn-link border-danger">
+                <button type="submit" name="report_id" value="{{report.slug}}" class="btn btn-link border-danger like-btn">
                   
                     Like&#32;<i class="fa-regular fa-thumbs-up"></i>
                   
-                </button></h2>
+                </button>
                 <h2 class="d-inline align-middle">Likes:&#32;{{ report.likes_number }}</h2>
                 
                 {% endif %}
@@ -277,7 +277,7 @@
       </div>
     </div><!-- Close DIV container for comment display -->
   
-  </div><!-- Close DIV row displaying the full blog post from the Report model -->
+
 
 <!-- Bootstrap modal used for delete comment confirmation. -->
 <div class="modal fade justify-content-center" id="deleteModal" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">
@@ -355,6 +355,7 @@
     </div>
   </div>
 </div><!-- End of Boostrap Modal -->
+
 
 <!-- Return to Base HTML -->
 {% endblock content %}
