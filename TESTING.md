@@ -1,5 +1,7 @@
 # Umbra Report Project Test File
+
 ## Contents
+
 ## Manual Testing
 
 Manual testing was done for each completed user story and screenshots added to the comments on each issue page.
@@ -29,11 +31,27 @@ Manual testing was done for each completed user story and screenshots added to t
 
 
 ## Compatibility and Responsive Testing
+
+https://www.browserstack.com/github-students
+
 ## Accessibility Testing
+
 ### Accessibility Audits
+
+Lighthouse
+https://wave.webaim.org/
+
 ### Keyboard Navigation
+
+https://webaim.org/techniques/keyboard/#testing
+
 ### Chrome Vox Reader
+
+https://chromewebstore.google.com/detail/screen-reader/kgejglhpjiefppelpmljglcjbhoiplfn?hl=en
+
 ## Core Web Vitals
+
+https://pagespeed.web.dev/
 
 ## Validation Testing
 
@@ -89,6 +107,11 @@ Manual testing was done for each completed user story and screenshots added to t
 |blog/views.py|No errors found.|[Screen](https://github.com/0davidog/Umbra-Report/assets/135815736/a2543ba0-da00-4fc9-a5af-9bbbf94ceb88)|
 
 ## Automated Testing
+
 ## Defects
+
 ## Defects of Note
+
 ## Outstanding Defects
+
+No known defects outstanding.
