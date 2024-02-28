@@ -48,13 +48,17 @@ footer {
     transform: scale(1.1);
 }
 
+.card-header {
+    overflow: hidden;
+}
+
 .card-title {
     font-family: "Oswald", sans-serif;
     color: #800000;
 }
 
 .card-img-top {
-    width: 100%;
+    width: 500px;
 }
 
 .report-link {

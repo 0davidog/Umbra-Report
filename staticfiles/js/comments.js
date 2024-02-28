@@ -1,6 +1,6 @@
+/*jshint esversion: 6 */ 
 
 const editBtn = document.getElementsByClassName("edit-btn");
-const cancelEdit = document.getElementById("cancel-edit");
 
 const commentText = document.getElementById("id_content");
 const commentForm = document.getElementById("commentForm");

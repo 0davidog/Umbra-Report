@@ -27,11 +27,11 @@
           IF report not approved and author is not user THEN hide. 
         -->
         {% if report.approved %}
-        <div class="col-md-4">
+        <div class="col-sm-6 col-xl-4">
           {% elif not report.approved and report.author == user or user.is_staff == True %}
-          <div class="col-md-4">
+          <div class="col-sm-6 col-xl-4">
             {% else %}
-            <div class="col-md-4 d-none">
+            <div class="col-sm-6 col-xl-4 d-none">
               {% endif %}
               <!-- Displaying Report model entries in boostrap card style -->
               <div class="card border-secondary mb-3">         
@@ -41,11 +41,11 @@
                   THEN display default image from static
                   ELSE display uploaded image.
                 -->
-                <div class="card-header bg-transparent border-secondary" style="overflow: hidden;">
+                <div class="card-header bg-transparent border-secondary d-flex justify-content-center">
                   {% if "placeholder" in report.featured_image.url %}
                   <img class="card-img-top" src="{% static 'images/default.jpg' %}" alt="placeholder image">
                   {% else %}
-                  <img class="card-img-top" src=" {{ report.featured_image.url }}" alt="{{ report.title }}">
+                  <img class="card-img-top rounded d-block" src=" {{ report.featured_image.url }}" alt="{{ report.title }}">
                   {% endif %}
                 </div>
                 <div class="card-body">
@@ -84,7 +84,7 @@
                   <div class="card-footer bg-transparent border-secondary">
                     <a href="{% url 'user_profile' report.author %}" class="btn btn-link">
                       <i class="fa-regular fa-user"></i>{{ report.author }}
-                    </a><br class="d-sm-none">
+                    </a><br class="d-lg-none">
                     <small>{{ report.created_on }}</small><br>
                     {% if user.is_authenticated and report.author == user %}
                     <a  class="btn btn-link" href="{% url 'edit_report' report.slug %}">
