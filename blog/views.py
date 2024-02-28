@@ -29,7 +29,10 @@ class ReportList(generic.ListView):
         of views for displaying lists of objects.
 
     """
-    queryset = Report.objects.filter(status=1).order_by('-approved', '-updated_on')
+    queryset = Report.objects.filter(status=1).order_by(
+        '-approved',
+        '-updated_on'
+    )
     template_name = "blog/index.html"
     paginate_by = 6
 
@@ -300,7 +303,9 @@ def edit_report(request, slug):
         if report_form.is_valid():
             report = report_form.save(commit=False)
             report.author = request.user
-            if request.FILES.get('featured_image'):  # Check if featured_image is not None
+            if request.FILES.get(
+                'featured_image'
+            ):  # Check if featured_image is not None
                 report.featured_image = request.FILES.get('featured_image')
             report.approved = False
             report.save()
