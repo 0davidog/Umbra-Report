@@ -1,6 +1,33 @@
 # Umbra Report Project Test File
 ## Contents
 ## Manual Testing
+
+Manual testing was done for each completed user story and screenshots added to the comments on each issue page.
+
+|User Story|Results|Detail|
+|----------|-------|-------------|
+|As a Site User, I want to register an account on the blog website so that I can create and manage my own posts.|Good.|[link](https://github.com/0davidog/Umbra-Report/issues/1)|
+|As a Site User, I want to log in to the website securely using my credentials so that I can participate in the blog’s features.|Good.|[link](https://github.com/0davidog/Umbra-Report/issues/2)|
+|As a Site user, I want the option to reset my password in case I forget it, ensuring secure access to my account.|Good.|[link](https://github.com/0davidog/Umbra-Report/issues/3)|
+|As a Site User, I want to create a new blog post with a title, content, and optional images, so that I can share my thoughts and experiences.|Good.|[link](https://github.com/0davidog/Umbra-Report/issues/4)|
+|As a Site User, I want the ability to update my existing blog posts to update or improve the content over time.|Good.|[link](https://github.com/0davidog/Umbra-Report/issues/5)|
+|As a Site User, I want to be able to delete my own blog posts if I decide to remove them from the website.|Good.|[link](https://github.com/0davidog/Umbra-Report/issues/6)|
+|As a Site User or Admin, I can create draft posts so that I can finish writing the content later.|Good.|[link](https://github.com/0davidog/Umbra-Report/issues/7)|
+|As a Site Admin I can manage all blog posts through the admin panel to maintain control over the site’s content.|Good.|[link](https://github.com/0davidog/Umbra-Report/issues/8)|
+|As a Site User I can view a paginated list of posts so that I can select which post I’m interested in viewing.|Good.|[link](https://github.com/0davidog/Umbra-Report/issues/9)|
+|As a Site User, I can click on a post so that I can view the complete content.|Good.|[link](https://github.com/0davidog/Umbra-Report/issues/10)|
+|As a Site User or Admin, I can view the comments on each individual post so that I can read the conversation.|Good.|[link](https://github.com/0davidog/Umbra-Report/issues/11)|
+|As a Site User, I want to be able to comment on blog posts to engage with the author and other readers.|Good.|[link](https://github.com/0davidog/Umbra-Report/issues/12)|
+|As a Site Admin I can approve or disapprove comments so that I can filter out objectionable comments.|Good.|[link](https://github.com/0davidog/Umbra-Report/issues/13)|
+|As a Site User, I want to be able to like blog posts to engage with the author and other readers.|Good.|[link](https://github.com/0davidog/Umbra-Report/issues/14)|
+|As a Site User, I want a user-friendly navigation menu that helps me explore different sections of the blog easily.|Good.|[link](https://github.com/0davidog/Umbra-Report/issues/17)|
+|As a Site User, I want the blog website to be responsive, ensuring a seamless experience on various devices, including desktops, tablets, and smartphones.|Good.|[link](https://github.com/0davidog/Umbra-Report/issues/18)|
+|As a Site User with accessibility needs, I want the website to be accessible, with features like alt text for images and keyboard navigation, to ensure a positive experience for all users.|Good.|[link](https://github.com/0davidog/Umbra-Report/issues/19)|
+|As a Site User, I can click on the About link so that I can read about the site.|Good.|[link](https://github.com/0davidog/Umbra-Report/issues/20)|
+|As a Site Admin, I can create or update the about page content so that it is available on the site.|Good.|[link](https://github.com/0davidog/Umbra-Report/issues/21)|
+|As a Site User, I can click on a username link so that I can read about the user and see their posts.|Good.|[link](https://github.com/0davidog/Umbra-Report/issues/22)|
+
+
 ## Compatibility and Responsive Testing
 ## Accessibility Testing
 ### Accessibility Audits
