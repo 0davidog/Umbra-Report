@@ -41,14 +41,14 @@
                   THEN display default image from static
                   ELSE display uploaded image.
                 -->
-                <div class="card-header bg-transparent border-secondary d-flex justify-content-center">
+                <div class="card-header bg-transparent border-secondary d-flex justify-content-center index-head">
                   {% if "placeholder" in report.featured_image.url %}
-                  <img class="card-img-top" src="{% static 'images/default.jpg' %}" alt="placeholder image">
+                  <img class="card-img-top index-img" src="{% static 'images/default.jpg' %}" alt="placeholder image" width="500">
                   {% else %}
-                  <img class="card-img-top rounded d-block" src=" {{ report.featured_image.url }}" alt="{{ report.title }}">
+                  <img class="card-img-top rounded d-block index-img" src=" {{ report.featured_image.url }}" alt="{{ report.title }}" width="500">
                   {% endif %}
                 </div>
-                <div class="card-body">
+                <div class="card-body index-body">
                   <h2 class="card-title">
                     <a href="{% url 'full_report' report.slug %}" class="report-link">
                       {{ report.title }}
@@ -81,7 +81,7 @@
                     {{ report.description }}
                   </p>
                   {% endif %}
-                  <div class="card-footer bg-transparent border-secondary">
+                  <div class="card-footer bg-transparent border-secondary mt-auto">
                     <a href="{% url 'user_profile' report.author %}" class="btn btn-link">
                       <i class="fa-regular fa-user"></i>{{ report.author }}
                     </a><br class="d-lg-none">
