@@ -32,14 +32,29 @@ Manual testing was done for each completed user story and screenshots added to t
 
 ## Compatibility and Responsive Testing
 
-https://www.browserstack.com/github-students
+(https://www.browserstack.com/github-students
 
 ## Accessibility Testing
 
 ### Accessibility Audits
 
 Lighthouse
-https://wave.webaim.org/
+
+[WAVE Web Accessibility Evaluation Tool](https://wave.webaim.org/) Was used to check for errors and contrast errors throughout the site.
+
+|Page|Result|Screen Capture|
+|----|------|--------------|
+|[Index](https://umbra-report-f975c52ec09c.herokuapp.com/)|No errors.|[Screen](https://github.com/0davidog/Umbra-Report/assets/135815736/dd54599a-6eb9-4051-a06b-efbdf160ebe4)|
+|[About](https://umbra-report-f975c52ec09c.herokuapp.com/about/)|No errors.|[Screen](https://github.com/0davidog/Umbra-Report/assets/135815736/e962c098-8af2-4253-bd61-6866917e7df3)|
+|[User01](https://umbra-report-f975c52ec09c.herokuapp.com/profile/0davidog/)|No errors.|[Screen](https://github.com/0davidog/Umbra-Report/assets/135815736/19b19792-0b69-49ab-a5ab-c998ff2b391b)|
+|[User02](https://umbra-report-f975c52ec09c.herokuapp.com/profile/Nosferatu302/)|No errors.|[Screen](https://github.com/0davidog/Umbra-Report/assets/135815736/9162a676-5ca0-412c-a0e0-703422830c86)|
+|[Report01](https://umbra-report-f975c52ec09c.herokuapp.com/noises-in-the-loft/)|No errors.|[Screen](https://github.com/0davidog/Umbra-Report/assets/135815736/6932846c-3ae1-40f0-b57c-748241d0ec53)|
+|[Report02](https://umbra-report-f975c52ec09c.herokuapp.com/bermuda3/)|No errors.|[Screen](https://github.com/0davidog/Umbra-Report/assets/135815736/76ba451f-6de5-45bc-9e9f-25664ff3813d)|
+|[CreateReport](https://umbra-report-f975c52ec09c.herokuapp.com/create/)|No errors.|[Screen](https://github.com/0davidog/Umbra-Report/assets/135815736/8e03efe8-56ee-436a-b480-c0ba88d849f5)|
+|[EditReport](https://umbra-report-f975c52ec09c.herokuapp.com/noises-in-the-loft/edit/)|No errors.|[Screen](https://github.com/0davidog/Umbra-Report/assets/135815736/71293a8d-d5b4-4139-b4a4-b33f3046d8a1)|
+|[SignUp](https://umbra-report-f975c52ec09c.herokuapp.com/accounts/signup/)|No errors.|[Screen](https://github.com/0davidog/Umbra-Report/assets/135815736/bfa7d083-724c-46d2-ac9c-d89557f45d92)|
+|[Login](https://umbra-report-f975c52ec09c.herokuapp.com/accounts/login/)|No errors.|[Screen](https://github.com/0davidog/Umbra-Report/assets/135815736/f583861b-d25e-400e-995e-018bbe5f9ae5)|
+|[404](https://umbra-report-f975c52ec09c.herokuapp.com/404/)| No errors.|[Screen](https://github.com/0davidog/Umbra-Report/assets/135815736/ce0518df-caaf-4786-a70c-0daf434d5c1d)|
 
 ### Keyboard Navigation
 
@@ -72,7 +87,7 @@ https://pagespeed.web.dev/
 |[Index](https://umbra-report-f975c52ec09c.herokuapp.com/)|No errors or warnings to show.|[Screen](https://github.com/0davidog/Umbra-Report/assets/135815736/3a002a03-5be4-4678-b8e2-b7f30cbef0eb)|
 |[About](https://umbra-report-f975c52ec09c.herokuapp.com/about/)|No errors or warnings to show.|[Screen](https://github.com/0davidog/Umbra-Report/assets/135815736/01018cc3-95ac-4d3e-ae6f-87b969c6fffd)|
 |[User01](https://umbra-report-f975c52ec09c.herokuapp.com/profile/0davidog/)|No errors or warnings to show.|[Screen](https://github.com/0davidog/Umbra-Report/assets/135815736/58d33ad5-f7e9-41fb-8c76-ccd935281961)|
-|[User02](https://umbra-report-f975c52ec09c.herokuapp.com/profile/Nosferatu302/)| No errors or warnings to show.|[Screen](https://github.com/0davidog/Umbra-Report/assets/135815736/a568860f-54e9-42d5-8e9a-9001befcb995)|
+|[User02](https://umbra-report-f975c52ec09c.herokuapp.com/profile/Nosferatu302/)|No errors or warnings to show.|[Screen](https://github.com/0davidog/Umbra-Report/assets/135815736/a568860f-54e9-42d5-8e9a-9001befcb995)|
 |[Report01](https://umbra-report-f975c52ec09c.herokuapp.com/noises-in-the-loft/)|No errors or warnings to show.|[Screen](https://github.com/0davidog/Umbra-Report/assets/135815736/7bc1a4a2-56c9-4cb2-9111-be32d7df7eaa)|
 |[Report02](https://umbra-report-f975c52ec09c.herokuapp.com/bermuda3/)|No errors or warnings to show.|[Screen](https://github.com/0davidog/Umbra-Report/assets/135815736/394e67e2-e07f-43c1-a20e-834d95bd7856)|
 |[CreateReport](https://umbra-report-f975c52ec09c.herokuapp.com/create/)|No errors or warnings to show.|[Screen](https://github.com/0davidog/Umbra-Report/assets/135815736/62c24ec0-bd04-4917-a23b-1f27ef331e23)|
