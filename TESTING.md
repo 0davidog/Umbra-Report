@@ -32,7 +32,55 @@ Manual testing was done for each completed user story and screenshots added to t
 
 ## Compatibility and Responsive Testing
 
-(https://www.browserstack.com/github-students
+### Windows laptop
+
+|Browser|Dimensions|Screen|
+|-------|----------|------|
+|Chrome|1920x1080|[laptop-screen-01](https://github.com/0davidog/Umbra-Report/assets/135815736/b4c55f9a-988c-4f1f-b38f-4b4460dda4f6)|
+|Firefox|1920x1080|[laptop-screen-02](https://github.com/0davidog/Umbra-Report/assets/135815736/37b529ab-1bc1-4969-ae9f-57dd59ec2bfc)|
+|Edge|1920x1080|[laptop-screen-03](https://github.com/0davidog/Umbra-Report/assets/135815736/369fa204-208d-4363-9bd3-0b3cd810c155)|
+
+
+### Chrome Emulated Device Dimensions
+
+|Device Name|Dimensions|Screen|
+|-----------|----------|------|
+|iPhoneSE|375x667|[chrome-screen-01](https://github.com/0davidog/Umbra-Report/assets/135815736/1724b0a9-6205-48dc-91d5-6e37ae192816)|
+|iPhone XR|414x896|[chrome-screen-02](https://github.com/0davidog/Umbra-Report/assets/135815736/18515c06-9fc1-4bb1-ab7d-9d5eb5129f42)|
+|iPhone 12 Pro|390x884|[chrome-screen-03](https://github.com/0davidog/Umbra-Report/assets/135815736/df78c75e-526c-4eec-9199-69d0792caebb)|
+|iPhone 14 Pro Max|430x932|[chrome-screen-04](https://github.com/0davidog/Umbra-Report/assets/135815736/7d828914-94b9-4f97-a0c9-feccc0335a7d)|
+|Pixel 7|412x915|[chrome-screen-05](https://github.com/0davidog/Umbra-Report/assets/135815736/8cad6e39-3718-418b-9162-375f71784214)|
+|Samsung Galaxy S8+|360x740|[chrome-screen-06](https://github.com/0davidog/Umbra-Report/assets/135815736/13a88f06-4314-4070-89f6-ec1983438991)|
+|Samsung Galaxy S20 Ultra|412x915|[chrome-screen-07](https://github.com/0davidog/Umbra-Report/assets/135815736/cf85a018-7e1d-4e0e-a80e-25dfab7486f5)|
+|iPad Mini|768x1024|[chrome-screen-08](https://github.com/0davidog/Umbra-Report/assets/135815736/056730e0-1b87-4c9e-af22-05b1674b78fa)|
+|iPad Air|820x1180|[chrome-screen-09](https://github.com/0davidog/Umbra-Report/assets/135815736/441e0ddb-df52-4b98-8f40-6d097dea1711)|
+|iPad Pro|1024x1366|[chrome-screen-10](https://github.com/0davidog/Umbra-Report/assets/135815736/6cfa865e-cd53-4923-b077-4ba9223e2924)|
+|Surface Pro 7|912x1368|[chrome-screen-11](https://github.com/0davidog/Umbra-Report/assets/135815736/178de9bf-2bb0-4222-b0a8-1f7320b0c67b)|
+|Surface Duo|540x720|[chrome-screen-12](https://github.com/0davidog/Umbra-Report/assets/135815736/7b0dcdb7-dc3c-495e-b843-1766ef2f32b8)|
+|Galaxy Fold|280x653|[chrome-screen-13](https://github.com/0davidog/Umbra-Report/assets/135815736/b7e74160-e214-441d-ad86-d6b369baf331)|
+|Asus Zenbook Fold|853x1280|[chrome-screen-14](https://github.com/0davidog/Umbra-Report/assets/135815736/7d9cd5bc-5560-478d-8224-dd2f565505c2)|
+|Samsung Galaxy A51/71|412x914|[chrome-screen-15](https://github.com/0davidog/Umbra-Report/assets/135815736/be0e69c7-615d-4df7-aef3-0750dfcfe20c)|
+|Nest Hub|1024x600|[chrome-screen-16](https://github.com/0davidog/Umbra-Report/assets/135815736/d4e0a3c8-2689-41d0-b4be-032b0f6b2840)|
+|Nest Hub Max|1280x800|[chrome-screen-17](https://github.com/0davidog/Umbra-Report/assets/135815736/bc640790-70ee-477d-8ca4-567cfa37f297)|
+
+### Browserstack Devices
+
+[Browserstack.com](https://www.browserstack.com/)
+
+
+### Market Share insights
+
+I used [statcounter.com](https://gs.statcounter.com/) to give me an idea of which devices, browsers and operating systems I should focus on due to their popularity.
+
+|Data|Image|
+|----|-----|
+|Desktop Browser Market Share:|![StatCounter-browser-ww-monthly-202302-202402-bar](https://github.com/0davidog/Umbra-Report/assets/135815736/c0e4e1ed-5d88-4c80-92cf-383cc677a3d1)|
+|Mobile Browser Market Share:|![StatCounter-browser-ww-monthly-202302-202402-bar(1)](https://github.com/0davidog/Umbra-Report/assets/135815736/cb498dbd-56e2-4da1-ad78-203a71ad6bf3)|
+|Mobile Vendor Market Share:|![StatCounter-vendor-ww-monthly-202302-202402-bar](https://github.com/0davidog/Umbra-Report/assets/135815736/5875661b-d524-43c0-8bcd-0f38362c1943)|
+|Tablet Vendor Market Share:|![StatCounter-vendor-ww-monthly-202302-202402-bar(1)](https://github.com/0davidog/Umbra-Report/assets/135815736/b0d93449-afeb-4e58-aa4f-fcd2cd5a688c)|
+|Operating System Market Share:|![StatCounter-os_combined-ww-monthly-202302-202402-bar](https://github.com/0davidog/Umbra-Report/assets/135815736/2aaf24a7-9c43-41d3-846c-04f390ee5d5d)|
+|Mobile and Tablet IOS Version Market Share:|![StatCounter-ios_version-ww-monthly-202302-202402-bar](https://github.com/0davidog/Umbra-Report/assets/135815736/ed2752a2-c360-4fd8-906b-e76438ac27e3)|
+|Mobile and Tablet Anroid Version Market Share:|![StatCounter-android_version-ww-monthly-202302-202402-bar(1)](https://github.com/0davidog/Umbra-Report/assets/135815736/cef217de-9632-49a2-8d12-21bba47b24f1)|
 
 ## Accessibility Testing
 
@@ -82,14 +130,6 @@ Manual testing was done for each completed user story and screenshots added to t
 ### Keyboard Navigation
 
 https://webaim.org/techniques/keyboard/#testing
-
-### Chrome Vox Reader
-
-https://chromewebstore.google.com/detail/screen-reader/kgejglhpjiefppelpmljglcjbhoiplfn?hl=en
-
-## Core Web Vitals
-
-https://pagespeed.web.dev/
 
 ## Validation Testing
 
