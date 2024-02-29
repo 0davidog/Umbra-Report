@@ -67,6 +67,18 @@ Manual testing was done for each completed user story and screenshots added to t
 
 [Browserstack.com](https://www.browserstack.com/)
 
+|Device|OS|Browser|Viewport|Screen|
+|------|--|-------|--------|------|
+|iPhone 14 Pro|IOS, v16.3|Chrome|390x664|[Screen](https://github.com/0davidog/Umbra-Report/assets/135815736/9a12d5c5-1cba-4e22-91e6-b9844cc5bcca)|
+|iPhone 13|IOS, v15.4|Safari|390x664|[Screen](https://github.com/0davidog/Umbra-Report/assets/135815736/fbbe23ea-a94e-46ff-a9c2-d08ea91a6210)|
+|Samsung Galaxy S23|Android, v13.0|Chrome|393x786|[Screen](https://github.com/0davidog/Umbra-Report/assets/135815736/b8205eff-d57b-432a-b306-5e0ba3dbb923)|
+|Samsung Galaxy S22|Android, v12.0|Chrome|360x649|[Screen](https://github.com/0davidog/Umbra-Report/assets/135815736/1f8b10f7-8877-4ed6-83c0-b528afef054b)|
+|Xiaomi Redmi Note 12|Android, v13.0|Chrome|393x736|[Screen](https://github.com/0davidog/Umbra-Report/assets/135815736/45565893-957c-4dce-ba08-11730015b7d7)|
+|iPad 9th|IOS, v15.3|Safari|810x1010|[Screen](https://github.com/0davidog/Umbra-Report/assets/135815736/800f5958-84a6-4824-b02d-fa23600c32be)|
+|Mac Ventura|?|Safari|1920x927|[Screen](https://github.com/0davidog/Umbra-Report/assets/135815736/163a7cef-9bb7-44c5-a872-886025d76eee)|
+|iPhone XS|IOS, v15.3|Safari|375x635|[Screen](https://github.com/0davidog/Umbra-Report/assets/135815736/61527504-b178-4aac-8f36-bb94df446615)|
+
+
 
 ### Market Share insights
 
@@ -79,8 +91,6 @@ I used [statcounter.com](https://gs.statcounter.com/) to give me an idea of whic
 |Mobile Vendor Market Share:|![StatCounter-vendor-ww-monthly-202302-202402-bar](https://github.com/0davidog/Umbra-Report/assets/135815736/5875661b-d524-43c0-8bcd-0f38362c1943)|
 |Tablet Vendor Market Share:|![StatCounter-vendor-ww-monthly-202302-202402-bar(1)](https://github.com/0davidog/Umbra-Report/assets/135815736/b0d93449-afeb-4e58-aa4f-fcd2cd5a688c)|
 |Operating System Market Share:|![StatCounter-os_combined-ww-monthly-202302-202402-bar](https://github.com/0davidog/Umbra-Report/assets/135815736/2aaf24a7-9c43-41d3-846c-04f390ee5d5d)|
-|Mobile and Tablet IOS Version Market Share:|![StatCounter-ios_version-ww-monthly-202302-202402-bar](https://github.com/0davidog/Umbra-Report/assets/135815736/ed2752a2-c360-4fd8-906b-e76438ac27e3)|
-|Mobile and Tablet Anroid Version Market Share:|![StatCounter-android_version-ww-monthly-202302-202402-bar(1)](https://github.com/0davidog/Umbra-Report/assets/135815736/cef217de-9632-49a2-8d12-21bba47b24f1)|
 
 ## Accessibility Testing
 
