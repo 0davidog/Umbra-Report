@@ -38,7 +38,30 @@ Manual testing was done for each completed user story and screenshots added to t
 
 ### Accessibility Audits
 
-Lighthouse
+#### Performance, Accessibility, Best Practices and SEO
+
+[PageSpeed Insights](https://pagespeed.web.dev/) Was used to audit the site's features for performance, accessibility, best practices and SEO. This was recommended as a more accurate reading than Chrome's lighthouse tool. The site scored 100 throughout on accessibily, best practice and SEO which is good. Performance wise the site runs much better on desktop than it does mobile. For a better performance on mobile, time could be taken to look in to optimising Cumulative Layout Shift, First Contentful Paint and largest Contentful Paint.
+
+|Page|Factor|Performance|Accessibility|Best Practices|SEO|Screen Capture|
+|----|------|-----------|-------------|--------------|---|--------------|
+|[Index](https://umbra-report-f975c52ec09c.herokuapp.com/)|Mobile|82|100|100|100|[Screen](https://github.com/0davidog/Umbra-Report/assets/135815736/045d9c6b-6060-4166-b011-2740133d1949)|
+|[Index](https://umbra-report-f975c52ec09c.herokuapp.com/)|Desktop|92|100|100|100|[Screen](https://github.com/0davidog/Umbra-Report/assets/135815736/e8ef7cd7-3b7f-46b0-b4c6-ddab770a94a7)|
+|[About](https://umbra-report-f975c52ec09c.herokuapp.com/about/)|Mobile|59|100|100|100|[Screen](https://github.com/0davidog/Umbra-Report/assets/135815736/3aea895a-322a-442a-b33f-34c2b42864a6)|
+|[About](https://umbra-report-f975c52ec09c.herokuapp.com/about/)|Desktop|92|100|100|100|[Screen](https://github.com/0davidog/Umbra-Report/assets/135815736/5db3899e-2d6b-4343-8342-acda94048bac)|
+|[User01](https://umbra-report-f975c52ec09c.herokuapp.com/profile/0davidog/)|Mobile|75|100|100|100|[Screen](https://github.com/0davidog/Umbra-Report/assets/135815736/892ffa8f-5af4-4f71-9202-656969914417)|
+|[User01](https://umbra-report-f975c52ec09c.herokuapp.com/profile/0davidog/)|Desktop|93|100|100|100|[Screen](https://github.com/0davidog/Umbra-Report/assets/135815736/71ebb3ab-ea1a-4414-8e3b-4906d250990b)|
+|[Report01](https://umbra-report-f975c52ec09c.herokuapp.com/noises-in-the-loft/)|Mobile|86|100|100|100|[Screen](https://github.com/0davidog/Umbra-Report/assets/135815736/26f7daca-d88c-4caa-9518-68973e7f666d)|
+|[Report01](https://umbra-report-f975c52ec09c.herokuapp.com/noises-in-the-loft/)|Desktop|93|100|100|100|[Screen](https://github.com/0davidog/Umbra-Report/assets/135815736/98a92890-f589-4c03-8deb-112e113f143a)|
+|[Report02](https://umbra-report-f975c52ec09c.herokuapp.com/bermuda3/)|Mobile|84|100|100|100|[Screen](https://github.com/0davidog/Umbra-Report/assets/135815736/081cf1c8-87f7-41a5-a759-119b732396d8)|
+|[Report02](https://umbra-report-f975c52ec09c.herokuapp.com/bermuda3/)|Desktop|98|100|100|100|[Screen](https://github.com/0davidog/Umbra-Report/assets/135815736/3ea27599-f396-4253-9218-961fcdc3fe2d)|
+|[CreateReport](https://umbra-report-f975c52ec09c.herokuapp.com/create/)|Mobile|86|100|100|100|[Screen](https://github.com/0davidog/Umbra-Report/assets/135815736/882f6853-6999-45e5-a0bd-7a626d07a479)|
+|[CreateReport](https://umbra-report-f975c52ec09c.herokuapp.com/create/)|Desktop|98|100|100|100|[Screen](https://github.com/0davidog/Umbra-Report/assets/135815736/4c2d4196-e41d-46cb-a95c-b94924281179)|
+|[EditReport](https://umbra-report-f975c52ec09c.herokuapp.com/noises-in-the-loft/edit/)|Mobile|87|100|100|100|[Screen](https://github.com/0davidog/Umbra-Report/assets/135815736/0ec59303-43ae-4e1b-8634-fcb8ea8c820d)|
+|[EditReport](https://umbra-report-f975c52ec09c.herokuapp.com/noises-in-the-loft/edit/)|Desktop|95|100|100|100|[Screen](https://github.com/0davidog/Umbra-Report/assets/135815736/734c2da0-a02a-4894-8684-ddf7ee548826)|
+|[SignUp](https://umbra-report-f975c52ec09c.herokuapp.com/accounts/signup/)|Mobile|77|100|100|100|[Screen](https://github.com/0davidog/Umbra-Report/assets/135815736/efd7930d-1330-480b-aa83-3e8bb31b7016)|
+|[SignUp](https://umbra-report-f975c52ec09c.herokuapp.com/accounts/signup/)|Desktop|93|100|100|100|[Screen](https://github.com/0davidog/Umbra-Report/assets/135815736/dc715fcb-5c7b-4a9f-aba1-bddbacc2ea7f)|
+|[Login](https://umbra-report-f975c52ec09c.herokuapp.com/accounts/login/)|Mobile|82|100|100|100|[Screen](https://github.com/0davidog/Umbra-Report/assets/135815736/f461eaa8-9b91-438b-a99a-bd55706e88f0)|
+|[Login](https://umbra-report-f975c52ec09c.herokuapp.com/accounts/login/)|Desktop|99|100|100|100|[Screen](https://github.com/0davidog/Umbra-Report/assets/135815736/341019ab-33e5-4944-8ed7-623068088e2c)|
 
 [WAVE Web Accessibility Evaluation Tool](https://wave.webaim.org/) Was used to check for errors and contrast errors throughout the site.
 
