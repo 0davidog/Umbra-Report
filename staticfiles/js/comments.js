@@ -1,12 +1,10 @@
-/*jshint esversion: 6 */ 
-
 const editBtn = document.getElementsByClassName("edit-btn");
 
 const commentText = document.getElementById("id_content");
 const commentForm = document.getElementById("commentForm");
 const submitButton = document.getElementById("submitButton");
 
-const deleteModal = document.getElementById("deleteModal");
+const deleteModal = new bootstrap.Modal(document.getElementById("deleteModal"));
 const deleteBtn = document.getElementsByClassName("delete-btn");
 const deleteConfirm = document.getElementById("deleteConfirm");
 
