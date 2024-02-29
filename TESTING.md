@@ -176,10 +176,14 @@ https://webaim.org/techniques/keyboard/#testing
 
 [JSHint](https://jshint.com/) was used to validate the two javascript files through direct input of code.
 
+`/*jshint esversion: 6 */` Was added to the test to remove ES6 warnings.
+
+`import * as bootstrap from 'bootstrap';` Was also added to the test to remove an udefinded variable error (if included in app code this line breaks modal function).
+
 |File|Result|Screen Capture|
 |----|------|--------------|
-|comment.js|No error found.|[Screen](https://github.com/0davidog/Umbra-Report/assets/135815736/edb12d97-8985-4962-a125-54fdbe050cbc)|
-|delete_report.js|No error found.|[Screen](https://github.com/0davidog/Umbra-Report/assets/135815736/46025848-c55d-47df-af60-0d7b22d99d04)|
+|comment.js|No error found.|[Screen](https://github.com/0davidog/Umbra-Report/assets/135815736/42dbef17-beae-462b-9e22-f7faff12ccad)|
+|delete_report.js|No error found.|[Screen](https://github.com/0davidog/Umbra-Report/assets/135815736/15803d9b-79dd-424c-88ae-44d7e83dbe9f)|
 
 ### Python Validation
 
