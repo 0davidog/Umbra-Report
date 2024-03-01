@@ -331,7 +331,8 @@ def edit_report(request, slug):
         request,
         "blog/edit_report.html",
         {
-            "report_form": report_form
+            "edit": edit,
+            "report_form": report_form,
         }
         )
 

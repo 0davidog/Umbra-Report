@@ -61,10 +61,23 @@ class Report(models.Model):
     # One user can write many posts, so this is a one-to-many or Foreign Key.
     # The cascade on delete means that on the deletion of the user entry,
     # all their posts are also deleted.
+    CATEGORY_CHOICES = [
+        ("1", "True Story"),
+        ("2", "Urban Legend"),
+        ("3", "Creative Writing"),
+        ("4", "Creepypasta"),
+    ]
+    category = models.CharField(
+        max_length=250, default="3", null=False, choices=CATEGORY_CHOICES
+    )
+    source = models.URLField(max_length = 200, blank=True)
     featured_image = CloudinaryField(
         'Featured Image',
         default='placeholder'
     )
+    image_title = models.CharField(max_length=250, blank=True)
+    image_credit = models.CharField(max_length=250, blank=True)
+    image_source = models.URLField(max_length = 200, blank=True)
     content = models.TextField()
     description = models.CharField(max_length=500, blank=True)
     status = models.IntegerField(choices=STATUS, default=1)
@@ -130,6 +143,7 @@ class Comment(models.Model):
     approved = models.BooleanField(default=False)
     created_on = models.DateTimeField(auto_now_add=True)
     updated_on = models.DateTimeField(auto_now=True)
+    
 
     def __str__(self):
         """

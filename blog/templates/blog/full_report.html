@@ -31,8 +31,7 @@
                 
                 {% else %}
                 <div class="col-lg-7">
-
-                  {% endif %}
+                {% endif %}
                   
                   {% if not report.approved and report.author == user %}
                   <div class="alert alert-danger bg-transparent border-danger" role="alert">
@@ -42,11 +41,12 @@
                   
                   {% endif %}
                   <div class="card-text">
-                    {{ report.content | safe | linebreaks }}
+                    <p class="description"><em>{{ report.description }}</em></p>
+                    <hr>
+                    <p>{{ report.content | safe | linebreaks }}<br></p>
                   </div>
-                  
+                  <p class="description text-end">おしまい?</p>
                   <hr>
-                  
                   <div class="d-inline">
                     Written by:&#32;
                     <h3>
@@ -54,7 +54,24 @@
                         {{ report.author }}
                       </a>
                     </h3>
-                    Date written: {{ report.created_on }}
+                    <hr>
+
+                    {% if report.category == "1" %}
+                    <p class="description">Category: True Story</p>
+                    {% elif report.category == "2" %}
+                    <p class="description">Category: Urban Legend</p>
+                    {% elif report.category == "3" %}
+                    <p class="description">Category: Creative Writing</p>
+                    {% elif report.category == "4" %}
+                    <p class="description">Category: Creepypasta</p>
+                    {% endif %}
+
+                    {% if report.source %}
+                    <p class="description">Source: <a href="{{ report.source }}" target="_blank" rel="noopener"
+                    aria-label="Visit the original source of the article or story (opens in new window)">{{ report.source }}</a></p>
+                    {% endif %}
+                    <hr>
+                    <p class="description">Date written: {{ report.created_on }}</p>
                   </div>
 
                   {% if user.is_authenticated and report.author == user %}
@@ -82,23 +99,34 @@
                   <div class="col-lg-5 card border-secondary mb-3 pb-3">
                     
                     {% endif %}
-                    <div class="card-header border-secondary">
+                    <div class="card-header">
                       <h3 class="card-title">
                         Related Image
                       </h3>
                     </div>
-
+                    <hr>
                     {% if not report.approved and report.author == user %}
                     <div class="alert alert-danger bg-transparent border-danger" role="alert">
                       <i class="fa-solid fa-triangle-exclamation"></i>
                       This report is awaiting approval.
                     </div>
-                    <img src="{{ report.featured_image.url }}" class="scale" alt="{{ post.title }}">
+                    <img src="{{ report.featured_image.url }}" class="p-4" alt="{{ report.title }}">
                     {% else %}
-                    <img src="{{ report.featured_image.url }}" class="scale" alt="{{ post.title }}">
-                    
+                    <img src="{{ report.featured_image.url }}" class="p-4" alt="{{ report.title }}">
                     {% endif %}
-                  
+                    <hr>
+                    <div class="card-footer">
+                      {% if report.image_title %}
+                      <h4 class="card-title">{{ report.image_title }}</h4>
+                      {% endif %}
+                      {% if report.image_credit %}
+                      <p>By {{ report.image_credit}}
+                      {% endif %}
+                      {% if report.image_source %}
+                      <a href="{{ report.image_source }}" target="_blank" rel="noopener"
+                      aria-label="Visit the original source of the image (opens in new window)"><br>[image_source]</a></p>
+                      {% endif %}
+                    </div>
                   </div>
 
                 </div><!-- Close DIV Column to display related or default image -->

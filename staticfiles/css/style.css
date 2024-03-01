@@ -84,6 +84,10 @@ footer {
     background-color:rgba(0, 0, 0, 0.7);
 }
 
+.description {
+    color: #808080;
+}
+
 #close {
     color: #ffffff;
 }

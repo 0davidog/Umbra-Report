@@ -15,7 +15,8 @@
             
                 <div class="card-body">
                 <!-- Report creation form -->
-                {% if user.is_authenticated %}
+                {% if user.is_authenticated and edit.author == user %}
+                
                 <form id="reportForm" method="post" enctype="multipart/form-data">
                     <!-- 
                         Using Django Crispy Forms to display the form with very little code.
@@ -48,8 +49,9 @@
                 {% else %}
                 <div class="alert alert-danger bg-transparent border-danger" role="alert">
                     <i class="fa-solid fa-triangle-exclamation"></i>
-                    Log in to write a report!
+                    Log in to edit your own report!
                 </div>
+                
                 {% endif %}
             </div>
         </div><!-- End card -->

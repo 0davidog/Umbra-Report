@@ -23,12 +23,17 @@ class ReportForm(forms.ModelForm):
     class Meta:
         model = Report
         fields = (
-            'title', 'description', 'content', 'status', 'featured_image'
+            'title', 'description', 'category', 'content', 'source', 'status', 'featured_image', 'image_title', 'image_credit', 'image_source'
         )
         labels = {
             "title": "Report Title:",
             "description": "A brief description:",
+            "category": "Choose a category:",
             "content": "Enter your report here:",
+            "source": "Add a link to a source or inspiration:",
             "status": "Choose Published or Draft:",
             "featured_image": "Upload an image:",
+            "image_title": "Does the image have a title?",
+            "image_credit": "Do you know who made this image?",
+            "image_source": "Did this image come from somewhere else?",
         }
