@@ -34,6 +34,8 @@ Manual testing was done for each completed user story and screenshots added to t
 
 ### Windows laptop
 
+This project was developed using a Windows laptop running Windows 10 and the site was viewed on three browsers.
+
 |Browser|Dimensions|Screen|
 |-------|----------|------|
 |Chrome|1920x1080|[laptop-screen-01](https://github.com/0davidog/Umbra-Report/assets/135815736/b4c55f9a-988c-4f1f-b38f-4b4460dda4f6)|

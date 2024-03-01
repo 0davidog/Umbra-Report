@@ -203,17 +203,17 @@ A few notes on relevant fields.
 - is_staff is a boolean field that states whether a registered user can access the admin panel. This is needed to approve posts and comments, update the about page and have an overall control of the content.
 - is_superuser is a boolean field that grants a particular user all available privelidges, including staff status. The site creator registers as superuser during production.
 
-### CRUD Diagrams
-
 ## Design Choices
 
 ### Thematic and visual inspiration
 
-The theme was inspired by the game Control by Remedy Entertainment.
+The app's theme is one of stories and urban legends, inspired by sites such as readit where various threads allow users to contribute stories of varied kinds and comment on each other's posts.
+
+This theme was also part inspired by the game Control by Remedy Entertainment. The game's theme features an organisation that collects and investigates strange phenomena, objects and reports. I felt this was a fun theme on which to work this project around.
 
 ![IMG_0146](https://github.com/0davidog/Umbra-Report/assets/135815736/33505342-6923-4945-bbbc-5f43e15279c6)
 
-The visual design was also inspired by this.
+This game seemed the perfect place to take inspiration for the visual design of the app also. From the mysterious background image pictured above to the UI design bellow. The red highlights, white text and use of symbols throughout was something I wanted to try in the visual design for this site.
 
 ![IMG_0142](https://github.com/0davidog/Umbra-Report/assets/135815736/9fc87002-e9f3-452f-81a7-5026fc683c13)
 
@@ -254,23 +254,26 @@ A user-image was created. This is a textured edit of a standard blank user image
 
 #### Icons
 
-Icons are sourced from fontawesome.
+Icons are used throughout the site and are sourced from [fontawesome](fontawesome.com/). See [credits] for a full list.
 
 ### Animations and Transitions
 
-Hover state.
+- A CSS transform is applied to buttons as a hover state that increases their size to 1.1 scale.
 
 ### Frameworks
 
-Boostrap
+- Boostrap is used thoughout this project to allow for a quick development of a site that is responsive and stylised with a greatly reduced amount of code.
 
 ### Custom Styles
 
-css
+Custom CSS was added where necessary to create a more personalised look to the site on top of Boostrap's default styles. The file can be viewed [here](https://github.com/0davidog/Umbra-Report/blob/main/static/css/style.css).
 
 ### Custom Javascript
 
-edit delete js
+- Custom javascript was added when needed to assist with bootstrap's deletion modals.
+- The modal js to delete reports can be viewed [here](https://github.com/0davidog/Umbra-Report/blob/main/static/js/delete_report.js).
+- The javascript file to edit and delete comments was mostly taken from the Code Institiue Walkthhough project with only minor changes.
+- This can be viewed [here](https://github.com/0davidog/Umbra-Report/blob/main/static/js/comments.js).
 
 ## Features
 
@@ -278,85 +281,117 @@ edit delete js
 
 #### Navigation
 
+The Navigation bar was created from Bootstrap's offcanvas navbar found [here](https://getbootstrap.com/docs/5.3/components/navbar/#offcanvas).
+
 ![Screenshot 2024-02-25 at 10-46-13 The Umbra Report](https://github.com/0davidog/Umbra-Report/assets/135815736/bf5171f6-6b0a-43de-b15b-106aa68f63e1)
 ![Screenshot 2024-02-25 at 10-46-27 The Umbra Report](https://github.com/0davidog/Umbra-Report/assets/135815736/5ec380d9-3d50-4454-9fc9-fcb820a7c78f)
 
 #### Create Report
 
+User story link [here](https://github.com/0davidog/Umbra-Report/issues/4).
+
+A button on the index page allows the user to access a form for creating a Report (blog post).
+
 ![Screenshot 2024-02-25 at 11-05-21 The Umbra Report](https://github.com/0davidog/Umbra-Report/assets/135815736/a376f63e-5354-4587-974a-83b16dc5115a)
+
+When not logged in the button instead takes the user to the login page.
+
 ![Screenshot 2024-02-25 at 10-48-39 The Umbra Report](https://github.com/0davidog/Umbra-Report/assets/135815736/168d8f6b-331e-4191-abe0-0354351a2ae3)
+
+The form can then be filled out and submitted.
+
 ![Screenshot 2024-02-25 at 11-00-02 The Umbra Report](https://github.com/0davidog/Umbra-Report/assets/135815736/13c619da-205b-41c0-ab50-3212cf7dbd0b)
 
 #### Read Report List
 
+The index page shows a list of reports (blog posts) and this are seperated into pages if there are more than 6.
+
 ![Screenshot 2024-02-25 at 11-08-57 The Umbra Report](https://github.com/0davidog/Umbra-Report/assets/135815736/0f8f0dd6-6c63-4b76-a1f6-de6ed5905777)
-![Screenshot 2024-02-25 at 11-10-17 The Umbra Report](https://github.com/0davidog/Umbra-Report/assets/135815736/8672b36d-0164-4956-a193-f55552b21c86)
 
 #### Read Full Report Detail
+
+Clicking on a report title takes the user to a full dteail view of the post where they can read the whole content.
 
 ![Screenshot 2024-02-25 at 11-13-31 The Umbra Report](https://github.com/0davidog/Umbra-Report/assets/135815736/dae33a24-03e2-45a1-b773-8d68f1b61293)
 
 #### Edit Report
 
+Users who want to edit a report they have writen can do so when logged in. A link to edit is on the list view in the index page and an edit button can be found on the full report detail page also.
+
 ![Screenshot 2024-02-25 at 11-17-28 The Umbra Report](https://github.com/0davidog/Umbra-Report/assets/135815736/c03c1f5a-6d7c-4c71-bcc0-2a66e5f855fb)
 
-
 #### Delete Report
+
+Users can also choose to delete any report they have written providing they are logged in. A link to delete the report can be found on the list view in the index page and a button to delete can be found on the full report detail page also. Choosing to delete brings up a model to ask for confirmation.
 
 ![Screenshot 2024-02-25 at 11-17-28 The Umbra Report](https://github.com/0davidog/Umbra-Report/assets/135815736/c03c1f5a-6d7c-4c71-bcc0-2a66e5f855fb)
 
 #### Likes
 
+Users, when logged in can like a post by accessing the full post page. A button can be found beneath the main content. Once liked a user can unlike a post with the same button.
+
 ![Screenshot 2024-02-25 at 11-18-38 The Umbra Report](https://github.com/0davidog/Umbra-Report/assets/135815736/333698c6-9821-453d-8e2b-a2f1008e061a)
 
 #### Create Comments
 
+A form to add a comment on any post can be found at the bottom of the full report detail page. If a user is logged in the can choose to fill out this form to add a comment.
+
 ![Screenshot 2024-02-25 at 11-19-32 The Umbra Report](https://github.com/0davidog/Umbra-Report/assets/135815736/9c7c9b28-c9c1-412a-bb62-5e6a29f96455)
 
 #### Read Comments
+
+A list of comments can be found at the bottom of the full report detail page. User can only see approved comments unless the are the auther of a yet to be approved comment.
+
+![Screenshot 2024-02-29 at 16-29-47 The Umbra Report](https://github.com/0davidog/Umbra-Report/assets/135815736/a5a464b4-dbcc-4308-a601-f86435005c68)
+
 #### Edit Comments
+
+Once a comment is created a user can choose to edit that comment using the edit button bellow the comment. A user must be logged in and the author of the comment to be able to edit. Clicking the edit button changes the original comment form to an edit comment form, populated with the comments content.
+
+![Screenshot 2024-02-29 at 16-29-59 The Umbra Report](https://github.com/0davidog/Umbra-Report/assets/135815736/9342c4ad-db3b-4c42-94c0-98a5fe665eca)
+
 #### Delete Comments
 
+A user can choose to delete their comment providing the are the author and are logged in. This is done by selecting the delete button beneath the comment and confirming with the modal.
+
+![Screenshot 2024-02-29 at 17-19-10 The Umbra Report](https://github.com/0davidog/Umbra-Report/assets/135815736/96f83669-7651-40c7-8313-5c7af3ef8f33)
+
 #### Account Register
+
+A new user can register an account by selecting sign up and entering the required details. This is handled by django allauth.
 
 ![Screenshot 2024-02-25 at 11-20-29 The Umbra Report](https://github.com/0davidog/Umbra-Report/assets/135815736/7ef8426d-6cbf-4318-afc4-4b6e2a30a44b)
 
 #### Account Log-in/out
+
+A user, once registered can then log in or out by selecting the links in the navigation bar. This too is handled by django allauth.
 
 ![Screenshot 2024-02-25 at 11-21-22 The Umbra Report](https://github.com/0davidog/Umbra-Report/assets/135815736/15df1a17-9336-46b6-8f3c-4f57fb9974ce)
 ![Screenshot 2024-02-25 at 11-20-46 The Umbra Report](https://github.com/0davidog/Umbra-Report/assets/135815736/10cbdc37-ee37-4492-9004-8a5eb9518b31)
 
 #### About Page
 
+An about page was created to give users an idea of what the site's themes are and how to participate.
+
 ![Screenshot 2024-02-25 at 11-22-28 The Umbra Report](https://github.com/0davidog/Umbra-Report/assets/135815736/bad8b923-91cd-43a6-8775-08901a2673b9)
 
 #### User Page
 
+Users can click on their own or anothers user name to access a page that lists links to that user's written reports.
+
 ![Screenshot 2024-02-25 at 11-23-07 The Umbra Report](https://github.com/0davidog/Umbra-Report/assets/135815736/d54496a5-d3f1-4c40-97dd-55fac1fef080)
 
 ### Future Features
+
+Being a project with limited time a couple of user stories were given the label 'won't-have' and are marked here as possible future features.
+
+- [As a Site User, I want to receive notifications when someone likes or comments on my blog posts to stay informed about the engagement with my content.](https://github.com/0davidog/Umbra-Report/issues/15)
+- [As a Site User, I want to search for specific blog posts or topics to quickly find the information I'm looking for.](https://github.com/0davidog/Umbra-Report/issues/16)
         
 ## Testing
 
-Please refer to this seperate testing document for a manual test rundown.
-
-### Manual Testing
-### Compatibility and Responsive Testing
-### Accessibility Testing
-#### Accessibility Audits
-#### Keyboard Navigation
-#### Chrome Vox Reader
-### Core Web Vitals
-### Validation Testing
-#### CSS Validation
-#### HTML Validation
-#### JavaScript Validation
-#### Python Validation
-#### JSON Validation
-### Automated Testing
-### Defects
-### Defects of Note
-### Outstanding Defects
+Please refer to this seperate testing document for a full rundown of tests and audits:
+[TEST-DOCUMENT](https://github.com/0davidog/Umbra-Report/blob/main/TESTING.md)
   
 ## Technologies Used
 
@@ -376,6 +411,16 @@ Please refer to this seperate testing document for a manual test rundown.
 ### production Deployment
   
 ## Credits
+
 ### Content
+
 ### Media
+
+Icons are sourced from [fontawesome](fontawesome.com/).
+
+Site logo and background created by the site author.
+Majority of Report images uploaded to site are also the author's work however as the site is available for users to upload images, any copyrighted images found will have to be dealt with accordingly when identified. 
+
 ### Acknowledgments
+
+Cheers
