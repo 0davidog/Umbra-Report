@@ -23,8 +23,18 @@ class Report(models.Model):
         used for generating SEO-friendly URLs.
         author (User):
         The user who authored the report.
+        category (str):
+        A choice of 4 categories to label the report.
+        source (str):
+        The URL of the story source.
         featured_image (str):
         The URL of the featured image for the report.
+        image_title (str):
+        Title of the featured_image
+        image_credit (str):
+        Author of the featured_image
+        image_source:
+        URL source of the featured_image.
         content (str):
         The main content/body of the report.
         description (str):
@@ -70,14 +80,16 @@ class Report(models.Model):
     category = models.CharField(
         max_length=250, default="3", null=False, choices=CATEGORY_CHOICES
     )
-    source = models.URLField(max_length = 200, blank=True)
+    source = models.URLField(
+        max_length=200, blank=True
+    )
     featured_image = CloudinaryField(
         'Featured Image',
         default='placeholder'
     )
     image_title = models.CharField(max_length=250, blank=True)
     image_credit = models.CharField(max_length=250, blank=True)
-    image_source = models.URLField(max_length = 200, blank=True)
+    image_source = models.URLField(max_length=200, blank=True)
     content = models.TextField()
     description = models.CharField(max_length=500, blank=True)
     status = models.IntegerField(choices=STATUS, default=1)
@@ -143,7 +155,6 @@ class Comment(models.Model):
     approved = models.BooleanField(default=False)
     created_on = models.DateTimeField(auto_now_add=True)
     updated_on = models.DateTimeField(auto_now=True)
-    
 
     def __str__(self):
         """

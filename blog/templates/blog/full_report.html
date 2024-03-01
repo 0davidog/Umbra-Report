@@ -43,7 +43,7 @@
                   <div class="card-text">
                     <p class="description"><em>{{ report.description }}</em></p>
                     <hr>
-                    <p>{{ report.content | safe | linebreaks }}<br></p>
+                    {{ report.content | safe | linebreaks }}<br>
                   </div>
                   <p class="description text-end">おしまい?</p>
                   <hr>
