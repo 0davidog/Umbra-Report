@@ -131,8 +131,8 @@ I used [statcounter.com](https://gs.statcounter.com/) to give me an idea of whic
 |[About](https://umbra-report-f975c52ec09c.herokuapp.com/about/)|No errors.|[Screen](https://github.com/0davidog/Umbra-Report/assets/135815736/e962c098-8af2-4253-bd61-6866917e7df3)|
 |[User01](https://umbra-report-f975c52ec09c.herokuapp.com/profile/0davidog/)|No errors.|[Screen](https://github.com/0davidog/Umbra-Report/assets/135815736/19b19792-0b69-49ab-a5ab-c998ff2b391b)|
 |[User02](https://umbra-report-f975c52ec09c.herokuapp.com/profile/Nosferatu302/)|No errors.|[Screen](https://github.com/0davidog/Umbra-Report/assets/135815736/9162a676-5ca0-412c-a0e0-703422830c86)|
-|[Report01](https://umbra-report-f975c52ec09c.herokuapp.com/noises-in-the-loft/)|No errors.|[Screen](https://github.com/0davidog/Umbra-Report/assets/135815736/6932846c-3ae1-40f0-b57c-748241d0ec53)|
-|[Report02](https://umbra-report-f975c52ec09c.herokuapp.com/bermuda3/)|No errors.|[Screen](https://github.com/0davidog/Umbra-Report/assets/135815736/76ba451f-6de5-45bc-9e9f-25664ff3813d)|
+|[Report01](https://umbra-report-f975c52ec09c.herokuapp.com/noises-in-the-loft/)|No errors.|[Screen](https://github.com/0davidog/Umbra-Report/assets/135815736/9253555a-e5ab-4b7b-999c-80aff5701a5e)|
+|[Report02](https://umbra-report-f975c52ec09c.herokuapp.com/bermuda3/)|No errors.|[Screen](https://github.com/0davidog/Umbra-Report/assets/135815736/c5111f12-58f9-4390-ba2d-96f3d10fd2bb)|
 |[CreateReport](https://umbra-report-f975c52ec09c.herokuapp.com/create/)|No errors.|[Screen](https://github.com/0davidog/Umbra-Report/assets/135815736/8e03efe8-56ee-436a-b480-c0ba88d849f5)|
 |[EditReport](https://umbra-report-f975c52ec09c.herokuapp.com/noises-in-the-loft/edit/)|No errors.|[Screen](https://github.com/0davidog/Umbra-Report/assets/135815736/71293a8d-d5b4-4139-b4a4-b33f3046d8a1)|
 |[SignUp](https://umbra-report-f975c52ec09c.herokuapp.com/accounts/signup/)|No errors.|[Screen](https://github.com/0davidog/Umbra-Report/assets/135815736/bfa7d083-724c-46d2-ac9c-d89557f45d92)|
@@ -163,8 +163,8 @@ https://webaim.org/techniques/keyboard/#testing
 |[About](https://umbra-report-f975c52ec09c.herokuapp.com/about/)|No errors or warnings to show.|[Screen](https://github.com/0davidog/Umbra-Report/assets/135815736/01018cc3-95ac-4d3e-ae6f-87b969c6fffd)|
 |[User01](https://umbra-report-f975c52ec09c.herokuapp.com/profile/0davidog/)|No errors or warnings to show.|[Screen](https://github.com/0davidog/Umbra-Report/assets/135815736/58d33ad5-f7e9-41fb-8c76-ccd935281961)|
 |[User02](https://umbra-report-f975c52ec09c.herokuapp.com/profile/Nosferatu302/)|No errors or warnings to show.|[Screen](https://github.com/0davidog/Umbra-Report/assets/135815736/a568860f-54e9-42d5-8e9a-9001befcb995)|
-|[Report01](https://umbra-report-f975c52ec09c.herokuapp.com/noises-in-the-loft/)|No errors or warnings to show.|[Screen](https://github.com/0davidog/Umbra-Report/assets/135815736/7bc1a4a2-56c9-4cb2-9111-be32d7df7eaa)|
-|[Report02](https://umbra-report-f975c52ec09c.herokuapp.com/bermuda3/)|No errors or warnings to show.|[Screen](https://github.com/0davidog/Umbra-Report/assets/135815736/394e67e2-e07f-43c1-a20e-834d95bd7856)|
+|[Report01](https://umbra-report-f975c52ec09c.herokuapp.com/noises-in-the-loft/)|No errors or warnings to show.|[Screen](https://github.com/0davidog/Umbra-Report/assets/135815736/b89e429e-d66d-4f0d-b004-1bc0a110fa26)|
+|[Report02](https://umbra-report-f975c52ec09c.herokuapp.com/bermuda3/)|No errors or warnings to show.|[Screen](https://github.com/0davidog/Umbra-Report/assets/135815736/cccd8064-d3b3-4327-b591-e1d6b9b4630f)|
 |[CreateReport](https://umbra-report-f975c52ec09c.herokuapp.com/create/)|No errors or warnings to show.|[Screen](https://github.com/0davidog/Umbra-Report/assets/135815736/62c24ec0-bd04-4917-a23b-1f27ef331e23)|
 |[EditReport](https://umbra-report-f975c52ec09c.herokuapp.com/noises-in-the-loft/edit/)|No errors or warnings to show.|[Screen](https://github.com/0davidog/Umbra-Report/assets/135815736/1386e7b6-731e-4b5d-a50a-f7ad6dcd014e)|
 |[SignUp](https://umbra-report-f975c52ec09c.herokuapp.com/accounts/signup/)|4 errors. * |[Screen](https://github.com/0davidog/Umbra-Report/assets/135815736/28ab4d89-9646-4853-b006-7c74e2ef400e)|
