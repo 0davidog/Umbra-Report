@@ -405,11 +405,237 @@ Please refer to this seperate testing document for a full rundown of tests and a
 ### Frameworks, Libraries & Programs Used
   
 ## Deployment
+
 ### Prerequisites
-### Fork and Clone the Repository
-### Local Deployment
-### production Deployment
+
+This project requires some steps in preparation
+
+#### ElephantSQL Database:
+
+ElephantSQL is the PostgreSQL database hosting service used in this project.
+
+<details><summary>DETAILS</summary>
+
+
+- Visit [ElephantSQL](https://www.elephantsql.com/) and set up a free account if you don't already have one (you can use Google or Github to create an account easily).
+- Login
+- Navigate to Dashboard
+- To create a new database instance click the '+Create New Instance' button.
+- Select a name for your instance (usually the project name).
+- Select the free plan called 'Tiny Turtle'.
+- (You can leave Tags empty).
+- Click the 'Select Region' button.
+- Select any available data centre.
+- Click the review button.
+- If all the details look good then click the 'Create Instance' button.
+- Click on your new instance.
+- Navigate to STATS menu.
+- Check the version is 12 or higher.
+- (any less and you may have to create another instance with a different chosen data centre).
+- Navigate to DETAILS menu.
+- Copy the URL
+- Paste into env.py file in this format:
+
+`os.environ.setdefault("DATABASE_URL", "<The copied instance URL>")`
+
+- pip3 install packages needed to connect to your database:
+
+`pip3 install dj-database-url~=0.5 psycopg2~=2.9`
+
+- Add to reqiurements.txt:
+
+`pip3 freeze --local > requirements.txt`
+
+- import the packages into the setting.py file:
+
+`import os
+import dj_database_url
+if os.path.isfile('env.py'):
+    import env`
+
+- Comment out the existing sqlite3 databas connection:
+
+```
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': BASE_DIR / 'db.sqlite3',
+#     }
+# }
+```
+
+- Connect the DATABAS_URL from env.py to settings.py in this format: 
+
+`DATABASES = {'default': dj_database_url.parse(os.environ.get("DATABASE_URL"))}`
+
+- Your project should now be connected to the database, to create the database tables use this command:
+
+`python3 manage.py migrate`
+
+</details>
+
+#### Create Superuser
+
+Use this command and enter details to create your superuser account:
+
+`python3 manage.py createsuperuser`
+
+#### Cloudinary
+
+Cloudinary is a hosting platform used for images in this project.
+
+<details><summary>DETAILS</summary>
+
+
+- Install The necessary Cloudinary Packages:
   
+`pip3 install cloudinary~=1.36.0 dj3-cloudinary-storage~=0.0.6 urllib3~=1.26.15`
+
+- Don't forget to add to requirements file:
+  
+`pip3 freeze --local > requirements.txt`
+
+- Visit [Cloudinary](https://cloudinary.com/) and set up a free account if you don't already have one (you can use Google or Github to create an account easily).
+- Login
+- Navigate to Programmable Media - Dashboard
+- Copy the API environment variable: CLOUDINARY_URL and fit it into your env.py file in this format:
+  
+`os.environ.setdefault("CLOUDINARY_URL", "<The URL copied from Cloudinary Dashboard>")`
+
+- (remove 'CLOUDINARY_URL=' from the copy-pasted string)
+- Open settings.py and add cloudinary and cloudinary_storage to INSTALLED_APPS.
+- (The cloudinary_storage app should by place directly under django.contrib.staticfiles)
+
+</details>
+
+### Fork and Clone the Repository
+
+#### Fork
+
+To keep the original branch unaltered you can fork a repository on github.
+
+- Navigate to the repository you want to fork.
+- Click the 'Fork' button at the top right.
+- Select the 'Owner' from the dropdown menu.
+- Enter an optional description.
+- Choose whether or not to copy main branch only.
+- Click Create fork.
+
+Source: [Github Docs](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/working-with-forks/fork-a-repo)
+    
+#### Clone
+
+On Github you can clone your repository to create a local and sync between the two locations.
+
+- Navigate to the main page of the repository.
+- Click thr '<>Code' button..
+- Copy the repository URL.
+- Open Git Bash or a terminal in your IDE.
+- Choose the directory you want to place the repository.
+- Type 'git clone', and then paste in the copied repo URL.
+
+`git clone https://github.com/YOUR-USERNAME/YOUR-REPOSITORY`
+
+- Press Enter to create your local clone.
+
+Source: [Github Docs]([https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/working-with-forks/fork-a-repo](https://docs.github.com/en/repositories/creating-and-managing-repositories/cloning-a-repository))
+
+
+### Local Deployment
+
+To get started with local development in GitPod or your preferred IDE, follow these steps:
+Install the Python packages by running the following command in the terminal:
+pip3 install -r requirements.txt
+Create an 'env.py file in the project's root directory to store your environment variables.
+In the 'env.py file, add the following variables, but make sure not to disclose real values:
+
+    SECRET_KEY=<YOUR_VALUE>
+    CLOUDINARY_URL=<YOUR_VALUE>
+    DATABASE_URL=<YOUR_VALUE>
+
+Apply databse migrations to set up the database by running the following command:
+python3 manage.py migrate
+Create a superuser account that allows you add and inspect data via Django admin by running the following command:
+python3 manage.py createsuperuser
+Start the server by running the following command:
+python3 manage.py runserver
+Now you can access the application by opening the provided URL in your browser.
+
+### Production Deployment
+
+Prepare the Django Project:
+
+- Ensure your Django project is properly configured and runs smoothly locally.
+- Make sure you have a requirements.txt file listing all Python dependencies required for your project.
+- Ensure your project's settings are set up to work in a production environment (e.g., DEBUG = False, static files configuration, database settings).
+
+Create a Procfile:
+- Heroku uses a Procfile to determine how to run your application.
+- Create a file named Procfile (no file extension) in your project's root directory.
+- Inside the Procfile, specify the command needed to run your Django application. 
+
+For example:
+
+`web: gunicorn your_project_name.wsgi`
+
+Create a runtime.txt File:
+
+- Heroku needs to know which Python version your application requires. Create a runtime.txt file in your project's root directory.
+- Inside runtime.txt, specify the Python version.
+
+For example:
+
+`python-3.9.5`
+
+Install Gunicorn:
+
+- Gunicorn is a WSGI HTTP server for Python web applications, and it's commonly used for deploying Django applications.
+- Install Gunicorn and add it to your requirements.txt file:
+
+`pip install gunicorn`
+`pip freeze > requirements.txt`
+
+Set Up Database:
+
+See
+
+Collect Static Files:
+
+If your project uses static files, collect them using Django's collectstatic command:
+
+`heroku run python manage.py collectstatic`
+
+Commit your changes to Git:
+
+`git add .
+git commit -m "Initial commit"`
+
+Create a new app on Heroku:
+- Head over to heroku and log in. Choose 'create new app'.
+- Choose a name for your app and your location. Hit 'create app'.
+- Select the 'Settings' tab.
+- In Config Vars, reveal config vars.
+- Enter the config variables used in your env.py file.
+- For example:
+  - CLOUDINARY_URL
+  - DATABASE_URL
+  - EMAIL_USER - (gmail address)
+  - EMAIL_PASS- (gmail password)
+  - SECRET_KEY (The Django secret key is a crucial security setting used to provide cryptographic signing.)
+   
+    It is used for:
+    - Security: The secret key is used to generate hashes for password reset tokens, user session tokens, and other cryptographic signatures. It helps protect against various security threats such as session hijacking, data tampering, and CSRF (Cross-Site Request Forgery) attacks.
+    - Session Management: Django uses the secret key to sign and verify session cookies. This ensures that the session data stored in cookies cannot be tampered with by malicious users.
+    - CSRF Protection: Django uses the secret key to create tokens for preventing CSRF attacks. When a form is rendered, Django includes a hidden CSRF token in the form. When the form is submitted, Django verifies that the CSRF token matches the one generated for the user's session, thus preventing CSRF attacks.
+    - Cryptographic Signatures: The secret key is used to sign various pieces of data within Django, such as cookies, messages, and tokens. This allows Django to verify the integrity and authenticity of these pieces of data.
+    - Given its critical role in security and various Django functionalities, it's essential to keep the secret key secret and never share it publicly or with unauthorized individuals. If the secret key is compromised, it could potentially lead to security vulnerabilities in your Django application.
+
+- Head over to the Deploy tab.
+- Select Github (you will need to authorize this).
+- Choose your repository.
+- Manually deploy the main branch of this GitHub repo.
+- You can now view your app.
+
 ## Credits
 
 ### Content
