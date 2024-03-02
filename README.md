@@ -543,26 +543,53 @@ Source: [Github Docs]([https://docs.github.com/en/pull-requests/collaborating-wi
 
 ### Local Deployment
 
+<details><summary>DETAILS</summary>
+
+
 To get started with local development in GitPod or your preferred IDE, follow these steps:
-Install the Python packages by running the following command in the terminal:
-pip3 install -r requirements.txt
-Create an 'env.py file in the project's root directory to store your environment variables.
-In the 'env.py file, add the following variables, but make sure not to disclose real values:
 
-    SECRET_KEY=<YOUR_VALUE>
-    CLOUDINARY_URL=<YOUR_VALUE>
-    DATABASE_URL=<YOUR_VALUE>
+- Clone the repository.
+- Install required packages (if project is already worked on)
 
-Apply databse migrations to set up the database by running the following command:
-python3 manage.py migrate
-Create a superuser account that allows you add and inspect data via Django admin by running the following command:
-python3 manage.py createsuperuser
-Start the server by running the following command:
-python3 manage.py runserver
-Now you can access the application by opening the provided URL in your browser.
+`pip3 install -r requirements.txt`
+
+- Create an 'env.py file in the app's root directory for environment variables (if using CI template this should already exist).
+
+- In the 'env.py file, add a secret key in this format:
+
+```
+import os
+
+os.environ.setdefault(
+    "SECRET_KEY", 
+    "<your chosen key goes here>"
+)
+```
+
+- Add to settings.py in this format:
+
+```
+import os
+
+# SECURITY WARNING: keep the secret key used in production secret!
+SECRET_KEY = os.environ.get("SECRET_KEY")
+```
+
+- Start the server by running the following command:
+
+`python3 manage.py runserver`
+
+- Now you can access the application by opening the provided URL in your browser (add your browser url to allowed hosts).
+
+`ALLOWED_HOSTS = ['<browser URL>']`
+
+</details>
 
 ### Production Deployment
 
+<details><summary>DETAILS</summary>
+
+        
 Prepare the Django Project:
 
 - Ensure your Django project is properly configured and runs smoothly locally.
@@ -597,7 +624,11 @@ Install Gunicorn:
 
 Set Up Database:
 
-See
+See [ElephantSQL](####-ElephantSQL-Database)
+
+Ad Heroku to allowed hosts in settins.py:
+
+`ALLOWED_HOSTS = ['<browser URL>', '.herokuapp.com']`
 
 Collect Static Files:
 
@@ -635,6 +666,8 @@ Create a new app on Heroku:
 - Choose your repository.
 - Manually deploy the main branch of this GitHub repo.
 - You can now view your app.
+
+</details>
 
 ## Credits
 
