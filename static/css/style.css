@@ -34,6 +34,16 @@ footer {
     color: #ffffff;
 }
 
+.container:first-of-type {
+    margin-top: 125px;
+}
+
+.fixed-top {
+    height: 108px;
+    background: #000000;
+    border-bottom: 1px solid #808080;
+}
+
 .card {
     background-color:rgba(0, 0, 0, 0.7);
 }
@@ -60,6 +70,7 @@ footer {
 
 .index-img {
     width: 500px;
+    object-fit: contain;
 }
 
 .report-link {

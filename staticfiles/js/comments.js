@@ -27,7 +27,7 @@ for (let button of editBtn) {
       
       commentText.value = commentContent;
       submitButton.innerText = "Update";
-      commentForm.setAttribute("action", `edit_comment/${commentId}`);
+      commentForm.setAttribute("action", `edit_comment/${commentId}/`);
   });
 }
 

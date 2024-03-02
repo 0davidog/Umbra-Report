@@ -4,6 +4,7 @@ from django.views import generic
 from django.contrib import messages
 from django.http import HttpResponseRedirect
 from django.views.generic.base import TemplateView
+from django.contrib.auth.decorators import login_required
 from .models import Report, Comment, User, About
 from .forms import CommentForm, ReportForm
 
@@ -106,6 +107,7 @@ def full_report(request, slug):
     )
 
 
+@login_required
 def edit_comment(request, slug, comment_id):
     """
     View for editing comments.
@@ -160,6 +162,7 @@ def edit_comment(request, slug, comment_id):
     return HttpResponseRedirect(reverse('full_report', args=[slug]))
 
 
+@login_required
 def comment_delete(request, slug, comment_id):
     """
     View for deleting a comment.
@@ -273,6 +276,7 @@ def like_report(request, slug):
     return HttpResponseRedirect(reverse('full_report', args=[slug]))
 
 
+@login_required
 def edit_report(request, slug):
     """
     View for editing an existing report.
@@ -337,6 +341,7 @@ def edit_report(request, slug):
         )
 
 
+@login_required
 def delete_report(request, slug, report_id):
     """
     View for deleting a report.

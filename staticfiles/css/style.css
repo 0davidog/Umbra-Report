@@ -17,7 +17,7 @@ h1, h2, h3, h4, h5 {
 }
 
 a {
-    color: #800000;
+    color: #BA0000;
     text-decoration: none;
 }
 
@@ -26,12 +26,22 @@ a:hover {
 }
 
 header {
-    background-color: rgba(0, 0, 0, 0.7);
+    background-color: #000000;
 }
 
 footer {
-    background-color: rgba(0, 0, 0, 0.7);;
+    background-color: #000000;
     color: #ffffff;
+}
+
+.container:first-of-type {
+    margin-top: 125px;
+}
+
+.fixed-top {
+    height: 108px;
+    background: #000000;
+    border-bottom: 1px solid #808080;
 }
 
 .card {
@@ -39,7 +49,7 @@ footer {
 }
 
 .btn-link {
-    color:#800000;
+    color:#BA0000;
     text-decoration: none;
 }
 
@@ -55,11 +65,12 @@ footer {
 
 .card-title {
     font-family: "Oswald", sans-serif;
-    color: #800000;
+    color: #BA0000;
 }
 
 .index-img {
     width: 500px;
+    object-fit: contain;
 }
 
 .report-link {
