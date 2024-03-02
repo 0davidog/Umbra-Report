@@ -403,12 +403,52 @@ Please refer to this seperate testing document for a full rundown of tests and a
 - Python
 
 ### Frameworks, Libraries & Programs Used
+
+- Django
+- Bootstrap
+- VScode
+- GitBash
+- Further requirements:
+```
+asgiref==3.7.2
+bleach==6.1.0
+certifi==2023.11.17
+cffi==1.16.0
+charset-normalizer==3.3.2
+cloudinary==1.36.0
+crispy-bootstrap5==0.7
+cryptography==41.0.7
+defusedxml==0.7.1
+dj-database-url==0.5.0
+dj3-cloudinary-storage==0.0.6
+Django==4.2.9
+django-allauth==0.57.0
+django-autoslug==1.9.9
+django-crispy-forms==2.1
+django-summernote==0.8.20.0
+gunicorn==20.1.0
+idna==3.6
+oauthlib==3.2.2
+psycopg2==2.9.9
+pycparser==2.21
+PyJWT==2.8.0
+python3-openid==3.2.0
+requests==2.31.0
+requests-oauthlib==1.3.1
+setuptools==69.0.3
+six==1.16.0
+sqlparse==0.4.4
+tzdata==2023.4
+urllib3==1.26.18
+webencodings==0.5.1
+whitenoise==5.3.0
+```
   
 ## Deployment
 
 ### Prerequisites
 
-This project requires some steps in preparation
+This project requires some steps in preparation...
 
 #### ElephantSQL Database:
 
@@ -673,13 +713,21 @@ Create a new app on Heroku:
 
 ### Content
 
+- The Code Institute walkthrough project 'I Think, Therefore I Blog' was used to inform the setup and general structure of this project.
+
 ### Media
 
 Icons are sourced from [fontawesome](fontawesome.com/).
+- [Menu bars](https://fontawesome.com/icons/bars?f=classic&s=solid)
+- [Eye](https://fontawesome.com/icons/eye?f=classic&s=solid)
+- [Information Icon](https://fontawesome.com/icons/circle-info?f=classic&s=solid)
+- [Github logo](https://fontawesome.com/icons/github?f=brands&s=solid)
+- [LinkedIn logo](https://fontawesome.com/icons/linkedin?f=brands&s=solid)
 
 Site logo and background created by the site author.
 Majority of Report images uploaded to site are also the author's work however as the site is available for users to upload images, any copyrighted images found will have to be dealt with accordingly when identified. 
 
 ### Acknowledgments
 
-Cheers
+- Thanks to my Mentor, Malia, for her advice on ensuring a solid end product.
+- Thanks to those users who signed up and got involved in testing/using the site.
