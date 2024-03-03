@@ -41,7 +41,7 @@ footer {
 .fixed-top {
     height: 108px;
     background: #000000;
-    border-bottom: 1px solid #808080;
+    border-bottom: 1px solid #969696;
 }
 
 .card {
@@ -96,7 +96,7 @@ footer {
 }
 
 .description {
-    color: #808080;
+    color: #969696;
 }
 
 #close {
@@ -104,7 +104,7 @@ footer {
 }
 
 #msg {
-    background-color: #808080;
+    background-color: #969696;
     color:#ffffff;
 }
 
