@@ -71,6 +71,7 @@ David C. O'Gara
       - [Account Log-in/out](#account-log-inout)
       - [About Page](#about-page)
       - [User Page](#user-page)
+      - [Admin Panel](#admin-panel)
     - [Future Features](#future-features)
   - [Testing](#testing)
   - [Technologies Used](#technologies-used)
@@ -113,7 +114,7 @@ Each story links to its place on Github where you can view:
 
 - [As a Site User, I want to register an account on the blog website so that I can create and manage my own posts.](https://github.com/0davidog/Umbra-Report/issues/1)
 - [As a Site User, I want to log in to the website securely using my credentials so that I can participate in the blog’s features.](https://github.com/0davidog/Umbra-Report/issues/2)
-- [As a Site user, I want the option to reset my password in case I forget it, ensuring secure access to my account.](https://github.com/0davidog/Umbra-Report/issues/3) 
+- [As a Site user, I want the option to reset my password in case I forget it, ensuring secure access to my account.](https://github.com/0davidog/Umbra-Report/issues/3)
 
 **Epic: Blog Post CRUD Management** 
 
@@ -177,6 +178,8 @@ Wireframes were created to plan the basic layout of the App.
 ![PP4_Wireframes_02](https://github.com/0davidog/Umbra-Report/assets/135815736/b7131a71-138d-44db-a649-87d15354c754)
 
 ## Information Architecture
+
+<details><summary>VIEW SECTION</summary>
 
 ### Entity Relationship Diagram
 
@@ -278,7 +281,11 @@ A few notes on relevant fields.
 - is_staff is a boolean field that states whether a registered user can access the admin panel. This is needed to approve posts and comments, update the about page and have an overall control of the content.
 - is_superuser is a boolean field that grants a particular user all available privelidges, including staff status. The site creator registers as superuser during production.
 
+</details>
+
 ## Design Choices
+
+<details><summary>VIEW SECTION</summary>
 
 ### Title
 
@@ -355,11 +362,17 @@ Custom CSS was added where necessary to create a more personalised look to the s
 - The javascript file to edit and delete comments was mostly taken from the Code Institiue Walkthhough project with only minor changes.
 - This can be viewed [here](https://github.com/0davidog/Umbra-Report/blob/main/static/js/comments.js).
 
+</details>
+
 ## Features
+
+<details><summary>VIEW FEATURES</summary>
 
 ### Implemented Features
 
 #### Navigation
+
+<em>[As a Site User, I want a user-friendly navigation menu that helps me explore different sections of the blog easily.](https://github.com/0davidog/Umbra-Report/issues/17)</em>
 
 The Navigation bar was created from Bootstrap's offcanvas navbar found [here](https://getbootstrap.com/docs/5.3/components/navbar/#offcanvas).
 
@@ -368,7 +381,7 @@ The Navigation bar was created from Bootstrap's offcanvas navbar found [here](ht
 
 #### Create Report
 
-User story link [here](https://github.com/0davidog/Umbra-Report/issues/4).
+<em>[As a Site User, I want to create a new blog post with a title, content, and optional images, so that I can share my thoughts and experiences.](https://github.com/0davidog/Umbra-Report/issues/4)</em>
 
 A button on the index page allows the user to access a form for creating a Report (blog post).
 
@@ -382,7 +395,13 @@ The form can then be filled out and submitted.
 
 ![Screenshot 2024-02-25 at 11-00-02 The Umbra Report](https://github.com/0davidog/Umbra-Report/assets/135815736/13c619da-205b-41c0-ab50-3212cf7dbd0b)
 
+<em>[As a Site User or Admin, I can create draft posts so that I can finish writing the content later.](https://github.com/0davidog/Umbra-Report/issues/7)</em>
+
+Users can select whether they want to publish their report or save it as a draft to finish later. Draft reports can then be accessed via the user page.
+
 #### Read Report List
+
+<em>[As a Site User I can view a paginated list of posts so that I can select which post I’m interested in viewing.](https://github.com/0davidog/Umbra-Report/issues/9)</em>
 
 The index page shows a list of reports (blog posts) and these are separated into pages if there are more than 6.
 
@@ -390,11 +409,15 @@ The index page shows a list of reports (blog posts) and these are separated into
 
 #### Read Full Report Detail
 
+<em>[As a Site User, I can click on a post so that I can view the complete content.](https://github.com/0davidog/Umbra-Report/issues/10)</em>
+
 Clicking on a report title takes the user to a full dteail view of the post where they can read the whole content.
 
 ![Screenshot 2024-02-25 at 11-13-31 The Umbra Report](https://github.com/0davidog/Umbra-Report/assets/135815736/dae33a24-03e2-45a1-b773-8d68f1b61293)
 
 #### Edit Report
+
+<em>[As a Site User, I want the ability to update my existing blog posts to update or improve the content over time.](https://github.com/0davidog/Umbra-Report/issues/5)</em>
 
 Users who want to edit a report they have writen can do so when logged in. A link to edit is on the list view in the index page and an edit button can be found on the full report detail page also.
 
@@ -402,11 +425,15 @@ Users who want to edit a report they have writen can do so when logged in. A lin
 
 #### Delete Report
 
+<em>[As a Site User, I want to be able to delete my own blog posts if I decide to remove them from the website.](https://github.com/0davidog/Umbra-Report/issues/6)</em>
+
 Users can also choose to delete any report they have written providing they are logged in. A link to delete the report can be found on the list view in the index page and a button to delete can be found on the full report detail page also. Choosing to delete brings up a model to ask for confirmation.
 
 ![Screenshot 2024-02-25 at 11-17-28 The Umbra Report](https://github.com/0davidog/Umbra-Report/assets/135815736/c03c1f5a-6d7c-4c71-bcc0-2a66e5f855fb)
 
 #### Likes
+
+<em>[As a Site User, I want to be able to like blog posts to engage with the author and other readers.](https://github.com/0davidog/Umbra-Report/issues/14)</em>
 
 Users, when logged in can like a post by accessing the full post page. A button can be found beneath the main content. Once liked a user can unlike a post with the same button.
 
@@ -414,11 +441,15 @@ Users, when logged in can like a post by accessing the full post page. A button 
 
 #### Create Comments
 
+<em>[As a Site User, I want to be able to comment on blog posts to engage with the author and other readers.](https://github.com/0davidog/Umbra-Report/issues/12)</em>
+
 A form to add a comment on any post can be found at the bottom of the full report detail page. If a user is logged in the can choose to fill out this form to add a comment.
 
 ![Screenshot 2024-02-25 at 11-19-32 The Umbra Report](https://github.com/0davidog/Umbra-Report/assets/135815736/9c7c9b28-c9c1-412a-bb62-5e6a29f96455)
 
 #### Read Comments
+
+<em>[As a Site User or Admin, I can view the comments on each individual post so that I can read the conversation.](https://github.com/0davidog/Umbra-Report/issues/11)</em>
 
 A list of comments can be found at the bottom of the full report detail page. User can only see approved comments unless the are the auther of a yet to be approved comment.
 
@@ -438,18 +469,31 @@ A user can choose to delete their comment providing the are the author and are l
 
 #### Account Register
 
+<em>[As a Site User, I want to register an account on the blog website so that I can create and manage my own posts.](https://github.com/0davidog/Umbra-Report/issues/1)</em>
+
 A new user can register an account by selecting sign up and entering the required details. This is handled by django allauth.
 
 ![Screenshot 2024-02-25 at 11-20-29 The Umbra Report](https://github.com/0davidog/Umbra-Report/assets/135815736/7ef8426d-6cbf-4318-afc4-4b6e2a30a44b)
 
 #### Account Log-in/out
 
+<em>[As a Site User, I want to log in to the website securely using my credentials so that I can participate in the blog’s features.](https://github.com/0davidog/Umbra-Report/issues/2)</em>
+
 A user, once registered can then log in or out by selecting the links in the navigation bar. This too is handled by django allauth.
 
+Log out:
 ![Screenshot 2024-02-25 at 11-21-22 The Umbra Report](https://github.com/0davidog/Umbra-Report/assets/135815736/15df1a17-9336-46b6-8f3c-4f57fb9974ce)
+
+Sign In:
 ![Screenshot 2024-02-25 at 11-20-46 The Umbra Report](https://github.com/0davidog/Umbra-Report/assets/135815736/10cbdc37-ee37-4492-9004-8a5eb9518b31)
 
+<em>[As a Site user, I want the option to reset my password in case I forget it, ensuring secure access to my account.](https://github.com/0davidog/Umbra-Report/issues/3)</em>
+
+Should a user forget their password, Django-allauth offers a password reset option on the login page. This requires the user have an email so email was made a requirement on signup.
+
 #### About Page
+
+<em>[As a Site User, I can click on the About link so that I can read about the site.](https://github.com/0davidog/Umbra-Report/issues/20)</em>
 
 An about page was created to give users an idea of what the site's themes are and how to participate.
 
@@ -457,9 +501,21 @@ An about page was created to give users an idea of what the site's themes are an
 
 #### User Page
 
+<em>[As a Site User, I can click on a username link so that I can read about the user and see their posts.](https://github.com/0davidog/Umbra-Report/issues/22)</em>
+
 Users can click on their own or anothers user name to access a page that lists links to that user's written reports.
 
 ![Screenshot 2024-02-25 at 11-23-07 The Umbra Report](https://github.com/0davidog/Umbra-Report/assets/135815736/d54496a5-d3f1-4c40-97dd-55fac1fef080)
+
+#### Admin Panel
+
+<em>[As a Site Admin I can manage all blog posts through the admin panel to maintain control over the site’s content.](https://github.com/0davidog/Umbra-Report/issues/8)</em>
+
+<em>[As a Site Admin I can approve or disapprove comments so that I can filter out objectionable comments.](https://github.com/0davidog/Umbra-Report/issues/13)</em>
+
+<em>As a Site Admin, I can create or update the about page content so that it is available on the site.](https://github.com/0davidog/Umbra-Report/issues/21)</em>
+
+In creating the Djando app I created a super user account for myself ([see detail](#create-superuser)) which allows me to access the admin panel. This means I have the ability to edit and approve all posts and/or comments as well as update the about page.
 
 ### Future Features
 
@@ -467,7 +523,9 @@ Being a project with limited time a couple of user stories were given the label 
 
 - [As a Site User, I want to receive notifications when someone likes or comments on my blog posts to stay informed about the engagement with my content.](https://github.com/0davidog/Umbra-Report/issues/15)
 - [As a Site User, I want to search for specific blog posts or topics to quickly find the information I'm looking for.](https://github.com/0davidog/Umbra-Report/issues/16)
-        
+
+</details>
+
 ## Testing
 
 Please refer to this seperate testing document for a full rundown of tests and audits:
@@ -489,6 +547,7 @@ Please refer to this seperate testing document for a full rundown of tests and a
 - VScode
 - GitBash
 - Further requirements:
+  <details><summary>REQUIREMENTS LIST</summary>
 ```
 asgiref==3.7.2
 bleach==6.1.0
@@ -523,7 +582,8 @@ urllib3==1.26.18
 webencodings==0.5.1
 whitenoise==5.3.0
 ```
-  
+</details>
+
 ## Deployment
 
 ### Prerequisites
