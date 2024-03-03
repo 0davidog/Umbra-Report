@@ -123,7 +123,7 @@ I used [statcounter.com](https://gs.statcounter.com/) to give me an idea of whic
 
 #### Performance, Accessibility, Best Practices and SEO
 
-[PageSpeed Insights](https://pagespeed.web.dev/) Was used to audit the site's features for performance, accessibility, best practices and SEO. This was recommended as a more accurate reading than Chrome's lighthouse tool. The site scored 100 throughout on accessibily, best practice and SEO which is good. Performance wise the site runs much better on desktop than it does mobile. For a better performance on mobile, time could be taken to look in to optimising Cumulative Layout Shift, First Contentful Paint and largest Contentful Paint.
+[PageSpeed Insights](https://pagespeed.web.dev/) was used to audit the site's features for performance, accessibility, best practices and SEO. This was recommended as a more accurate reading than Chrome's lighthouse tool. The site scored 100 throughout on accessibly, best practice and SEO, which is good. Performance wise, the site runs much better on desktop than it does mobile. For a better performance on mobile, time could be taken to look in to optimising Cumulative Layout Shift, First Contentful Paint and largest Contentful Paint.
 
 |Page|Factor|Performance|Accessibility|Best Practices|SEO|Screen Capture|
 |----|------|-----------|-------------|--------------|---|--------------|
@@ -227,8 +227,8 @@ https://webaim.org/techniques/keyboard/#testing
 
 ## Defects
 
-- Once I had decided to keep the image widths uniform to assist with page performance I had caused an issue in which images small than 500px in width were distorted. This was an easy fix and just required `object-fit: contain;` to be placed in the css.
-- A contrast issue was detected in the red colour (#800000) used for headings and links. This was missed as it did not appear in the WAVE or PageSpeed audits detailed in this document. The issue however could be seen when inspecting an element in Chrome's dev tools and viewing the contrast score. Chrome's suggested color instead was (#BA0000) so I switched to this shade. With this in mind I checked the grey colour used (#808080) and followed Chrome's suggestion to switch to a slightly lighter shade of grey (#969696).
+- Once I had decided to keep the image widths uniform to assist with page performance, I had caused an issue in which images smaller than 500px in width were distorted. This was an easy fix and just required `object-fit: contain;` to be placed in the CSS.
+- A contrast issue was detected in the red colour (#800000) used for headings and links. This was missed as it did not appear in the WAVE or PageSpeed audits detailed in this document. The issue however could be seen when inspecting an element in Chrome's dev tools and viewing the contrast score. Chrome's suggested colour instead was (#BA0000) so I switched to this shade. With this in mind, I checked the grey colour used (#808080) and followed Chrome's suggestion to switch to a slightly lighter shade of grey (#969696).
 
 ## Defects of Note
 
