@@ -556,6 +556,8 @@ Cloudinary is a hosting platform used for images in this project.
 
 ### Fork and Clone the Repository
 
+<details><summary>DETAILS</summary>
+
 #### Fork
 
 To keep the original branch unaltered you can fork a repository on github.
@@ -586,6 +588,7 @@ On Github you can clone your repository to create a local and sync between the t
 
 Source: [Github Docs]([https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/working-with-forks/fork-a-repo](https://docs.github.com/en/repositories/creating-and-managing-repositories/cloning-a-repository))
 
+</details>
 
 ### Local Deployment
 
