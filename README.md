@@ -345,6 +345,10 @@ The Navigation bar was created from Bootstrap's offcanvas navbar found [here](ht
 ![Screenshot 2024-02-25 at 10-46-13 The Umbra Report](https://github.com/0davidog/Umbra-Report/assets/135815736/bf5171f6-6b0a-43de-b15b-106aa68f63e1)
 ![Screenshot 2024-02-25 at 10-46-27 The Umbra Report](https://github.com/0davidog/Umbra-Report/assets/135815736/5ec380d9-3d50-4454-9fc9-fcb820a7c78f)
 
+This was updated to include Admin links when a user with staff status is signed in:
+
+![Screenshot 2024-03-03 at 18-04-22 The Umbra Report](https://github.com/0davidog/Umbra-Report/assets/135815736/13fa1f30-da8e-4dae-9007-a29557a4497a)
+
 #### Create Report
 
 <em>[As a Site User, I want to create a new blog post with a title, content, and optional images, so that I can share my thoughts and experiences.](https://github.com/0davidog/Umbra-Report/issues/4)</em>
