@@ -1,6 +1,27 @@
 # Umbra Report Project Test File
 
-## Contents
+## Table of contents
+
+- [Umbra Report Project Test File](#umbra-report-project-test-file)
+  - [Manual Testing](#manual-testing)
+  - [Compatibility and Responsive Testing](#compatibility-and-responsive-testing)
+    - [Windows laptop](#windows-laptop)
+    - [Chrome Emulated Device Dimensions](#chrome-emulated-device-dimensions)
+    - [Browserstack Devices](#browserstack-devices)
+    - [Market Share insights](#market-share-insights)
+  - [Accessibility Testing](#accessibility-testing)
+    - [Accessibility Audits](#accessibility-audits)
+      - [Performance, Accessibility, Best Practices and SEO](#performance-accessibility-best-practices-and-seo)
+    - [Keyboard Navigation](#keyboard-navigation)
+  - [Validation Testing](#validation-testing)
+    - [CSS Validation](#css-validation)
+    - [HTML Validation](#html-validation)
+    - [JavaScript Validation](#javascript-validation)
+    - [Python Validation](#python-validation)
+  - [Automated Testing](#automated-testing)
+  - [Defects](#defects)
+  - [Defects of Note](#defects-of-note)
+  - [Outstanding Defects](#outstanding-defects)
 
 ## Manual Testing
 
@@ -31,6 +52,8 @@ Manual testing was done for each completed user story and screenshots added to t
 
 
 ## Compatibility and Responsive Testing
+
+<em>[As a Site User, I want the blog website to be responsive, ensuring a seamless experience on various devices, including desktops, tablets, and smartphones.](https://github.com/0davidog/Umbra-Report/issues/18)</em>
 
 ### Windows laptop
 
@@ -80,8 +103,6 @@ This project was developed using a Windows laptop running Windows 10 and the sit
 |Mac Ventura|?|Safari|1920x927|[Screen](https://github.com/0davidog/Umbra-Report/assets/135815736/163a7cef-9bb7-44c5-a872-886025d76eee)|
 |iPhone XS|IOS, v15.3|Safari|375x635|[Screen](https://github.com/0davidog/Umbra-Report/assets/135815736/61527504-b178-4aac-8f36-bb94df446615)|
 
-
-
 ### Market Share insights
 
 I used [statcounter.com](https://gs.statcounter.com/) to give me an idea of which devices, browsers and operating systems I should focus on due to their popularity.
@@ -95,6 +116,8 @@ I used [statcounter.com](https://gs.statcounter.com/) to give me an idea of whic
 |Operating System Market Share:|![StatCounter-os_combined-ww-monthly-202302-202402-bar](https://github.com/0davidog/Umbra-Report/assets/135815736/2aaf24a7-9c43-41d3-846c-04f390ee5d5d)|
 
 ## Accessibility Testing
+
+<em>[As a Site User with accessibility needs, I want the website to be accessible, with features like alt text for images and keyboard navigation, to ensure a positive experience for all users.](https://github.com/0davidog/Umbra-Report/issues/19)</em>
 
 ### Accessibility Audits
 
@@ -204,7 +227,34 @@ https://webaim.org/techniques/keyboard/#testing
 
 ## Defects
 
+- Once I had decided to keep the image widths uniform to assist with page performance I had caused an issue in which images small than 500px in width were distorted. This was an easy fix and just required `object-fit: contain;` to be placed in the css.
+- A contrast issue was detected in the red colour (#800000) used for headings and links. This was missed as it did not appear in the WAVE or PageSpeed audits detailed in this document. The issue however could be seen when inspecting an element in Chrome's dev tools and viewing the contrast score. Chrome's suggested color instead was (#BA0000) so I switched to this shade. With this in mind I checked the grey colour used (#808080) and followed Chrome's suggestion to switch to a slightly lighter shade of grey (#969696).
+
 ## Defects of Note
+
+Comment edits were failing to update. 
+
+This was due to the url expecting a trailing slash: 
+
+```
+path(
+    '<slug:slug>/delete_comment/<int:comment_id>/',
+    views.comment_delete,
+    name='comment_delete'
+    ),
+```
+
+but the JS was missing one:
+
+```
+commentForm.setAttribute("action", `edit_comment/${commentId}`);
+```
+
+So a trailing slash was added to fix:
+
+```
+commentForm.setAttribute("action", `edit_comment/${commentId}`);
+```
 
 ## Outstanding Defects
 
