@@ -303,6 +303,10 @@ This game seemed the perfect place to take inspiration for the visual design of 
 
 ![IMG_0142](https://github.com/0davidog/Umbra-Report/assets/135815736/9fc87002-e9f3-452f-81a7-5026fc683c13)
 
+### Yamishibai: Japanese Ghost Stories
+
+For fun, a small reference to the animated series Yamishibai (闇芝居, Yami Shibai, lit. Dark Play) is included at the end of each report with the question 'oshimai?' (おしまい?, eng. The End?). This is something the narrator asks at the end of each ghost story.
+
 ### Colors
 
 ![Umbra_Report_Palette](https://github.com/0davidog/Umbra-Report/assets/135815736/e969c1b4-47f5-49fc-a7a0-d7bc0939ac29)
