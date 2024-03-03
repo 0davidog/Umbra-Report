@@ -43,6 +43,7 @@ David C. O'Gara
       - [About Model](#about-model)
       - [User Model](#user-model)
   - [Design Choices](#design-choices)
+    - [Title](#title)
     - [Thematic and visual inspiration](#thematic-and-visual-inspiration)
     - [Colors](#colors)
     - [Typography](#typography)
@@ -278,6 +279,10 @@ A few notes on relevant fields.
 - is_superuser is a boolean field that grants a particular user all available privelidges, including staff status. The site creator registers as superuser during production.
 
 ## Design Choices
+
+### Title
+
+The Umbra Report title was taken from music I was listening to at the time of developing ideas for the project. This was 'The Umbra Report', an album by 'Cities Last Broadcast'. I felt the title fit the theme of 'reports from the shadows' that I was going for. [Bandcamp](https://cryochamber.bandcamp.com/album/the-umbra-report)
 
 ### Thematic and visual inspiration
 
