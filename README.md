@@ -529,6 +529,7 @@ Being a project with limited time a couple of user stories were given the label 
 ## Testing
 
 Please refer to this seperate testing document for a full rundown of tests and audits:
+
 [TEST-DOCUMENT](https://github.com/0davidog/Umbra-Report/blob/main/TESTING.md)
   
 ## Technologies Used
@@ -547,7 +548,9 @@ Please refer to this seperate testing document for a full rundown of tests and a
 - VScode
 - GitBash
 - Further requirements:
-  <details><summary>REQUIREMENTS LIST</summary>
+
+<details><summary>REQUIREMENTS LIST</summary>
+  
 ```
 asgiref==3.7.2
 bleach==6.1.0
@@ -582,6 +585,7 @@ urllib3==1.26.18
 webencodings==0.5.1
 whitenoise==5.3.0
 ```
+
 </details>
 
 ## Deployment
