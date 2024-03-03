@@ -138,6 +138,30 @@
                                     <h4>About</h4>
                                 </a>
                             </li>
+
+                            {% if user.is_authenticated and user.is_staff %}
+                            <br>
+                            <h4 class="card-title">Admin Links:</h4>
+                            <br>
+
+                            <li>
+                                <a href="{% url 'admin:index' %}" class="btn btn-link">
+                                    <h4>Admin Home</h4>
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="{% url 'admin:blog_report_changelist' %}" class="btn btn-link">
+                                    <h4>Report List</h4>
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="{% url 'admin:blog_comment_changelist' %}" class="btn btn-link">
+                                    <h4>Comment List</h4>
+                                </a>
+                            </li>
+                            {% endif %}
                         </ul>
                     </div><!-- close offcanvas body -->
                 </div><!-- close offcanvas side-menu -->
