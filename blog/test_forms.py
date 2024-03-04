@@ -13,7 +13,7 @@ class TestReportForm(TestCase):
             'status': '1'
             })
         self.assertTrue(report_form.is_valid())
-    
+
     def test_empty_report_form_is_invalid(self):
         """ Tests all required fields """
         report_form = ReportForm({
@@ -34,10 +34,10 @@ class TestCommentForm(TestCase):
         })
         self.assertTrue(comment_form.is_valid())
 
-    
     def test_empty_comment_form_is_valid(self):
         """ Tests all required fields """
         comment_form = CommentForm({
             'content': ''
         })
         self.assertFalse(comment_form.is_valid())
+        
