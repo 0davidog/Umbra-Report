@@ -114,7 +114,11 @@ Each story links to its place on Github where you can view:
 
 ### Project Backlog
 
-Due to the small scope of this project, having a project backlog and seperate iterations didn't seem neccessary as their would only be one project to client hand-over. It was instead decided to keep all the user stories in the one project iteration list. A project backlog milestone was created however on github to follow agile practice. You can view it [here](https://github.com/0davidog/Umbra-Report/milestone/2). 
+Due to the small scope of this project, having a project backlog and seperate iterations didn't seem neccessary as their would only be one project to client hand-over. It was instead decided to keep all the user stories in the one project iteration list. A project backlog milestone was created however on github to follow agile practice. 
+
+Update: User Stories with the 'won't-have' label that didn't fit into the scope of this project were moved back into the project backlog at the end of the iteration period. 
+
+You can view it [here](https://github.com/0davidog/Umbra-Report/milestone/2). 
 
 ### Iteration 01 – Due 05/03/2024
 
