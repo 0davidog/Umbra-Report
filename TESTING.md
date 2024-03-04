@@ -225,6 +225,39 @@ https://webaim.org/techniques/keyboard/#testing
 
 ## Automated Testing
 
+As time was short, the automated testing done on this project was small and very basic. The Code Institute walkthought project 'I Think, Therfore I Blog" informed the initial tests while the TestHomePage unit test was inspired by django documentation on automated tests [(here)](https://docs.djangoproject.com/en/4.2/topics/testing/advanced/#example).
+
+[test_forms.py](https://github.com/0davidog/Umbra-Report/blob/main/blog/test_forms.py) Contains two TestCase classes: TestReportForm and TestCommentForm.
+
+The TestReportForm class features two methods.
+
+- test_report_form_is_valid() Method: This method tests whether the form is valid when all required fields are properly filled. It creates an instance of ReportForm with sample data (a title, a category, some content, and a status), and then checks if the form is valid using assertTrue() assertion. If the form is valid, the test passes; otherwise, it fails.
+- test_empty_report_form_is_invalid() Method: This method tests whether the form is invalid when all required fields are empty. It creates another instance of ReportForm with empty values for all fields and checks if the form is valid using assertFalse() assertion. If the form is invalid (as it should be when all required fields are empty), the test passes; otherwise, it fails.
+
+The TestCommentForm class features two methods.
+
+- test_comment_form_is_valid() Method: This method tests whether the form is valid when the required field (content) is filled with some text. It creates an instance of CommentForm with a sample comment content and then checks if the form is valid using the assertTrue() assertion. If the form is valid, the test passes.
+- test_empty_comment_form_is_valid() Method: Similarly, this method tests whether the form is valid when the required field (content) is left empty. It creates another instance of CommentForm with an empty value for the content field and then checks if the form is valid using the assertFalse() assertion. If the form is invalid (as it should be when the required field is empty), the test passes.
+
+[test_views](https://github.com/0davidog/Umbra-Report/blob/main/blog/test_views.py) Contains two TestCase classes: TestFullReportView and TestHomePage.
+
+The TestFullReportView class features three methods:
+
+- setUp() Method: This method is part of the TestCase class and is used for test setup. In this case, it creates a superuser using create_superuser() method from Django's User model, and it also creates a report (Report model instance) associated with this user. The report contains various fields like title, author, slug, description, content, status, and category. This setup ensures that there's data available for testing the view.
+- test_render_full_report_page_with_comment_form() Method: This method tests whether the full report page is rendered correctly along with the comment form. It sends a GET request to the view responsible for displaying a full report page (full_report view) using self.client.get(). Then it asserts that the response status code is 200 (indicating success), and it checks whether the response contains the title and content of the report. Additionally, it verifies that the context of the response contains an instance of the CommentForm.
+- test_comment_submission() Method: This method tests the functionality of submitting a comment on a report. First, it logs in as the superuser created in the setUp() method using self.client.login(). Then it creates a POST request with comment data and sends it to the view associated with the full report page (full_report view). Afterward, it asserts that the response status code is 200 and checks whether the response contains a specific message indicating that the comment has been submitted and is awaiting approval.
+
+The TestHomePage class features three methods:
+
+- setUp() Method: This method is used for test setup. In this case, it creates a request factory instance (RequestFactory) and creates a superuser using create_superuser() method from Django's User model. This setup ensures that there's a user available for testing authentication-related behavior.
+- test_index_page_view() Method: This method tests various aspects of the home page view. It does the following:
+  - Creates a GET request to the root URL ('/') using the request factory.
+  - Verifies that the default template used by the view is 'base.html'.
+  - Calls the home page view (ReportList.as_view()) with the created request.
+  - Checks if certain text and navigation links are present in the response content, both for an unauthenticated user and for an authenticated user (superuser in this case).
+  - Verifies that certain admin links are absent for unauthenticated users and present for authenticated users.
+- test_404_view() Method: This method tests whether the 404 error page is displayed when a nonexistent URL is requested. It creates a GET request to a nonexistent URL ('/thispageisnowhere/') and checks whether the '404.html' template is used in the response.
+
 ## Defects
 
 - Once I had decided to keep the image widths uniform to assist with page performance, I had caused an issue in which images smaller than 500px in width were distorted. This was an easy fix and just required `object-fit: contain;` to be placed in the CSS.
