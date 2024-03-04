@@ -4,6 +4,7 @@ from .models import Comment, Report
 
 
 class CommentForm(forms.ModelForm):
+    """ Adapted from Code Institute Walkthough Project"""
     """
     Form for user to add comment.
     Related to :model: `Comment`

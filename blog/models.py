@@ -117,6 +117,7 @@ class Report(models.Model):
 
 class Comment(models.Model):
     """
+    Adapted from Code Institute Walkthough Project.
     Represents a comment on a report.
     Related to :model: `auth.User`
     Related to :model: `Report`
@@ -169,7 +170,8 @@ class Comment(models.Model):
 
 class About(models.Model):
     """
-    Represents information about the site or organization.
+    Adapted from Code Institute Walkthough Project.
+    Represents information about the site.
 
     Attributes:
         title (str):

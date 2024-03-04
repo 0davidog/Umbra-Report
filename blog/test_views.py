@@ -7,6 +7,7 @@ from .views import ReportList
 
 
 class TestFullReportView(TestCase):
+    """ Adapted from Code Institute Walkthough Project"""
 
     def setUp(self):
 

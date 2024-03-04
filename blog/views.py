@@ -12,6 +12,7 @@ from .forms import CommentForm, ReportForm
 
 
 class ReportList(generic.ListView):
+    """ Adapted from Code Institute Walkthough Project"""
     """
     View for displaying a list of reports.
     Related to :model: `Report`
@@ -87,7 +88,7 @@ def full_report(request, slug):
             comment.save()
             messages.add_message(
                 request, messages.SUCCESS,
-                'Comment submitted and awaiting approval'
+                'Comment submitted. Awaiting approval.'
             )
             # Reset the comment form to display an empty form after submission
             comment_form = CommentForm()
@@ -109,6 +110,7 @@ def full_report(request, slug):
 
 @login_required
 def edit_comment(request, slug, comment_id):
+    """ Adapted from Code Institute Walkthough Project"""
     """
     View for editing comments.
     Related to :model: `Report`
@@ -153,7 +155,7 @@ def edit_comment(request, slug, comment_id):
             # Display an error message if the comment form is invalid
             # or the user is not the author of the comment
             messages.add_message(
-                request, messages.ERROR, 'Error updating comment!'
+                request, messages.ERROR, 'Comment update error!'
                 )
             # Reset the comment form to display an empty form
             comment_form = CommentForm()
@@ -164,6 +166,7 @@ def edit_comment(request, slug, comment_id):
 
 @login_required
 def comment_delete(request, slug, comment_id):
+    """ Adapted from Code Institute Walkthough Project"""
     """
     View for deleting a comment.
     Related to :model: `Report`
@@ -196,7 +199,7 @@ def comment_delete(request, slug, comment_id):
     else:
         # If not, display an error message
         messages.add_message(
-            request, messages.ERROR, 'You can only delete your own comments!'
+            request, messages.ERROR, 'You may only delete your own comments!'
             )
 
     # Redirect to the full_report view after processing the comment deletion
@@ -228,7 +231,7 @@ def create_report(request):
             report.author = request.user
             report.featured_image = request.FILES.get('featured_image')
             report.save()
-            messages.success(request, 'Report submitted and awaiting approval')
+            messages.success(request, 'Report submitted. Awaiting approval.')
             return redirect(
                 'home'
                 )
@@ -237,7 +240,7 @@ def create_report(request):
             # If the report form is invalid, display an error message
             messages.error(
                 request,
-                'Error submitting the report. Please check the form.'
+                'Error submitting report. Please check the form.'
                 )
 
     else:
@@ -313,7 +316,7 @@ def edit_report(request, slug):
                 report.featured_image = request.FILES.get('featured_image')
             report.approved = False
             report.save()
-            messages.success(request, 'Report submitted and awaiting approval')
+            messages.success(request, 'Edit submitted. Awaiting approval')
             return redirect(
                 'home'
                 )  # Redirect to the home page after successful submission
@@ -321,7 +324,7 @@ def edit_report(request, slug):
             # If the report form is invalid, display an error message
             messages.error(
                 request,
-                'Error submitting the report. Please check the form.'
+                'Error submitting report. Please check the form.'
                 )
 
     else:
@@ -373,13 +376,14 @@ def delete_report(request, slug, report_id):
     else:
         # If not, display an error message
         messages.add_message(
-            request, messages.ERROR, 'You can only delete your own reports!'
+            request, messages.ERROR, 'You may only delete your own reports!'
             )
         # Redirect to the home page
         return HttpResponseRedirect(reverse('home'))
 
 
 def about_site(request):
+    """ Adapted from Code Institute Walkthough Project"""
     """
     View for rendering the About page.
     Related to :model: `About`

@@ -3,6 +3,7 @@ from .forms import ReportForm, CommentForm
 
 
 class TestReportForm(TestCase):
+    """ Adapted from Code Institute Walkthough Project"""
 
     def test_report_form_is_valid(self):
         """ Tests all required fields """
@@ -26,6 +27,7 @@ class TestReportForm(TestCase):
 
 
 class TestCommentForm(TestCase):
+    """ Adapted from Code Institute Walkthough Project"""
 
     def test_comment_form_is_valid(self):
         """ Tests all required fields """
