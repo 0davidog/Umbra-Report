@@ -515,9 +515,14 @@ Please refer to this seperate testing document for a full rundown of tests and a
 
 - Django
 - Bootstrap
-- VScode
+- Heroku (deployment)
+- Cloudinary (image hosting)
+- Django-Allauth (user authentication)
+- VScode (IDE)
+- Photoshop (for Wireframes)
+- ERD made with [Lucidchart](https://lucid.app/)
 - GitBash
-- Further requirements:
+- Full requirements.txt:
 
 <details><summary>REQUIREMENTS LIST</summary>
   
@@ -831,6 +836,7 @@ Create a new app on Heroku:
 ### Content
 
 - The Code Institute walkthrough project 'I Think, Therefore I Blog' was used to inform the setup and general structure of this project.
+- A couple of blog posts were written with ChatGPT, these are under the author 'TestUser'.
 
 ### Media
 
@@ -841,7 +847,10 @@ Icons are sourced from [fontawesome](fontawesome.com/).
 - [Github logo](https://fontawesome.com/icons/github?f=brands&s=solid)
 - [LinkedIn logo](https://fontawesome.com/icons/linkedin?f=brands&s=solid)
 
+The favicon image was converted using [favicon.io](Favicon.io).
+
 Site logo and background created by the site author.
+
 Majority of Report images uploaded to site are also the author's work however as the site is available for users to upload images, any copyrighted images found will have to be dealt with accordingly when identified. 
 
 ### Acknowledgments
