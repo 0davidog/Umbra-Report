@@ -493,6 +493,7 @@ Being a project with limited time a couple of user stories were given the label 
 
 - [As a Site User, I want to receive notifications when someone likes or comments on my blog posts to stay informed about the engagement with my content.](https://github.com/0davidog/Umbra-Report/issues/15)
 - [As a Site User, I want to search for specific blog posts or topics to quickly find the information I'm looking for.](https://github.com/0davidog/Umbra-Report/issues/16)
+- [As a Site User, I want to filter blog posts by categories to quickly find the type of information I'm interested in.](https://github.com/0davidog/Umbra-Report/issues/23)
 
 </details>
 
